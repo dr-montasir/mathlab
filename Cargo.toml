@@ -1,0 +1,16 @@
+[package]
+name = "mathlab"
+version = "0.1.0"
+authors = ["Montasir Mirghani <contact@montasir.me>"]
+edition = "2018"
+description = "Math lib"
+homepage = "https://github.com/dr-montasir/mathlab"
+repository = "https://github.com/dr-montasir/mathlab"
+readme = "README.md"
+keywords = ["Math", "Numeric"]
+categories = ["mathematics"]
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
