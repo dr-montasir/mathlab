@@ -1,6 +1,6 @@
 [package]
 name = "mathlab"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["Montasir Mirghani <contact@montasir.me>"]
 edition = "2021"
 description = "Math lib"
