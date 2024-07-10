@@ -18,7 +18,7 @@ pub mod math {
     /// The Number e (Euler's number)
     ///
     /// 2.718281828459045
-    const E: f64 = _E;
+    pub const E: f64 = _E;
 
     /// PI
     ///
@@ -27,7 +27,7 @@ pub mod math {
     /// The Number Pi
     ///
     /// (21.991148575128552 / 7) = 3.141592653589793
-    const PI: f64 = _PI;
+    pub const PI: f64 = _PI;
 
     // Functions
 
