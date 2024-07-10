@@ -1,15 +1,15 @@
 [package]
 name = "mathlab"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Montasir Mirghani <contact@montasir.me>"]
-edition = "2018"
+edition = "2021"
 description = "Math lib"
 homepage = "https://github.com/dr-montasir/mathlab"
 repository = "https://github.com/dr-montasir/mathlab"
 readme = "README.md"
 keywords = ["Math", "Numeric"]
 categories = ["mathematics"]
-license = "MIT"
+license = "Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
