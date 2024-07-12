@@ -1,6 +1,6 @@
 // Constants
 pub mod con;
-pub use crate::con::{_E, _PI};
+pub use crate::con::{_E, _LN10, _LN2, _LOG10E, _LOG2E, _PHI, _PI, _TAU};
 
 // Functions
 pub mod fun;
@@ -9,7 +9,7 @@ pub use crate::fun::{_abs, _add, _pow};
 #[allow(dead_code)]
 pub mod math {
     // Constants
-    use crate::{_E, _PI};
+    use crate::{_E, _LN10, _LN2, _LOG10E, _LOG2E, _PHI, _PI, _TAU};
 
     /// E
     ///
@@ -28,6 +28,60 @@ pub mod math {
     ///
     /// (21.991148575128552 / 7) = 3.141592653589793
     pub const PI: f64 = _PI;
+
+    /// PHI
+    ///
+    /// Mathematical constant
+    ///
+    /// The Golden Ratio (Phi)
+    ///
+    /// (1 + sqrt(5)) / 2 = 1.618033988749895
+    pub const PHI: f64 = _PHI;
+
+    /// TAU
+    ///
+    /// Mathematical constant
+    ///
+    /// Tau is a circle constant and the value is equivalent to 2π
+    ///
+    /// (2 * PI) = 6.283185307179586
+    pub const TAU: f64 = _TAU;
+
+    /// LN2
+    ///
+    /// Mathematical constant
+    ///
+    /// The natural logarithm of 2
+    ///
+    /// 0.693147180559945
+    pub const LN2: f64 = _LN2;
+
+    /// LN10
+    ///
+    /// Mathematical constant
+    ///
+    /// The natural logarithm of 10
+    ///
+    /// 2.302585092994046
+    pub const LN10: f64 = _LN10;
+
+    /// LOG2E
+    ///
+    /// Mathematical constant
+    ///
+    /// The base 2 logarithm of E
+    ///
+    /// 1.442695040888963
+    pub const LOG2E: f64 = _LOG2E;
+
+    /// LOG10E
+    ///
+    /// Mathematical constant
+    ///
+    /// The base 10 logarithm of E
+    ///
+    /// 0.434294481903252
+    pub const LOG10E: f64 = _LOG10E;
 
     // Functions
 

@@ -1,3 +1,8 @@
+## 0.1.5
+
+- Added constants (PHI, TAU, LN2, LN10, LOG2E, LOG10E).
+- Edited README.md file.
+
 ## 0.1.4
 
 - Added CHANGELOG.md file.
