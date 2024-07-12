@@ -1,4 +1,4 @@
-## 0.1.5
+## 0.1.6
 
 - Added subt(x, y) function.
 - Added mult(x, y) function.
