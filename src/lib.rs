@@ -140,7 +140,7 @@ pub mod math {
         return _subt(x, y);
     }
 
-    /// _mult(x, y)
+    /// mult(x, y)
     ///
     /// Native function
     ///

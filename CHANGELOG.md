@@ -1,3 +1,7 @@
+## 0.1.7
+
+- Corrected mult function name from \_mult to mult.
+
 ## 0.1.6
 
 - Added subt(x, y) function.
