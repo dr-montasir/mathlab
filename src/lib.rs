@@ -4,7 +4,7 @@ pub use crate::con::{_E, _LN10, _LN2, _LOG10E, _LOG2E, _PHI, _PI, _TAU};
 
 // Functions
 pub mod fun;
-pub use crate::fun::{_abs, _add, _pow};
+pub use crate::fun::{_abs, _add, _divi, _mult, _pow, _subt};
 
 #[allow(dead_code)]
 pub mod math {
@@ -84,8 +84,7 @@ pub mod math {
     pub const LOG10E: f64 = _LOG10E;
 
     // Functions
-
-    use crate::{_abs, _add, _pow};
+    use crate::{_abs, _add, _divi, _mult, _pow, _subt};
 
     /// abs(x)
     ///
@@ -109,8 +108,7 @@ pub mod math {
     ///
     /// Native function
     ///
-    /// The add function accepts two floating-point numbers, x and y,
-    /// as parameters and returns their sum.
+    /// The add(x, y) function returns the sum of x and y.
     ///
     /// Example:
     /// ```rust
@@ -122,6 +120,61 @@ pub mod math {
     /// ```
     pub fn add(x: f64, y: f64) -> f64 {
         return _add(x, y);
+    }
+
+    /// subt(x, y)
+    ///
+    /// Native function
+    ///
+    /// The subt(x, y) function is a mathematical operation that subtracts the value of y from x.
+    ///
+    /// Example
+    /// ```rust
+    /// use mathlab::math::subt;
+    /// assert_eq!(subt(1.0, 2.0), -1.0);
+    /// assert_eq!(subt(0.3, 0.2), 0.09999999999999998);
+    /// assert_eq!(subt(0.3, 0.2) as f64, 0.09999999999999998);
+    /// assert_eq!(subt(0.3, 0.2) as f32, 0.1);
+    /// ```
+    pub fn subt(x: f64, y: f64) -> f64 {
+        return _subt(x, y);
+    }
+
+    /// _mult(x, y)
+    ///
+    /// Native function
+    ///
+    /// The mult(x, y) function is a mathematical operation that multiplies the value of x by y.
+    ///
+    /// Example:
+    /// ```rust
+    /// use mathlab::math::mult;
+    /// assert_eq!(mult(2.0, 3.0), 6.0);
+    /// assert_eq!(mult(0.1, 0.2), 0.020000000000000004);
+    /// assert_eq!(mult(0.1, 0.2) as f64, 0.020000000000000004);
+    /// assert_eq!(mult(0.1, 0.2) as f32, 0.02);
+    /// ```
+    pub fn mult(x: f64, y: f64) -> f64 {
+        return _mult(x, y);
+    }
+
+    /// divi(x, y)
+    ///
+    /// Native function
+    ///
+    /// The divi(x, y) function is a mathematical operation that divides the value of x by y.
+    ///
+    /// Example:
+    /// ```rust
+    /// use mathlab::math::divi;
+    /// assert_eq!(divi(2.0, 3.0), 0.6666666666666666);
+    /// assert_eq!(divi(2.0, 3.0) as f32, 0.6666667);
+    /// assert_eq!(divi(0.3, 0.6), 0.5);
+    /// assert_eq!(divi(0.3, 0.6) as f64, 0.5);
+    /// assert_eq!(divi(0.3, 0.6) as f32, 0.5);
+    /// ```
+    pub fn divi(x: f64, y: f64) -> f64 {
+        return _divi(x, y);
     }
 
     /// pow(x, y)

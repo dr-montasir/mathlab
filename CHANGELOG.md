@@ -1,5 +1,11 @@
 ## 0.1.5
 
+- Added subt(x, y) function.
+- Added mult(x, y) function.
+- Added divi(x, y) function.
+
+## 0.1.5
+
 - Added constants (PHI, TAU, LN2, LN10, LOG2E, LOG10E).
 - Edited README.md file.
 
