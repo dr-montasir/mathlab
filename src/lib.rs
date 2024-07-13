@@ -4,14 +4,14 @@ pub use crate::con::{_E, _LN10, _LN2, _LOG10E, _LOG2E, _PHI, _PI, _TAU};
 
 // Functions
 pub mod fun;
-pub use crate::fun::{_abs, _add, _divi, _mult, _pow, _subt};
+pub use crate::fun::{_abs, _add, _divi, _mult, _pow, _sign, _subt};
 
 #[allow(dead_code)]
 pub mod math {
     // Constants
     use crate::{_E, _LN10, _LN2, _LOG10E, _LOG2E, _PHI, _PI, _TAU};
 
-    /// E
+    /// ### E
     ///
     /// Mathematical constant
     ///
@@ -20,7 +20,7 @@ pub mod math {
     /// 2.718281828459045
     pub const E: f64 = _E;
 
-    /// PI
+    /// ### PI
     ///
     /// Mathematical constant
     ///
@@ -29,7 +29,7 @@ pub mod math {
     /// (21.991148575128552 / 7) = 3.141592653589793
     pub const PI: f64 = _PI;
 
-    /// PHI
+    /// ### PHI
     ///
     /// Mathematical constant
     ///
@@ -38,7 +38,7 @@ pub mod math {
     /// (1 + sqrt(5)) / 2 = 1.618033988749895
     pub const PHI: f64 = _PHI;
 
-    /// TAU
+    /// ### TAU
     ///
     /// Mathematical constant
     ///
@@ -47,7 +47,7 @@ pub mod math {
     /// (2 * PI) = 6.283185307179586
     pub const TAU: f64 = _TAU;
 
-    /// LN2
+    /// ### LN2
     ///
     /// Mathematical constant
     ///
@@ -56,7 +56,7 @@ pub mod math {
     /// 0.693147180559945
     pub const LN2: f64 = _LN2;
 
-    /// LN10
+    /// ### LN10
     ///
     /// Mathematical constant
     ///
@@ -65,7 +65,7 @@ pub mod math {
     /// 2.302585092994046
     pub const LN10: f64 = _LN10;
 
-    /// LOG2E
+    /// ### LOG2E
     ///
     /// Mathematical constant
     ///
@@ -74,7 +74,7 @@ pub mod math {
     /// 1.442695040888963
     pub const LOG2E: f64 = _LOG2E;
 
-    /// LOG10E
+    /// ### LOG10E
     ///
     /// Mathematical constant
     ///
@@ -84,15 +84,15 @@ pub mod math {
     pub const LOG10E: f64 = _LOG10E;
 
     // Functions
-    use crate::{_abs, _add, _divi, _mult, _pow, _subt};
+    use crate::{_abs, _add, _divi, _mult, _pow, _sign, _subt};
 
-    /// abs(x)
+    /// ### abs(x)
     ///
     /// Native function
     ///
     /// The abs function returns the absolute value of a number.
     ///
-    /// Example:
+    /// ### Examples
     /// ```rust
     /// use mathlab::math::abs;
     /// assert_eq!(abs(0.0), 0.0);
@@ -101,16 +101,35 @@ pub mod math {
     /// assert_eq!(abs(-3.33), 3.33);
     /// ```
     pub fn abs(x: f64) -> f64 {
-        return _abs(x);
+        _abs(x)
     }
 
-    /// add(x, y)
+    /// ### sign(x)
+    ///
+    /// Native function
+    ///
+    /// The sign function returns only one of three possible values: −1, 0 or 1.
+    /// ### Examples
+    /// ```rust
+    /// use mathlab::math::sign;
+    /// assert_eq!(sign(-9.0), -1.0);
+    /// assert_eq!(sign(9.0), 1.0);
+    /// assert_eq!(sign(--9.5), 1.0);
+    /// assert_eq!(sign(6.0 - 15.0), -1.0);
+    /// assert_eq!(sign(0.0), 0.0);
+    /// assert_eq!(sign(0.0 / 0.0), 0.0);
+    /// ```
+    pub fn sign(x: f64) -> f64 {
+        _sign(x)
+    }
+
+    /// ### add(x, y)
     ///
     /// Native function
     ///
     /// The add(x, y) function returns the sum of x and y.
     ///
-    /// Example:
+    /// ### Examples
     /// ```rust
     /// use mathlab::math::add;
     /// assert_eq!(add(1.0, 2.0), 3.0);
@@ -119,16 +138,16 @@ pub mod math {
     /// assert_eq!(add(0.1, 0.2) as f32, 0.3);
     /// ```
     pub fn add(x: f64, y: f64) -> f64 {
-        return _add(x, y);
+        _add(x, y)
     }
 
-    /// subt(x, y)
+    /// ### subt(x, y)
     ///
     /// Native function
     ///
     /// The subt(x, y) function is a mathematical operation that subtracts the value of y from x.
     ///
-    /// Example
+    /// ### Examples
     /// ```rust
     /// use mathlab::math::subt;
     /// assert_eq!(subt(1.0, 2.0), -1.0);
@@ -137,16 +156,16 @@ pub mod math {
     /// assert_eq!(subt(0.3, 0.2) as f32, 0.1);
     /// ```
     pub fn subt(x: f64, y: f64) -> f64 {
-        return _subt(x, y);
+        _subt(x, y)
     }
 
-    /// mult(x, y)
+    /// ### mult(x, y)
     ///
     /// Native function
     ///
     /// The mult(x, y) function is a mathematical operation that multiplies the value of x by y.
     ///
-    /// Example:
+    /// ### Examples
     /// ```rust
     /// use mathlab::math::mult;
     /// assert_eq!(mult(2.0, 3.0), 6.0);
@@ -155,16 +174,16 @@ pub mod math {
     /// assert_eq!(mult(0.1, 0.2) as f32, 0.02);
     /// ```
     pub fn mult(x: f64, y: f64) -> f64 {
-        return _mult(x, y);
+        _mult(x, y)
     }
 
-    /// divi(x, y)
+    /// ### divi(x, y)
     ///
     /// Native function
     ///
     /// The divi(x, y) function is a mathematical operation that divides the value of x by y.
     ///
-    /// Example:
+    /// ### Examples
     /// ```rust
     /// use mathlab::math::divi;
     /// assert_eq!(divi(2.0, 3.0), 0.6666666666666666);
@@ -174,16 +193,16 @@ pub mod math {
     /// assert_eq!(divi(0.3, 0.6) as f32, 0.5);
     /// ```
     pub fn divi(x: f64, y: f64) -> f64 {
-        return _divi(x, y);
+        _divi(x, y)
     }
 
-    /// pow(x, y)
+    /// ### pow(x, y)
     ///
     /// Native function
     ///
     /// The pow function is a mathematical function that computes the power of a number.
     ///
-    /// Example:
+    /// ### Examples
     /// ```rust
     /// use mathlab::math::pow;
     /// assert_eq!(pow(0.0, 1.0), 0.0);
@@ -198,6 +217,6 @@ pub mod math {
     /// assert_eq!(pow(3.33 , -3.33), 0.01820793533883979);
     /// ```
     pub fn pow(x: f64, y: f64) -> f64 {
-        return _pow(x, y);
+        _pow(x, y)
     }
 }
