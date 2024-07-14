@@ -10,5 +10,5 @@ pub mod math {
     pub use crate::con::{E, LN10, LN2, LOG10E, LOG2E, PHI, PI, TAU};
 
     // Functions
-    pub use crate::fun::{abs, add, divi, mult, pow, sign, subt};
+    pub use crate::fun::{abs, add, divi, fact, gamma, mult, pow, sign, subt};
 }

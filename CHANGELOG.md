@@ -1,3 +1,8 @@
+## 0.2.0
+
+- Added fact(x) function.
+- Added gamma(x) function.
+
 ## 0.1.9
 
 - Improved Library Structure.

@@ -4,8 +4,6 @@
 ///
 /// The Number e (Euler's number)
 ///
-/// 2.718281828459045
-///
 /// ### Example
 /// ```rust
 /// use mathlab::math::E;
@@ -64,8 +62,6 @@ pub const TAU: f64 = 6.283185307179586;
 ///
 /// The natural logarithm of 2
 ///
-/// 0.693147180559945
-///
 /// ### Example
 /// ```rust
 /// use mathlab::math::LN2;
@@ -78,8 +74,6 @@ pub const LN2: f64 = 0.693147180559945;
 /// Mathematical constant
 ///
 /// The natural logarithm of 10
-///
-/// 2.302585092994046
 ///
 /// ### Example
 /// ```rust
@@ -94,8 +88,6 @@ pub const LN10: f64 = 2.302585092994046;
 ///
 /// The base 2 logarithm of E
 ///
-/// 1.442695040888963
-///
 /// ### Example
 /// ```rust
 /// use mathlab::math::LOG2E;
@@ -108,8 +100,6 @@ pub const LOG2E: f64 = 1.442695040888963;
 /// Mathematical constant
 ///
 /// The base 10 logarithm of E
-///
-/// 0.434294481903252
 ///
 /// ### Example
 /// ```rust
