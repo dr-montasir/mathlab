@@ -1,3 +1,7 @@
+## 0.1.9
+
+- Improved Library Structure.
+
 ## 0.1.8
 
 - Added sign(x, y) function.
