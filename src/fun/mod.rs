@@ -1,3 +1,5 @@
+use crate::con::PI;
+
 /// ### abs(x)
 ///
 /// Native function
@@ -209,4 +211,182 @@ pub fn divi(x: f64, y: f64) -> f64 {
 /// ```
 pub fn pow(x: f64, y: f64) -> f64 {
     x.powf(y)
+}
+
+/// ### floor(x)
+///
+/// Rounding function
+///
+/// The `floor` function returns the largest integer less than or equal to a given floating-point number.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::floor;
+/// assert_eq!(floor(0.0), 0.0);
+/// assert_eq!(floor(0.99), 0.0);
+/// assert_eq!(floor(-0.99), -1.0);
+/// assert_eq!(floor(1.99), 1.0);
+/// assert_eq!(floor(1.01), 1.0);
+/// assert_eq!(floor(-1.99), -2.0);
+/// ```
+pub fn floor(x: f64) -> f64 {
+    x.floor()
+}
+
+/// ### ceil(x)
+///
+/// Rounding function
+///
+/// The `ceil` function rounds a number up to the nearest integer greater than or equal to it.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::ceil;
+/// assert_eq!(ceil(0.0), 0.0);
+/// assert_eq!(ceil(0.99), 1.0);
+/// assert_eq!(ceil(-0.99), 0.0);
+/// assert_eq!(ceil(1.99), 2.0);
+/// assert_eq!(ceil(1.01), 2.0);
+/// assert_eq!(ceil(-1.99), -1.0);
+/// ```
+pub fn ceil(x: f64) -> f64 {
+    x.ceil()
+}
+
+/// ### round(x)
+///
+/// Rounding function
+///
+/// The `round` function aligns a number to the closest integer,
+/// adjusting fractions of `0.5` or greater up, and less than `0.5` down.
+///
+/// The native way to define a `round` function in `Rust` is:
+/// ```rust
+/// pub fn round(x: f64) -> f64 {
+///     x.round()
+/// }
+/// ```
+///
+/// The alternative way to define a native round function is by using the ceil function for negative numbers and the floor function for non-negative numbers.
+/// ```rust
+/// use mathlab::math::{ceil, floor};
+/// pub fn round(x: f64) -> f64 {
+///     if x < 0.0 {
+///         ceil(x - 0.5)
+///     } else {
+///         floor(x + 0.5)
+///     }
+/// }
+/// ```
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::round;
+/// assert_eq!(round(0.0), 0.0);
+/// assert_eq!(round(0.5), 1.0);
+/// assert_eq!(round(-0.5), -1.0);
+/// assert_eq!(round(1.99), 2.0);
+/// assert_eq!(round(1.01), 1.0);
+/// assert_eq!(round(-1.99), -2.0);
+/// ```
+pub fn round(x: f64) -> f64 {
+    x.round()
+}
+
+/// ### fround(x)
+///
+/// Rounding function
+///
+/// The `fround` function performs the same operation as the `f64_to_f32` function.
+///
+/// The `fround` function rounds a floating-point number to the nearest
+/// single-precision `(32-bit)` floating-point number.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::fround;
+/// assert_eq!(fround(0.6666666666666666), 0.6666667);
+/// assert_eq!(fround(0.30000000000000004), 0.3);
+/// assert_eq!(fround(0.020000000000000004), 0.02);
+/// assert_eq!(fround(0.09999999999999998), 0.1);
+/// ```
+pub fn fround(x: f64) -> f32 {
+    x as f32
+}
+
+/// ### f64_to_f32(x)
+///
+/// Rounding function
+///
+/// The `f64_to_f32` function performs the same operation as the `fround` function.
+///
+/// The `f64_to_f32` function rounds a floating-point number to the nearest
+/// single-precision `(32-bit)` floating-point number.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::f64_to_f32;
+/// assert_eq!(f64_to_f32(0.6666666666666666), 0.6666667);
+/// assert_eq!(f64_to_f32(0.30000000000000004), 0.3);
+/// assert_eq!(f64_to_f32(0.020000000000000004), 0.02);
+/// assert_eq!(f64_to_f32(0.09999999999999998), 0.1);
+/// ```
+pub fn f64_to_f32(x: f64) -> f32 {
+    x as f32
+}
+
+/// ### deg_to_rad(x)
+///
+/// Conversion function
+///
+/// The `deg_to_rad` function converts an `angle` from `degrees` to `radians`.
+/// This is useful in `trigonometric` calculations, where `angles` are often required in `radians`.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::deg_to_rad;
+/// assert_eq!(deg_to_rad(0.0), 0.0);
+/// assert_eq!(deg_to_rad(1.0), 0.017453292519943295);
+/// assert_eq!(deg_to_rad(30.0), 0.5235987755982988);
+/// assert_eq!(deg_to_rad(45.0), 0.7853981633974483);
+/// assert_eq!(deg_to_rad(60.0), 1.0471975511965976);
+/// assert_eq!(deg_to_rad(90.0), 1.5707963267948966);
+/// assert_eq!(deg_to_rad(180.0), 3.141592653589793);
+/// assert_eq!(deg_to_rad(360.0), 6.283185307179586);
+/// assert_eq!(deg_to_rad(-360.0), -6.283185307179586);
+/// ```
+pub fn deg_to_rad(x: f64) -> f64 {
+    x * PI / 180.0
+}
+
+/// ### rad_to_deg(x)
+///
+/// Conversion function
+///
+/// The `rad_to_deg` function converts an `angle` from `radians` to `degrees`.
+/// This is useful in `trigonometric` calculations, where `angles` are often required in `degrees`.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::rad_to_deg;
+/// assert_eq!(rad_to_deg(0.0), 0.0);
+/// assert_eq!(rad_to_deg(0.017453292519943295), 1.0);
+/// assert_eq!(rad_to_deg(0.017453292519943295) as f32, 1.0);
+/// assert_eq!(rad_to_deg(0.5235987755982988), 29.999999999999996);
+/// assert_eq!(rad_to_deg(0.5235987755982988) as f32, 30.0);
+/// assert_eq!(rad_to_deg(0.7853981633974483), 45.0);
+/// assert_eq!(rad_to_deg(0.7853981633974483) as f32, 45.0);
+/// assert_eq!(rad_to_deg(1.0471975511965976), 59.99999999999999);
+/// assert_eq!(rad_to_deg(1.0471975511965976) as f32, 60.0);
+/// assert_eq!(rad_to_deg(1.5707963267948966), 90.0);
+/// assert_eq!(rad_to_deg(1.5707963267948966) as f32, 90.0);
+/// assert_eq!(rad_to_deg(3.141592653589793), 180.0);
+/// assert_eq!(rad_to_deg(3.141592653589793) as f32, 180.0);
+/// assert_eq!(rad_to_deg(6.283185307179586), 360.0);
+/// assert_eq!(rad_to_deg(6.283185307179586) as f32, 360.0);
+/// assert_eq!(rad_to_deg(-6.283185307179586), -360.0);
+/// assert_eq!(rad_to_deg(-6.283185307179586) as f32, -360.0);
+/// ```
+pub fn rad_to_deg(x: f64) -> f64 {
+    x * 180.0 / PI
 }

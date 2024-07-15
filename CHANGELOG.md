@@ -1,3 +1,13 @@
+## 0.2.1
+
+- Added floor(x) function.
+- Added ceil(x) function.
+- Added round(x) function.
+- Added fround(x) function.
+- Added f64_to_f32(x) function.
+- Added deg_to_rad(x) function.
+- Added rad_to_deg(x) function.
+
 ## 0.2.0
 
 - Added fact(x) function.
