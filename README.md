@@ -14,7 +14,7 @@ cargo add mathlab
 
 Or
 
- Add the following line to your `Cargo.toml` file with the specified version, then run `cargo build`:
+Add the following line to your `Cargo.toml` file with the specified version, then run `cargo build`:
 
 ```toml
 mathlab = "MAJOR.MINOR.PATCH"
@@ -34,12 +34,12 @@ https://github.com/dr-montasir/mathlab/blob/master/CHANGELOG.md
 use mathlab::math;
 
 fn main() {
-    let abs = math::abs(-2);
+    let abs = math::abs(-2.0);
     let add = math::add(0.1, 0.2);
     let add_f64 = math::add(0.1, 0.2) as f64;
     let add_f32 = math::add(0.1, 0.2) as f32;
 
-    println!("{}", abs); // 2
+    println!("{}", abs); // 2.0
     println!("{}", add); // 0.30000000000000004
     println!("{}", add_f64); // 0.30000000000000004
     println!("{}", add_f32); // 0.3
@@ -54,12 +54,12 @@ Or
 use mathlab::math::{abs, add};
 
 fn main() {
-    let my_abs = abs(-2);
+    let my_abs = abs(-2.0);
     let my_add = add(0.1, 0.2);
     let my_add_f64 = add(0.1, 0.2) as f64;
     let my_add_f32 = add(0.1, 0.2) as f32;
 
-    println!("{}", my_abs); // 2
+    println!("{}", my_abs); // 2.0
     println!("{}", my_add); // 0.30000000000000004
     println!("{}", my_add_f64); // 0.30000000000000004
     println!("{}", my_add_f32); // 0.3

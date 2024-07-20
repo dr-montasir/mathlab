@@ -1,3 +1,28 @@
+## 0.3.0
+
+- Added NAN_F32 constant.
+- Added INF_F32 constant.
+- Added NINF_F32 constant.
+- Added NAN_F64 constant.
+- Added INF_F64 constant.
+- Added NINF_F64 constant.
+
+- Added u64_to_f64(x) function.
+- Added i64_to_f64(x) function.
+
+- Added is_nan_f32(x) function.
+- Added is_inf_f32(x) function.
+- Added is_ninf_f32(x) function.
+- Added is_nan_f64(x) function.
+- Added is_inf_f64(x) function.
+- Added is_ninf_f64(x) function.
+
+- Added num module.
+- Added vec module.
+- Added num_vec module.
+- Added vec_num module.
+- Added vec_vec module.
+
 ## 0.2.1
 
 - Added floor(x) function.

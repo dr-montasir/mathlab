@@ -107,3 +107,85 @@ pub const LOG2E: f64 = 1.442695040888963;
 /// assert_eq!(LOG10E, 0.434294481903252);
 /// ```
 pub const LOG10E: f64 = 0.434294481903252;
+
+/// ### NAN_F32
+///
+/// IEEE 754 Standard
+///
+/// The `NAN_F32` constant conforms to the `IEEE 754` specification for `single-precision` floating-point
+/// representation of `NaN`, denoting undefined outcomes encountered during particular operations.
+///
+/// ### Example
+/// ```rust
+/// use mathlab::math::{NAN_F64, is_nan_f32, f64_to_f32, add};
+/// assert!(is_nan_f32(add(NAN_F64, 1.0) as f32));
+/// assert!(is_nan_f32(f64_to_f32(add(NAN_F64, 1.0))));
+/// assert_eq!(assert!(is_nan_f32(add(NAN_F64, 1.0) as f32)), assert!(is_nan_f32(f64_to_f32(add(NAN_F64, 1.0)))));
+/// ```
+pub const NAN_F32: f32 = 0.0_f32 / 0.0_f32;
+
+/// ### INF_F64
+///
+/// IEEE 754 Standard
+///
+/// The `INF_F32` constant conforms to the `IEEE 754` guideline governing `single-precision` floating-point `positive infinity` depiction.
+///
+/// ### Example
+/// ```rust
+/// use mathlab::math::INF_F32;
+/// assert_eq!(2.0 / 0.0, INF_F32);
+/// ```
+pub const INF_F32: f32 = 1.0_f32 / 0.0_f32;
+
+/// ### NINF_F32
+///
+/// IEEE 754 Standard
+///
+/// The `NINF_F32` constant conforms to the `IEEE 754` guideline governing `single-precision` floating-point `negative infinity` depiction.
+///
+/// ### Example
+/// ```rust
+/// use mathlab::math::NINF_F32;
+/// assert_eq!(-2.0 / 0.0, NINF_F32);
+/// ```
+pub const NINF_F32: f32 = -1.0_f32 / 0.0_f32;
+
+/// ### NAN_F64
+///
+/// IEEE 754 Standard
+///
+/// The `NAN_F64` constant conforms to the `IEEE 754` specification for `double-precision` floating-point
+/// representation of `NaN`, denoting undefined outcomes encountered during particular operations.
+///
+/// ### Example
+/// ```rust
+/// use mathlab::math::{NAN_F64, is_nan_f64, add};
+/// assert!(is_nan_f64(add(NAN_F64, 1.0)));
+/// ```
+pub const NAN_F64: f64 = 0.0_f64 / 0.0_f64;
+
+/// ### INF_F64
+///
+/// IEEE 754 Standard
+///
+/// The `INF_F64` constant conforms to the `IEEE 754` guideline governing `double-precision` floating-point `positive infinity` depiction.
+///
+/// ### Example
+/// ```rust
+/// use mathlab::math::INF_F64;
+/// assert_eq!(2.0 / 0.0, INF_F64);
+/// ```
+pub const INF_F64: f64 = 1.0_f64 / 0.0_f64;
+
+/// ### NINF_F64
+///
+/// IEEE 754 Standard
+///
+/// The `NINF_F64` constant conforms to the `IEEE 754` guideline governing double-precision floating-point `negative infinity` depiction.
+///
+/// ### Example
+/// ```rust
+/// use mathlab::math::NINF_F64;
+/// assert_eq!(-2.0 / 0.0, NINF_F64);
+/// ```
+pub const NINF_F64: f64 = -1.0_f64 / 0.0_f64;
