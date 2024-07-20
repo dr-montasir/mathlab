@@ -7,7 +7,7 @@ description = "A Powerful Math Library for Rust"
 homepage = "https://github.com/dr-montasir/mathlab"
 repository = "https://github.com/dr-montasir/mathlab"
 readme = "README.md"
-keywords = ["Math", "Numeric", "Native Math"]
+keywords = ["Math", "Numeric", "Native_Math"]
 categories = ["mathematics"]
 license = "Apache-2.0"
 
