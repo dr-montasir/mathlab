@@ -15,7 +15,7 @@ use super::num::{add, divi, mult, pow, subt};
 /// assert_eq!(add_num_vec(0.1, &[0.0, 0.1, 0.2]), [0.1, 0.2, 0.30000000000000004]);
 /// assert_eq!(fround_vec(&add_num_vec(0.1, &[0.0, 0.1, 0.2])), [0.1, 0.2, 0.3]);
 /// ```
-///
+/// <small>End Fun Doc</small>
 pub fn add_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
     y.iter().map(|&y| add(x, y)).collect()
 }
@@ -35,7 +35,7 @@ pub fn add_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
 /// assert_eq!(subt_num_vec(0.1, &[0.0, 0.1, 0.2, 0.3]), [0.1, 0.0, -0.1, -0.19999999999999998]);
 /// assert_eq!(fround_vec(&subt_num_vec(0.1, &[0.0, 0.1, 0.2, 0.3])), [0.1, 0.0, -0.1, -0.2]);
 /// ```
-///
+/// <small>End Fun Doc</small>
 pub fn subt_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
     y.iter().map(|&y| subt(x, y)).collect()
 }
@@ -55,7 +55,7 @@ pub fn subt_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
 /// assert_eq!(mult_num_vec(0.1, &[0.0, 0.1, 0.2]), [0.0, 0.010000000000000002, 0.020000000000000004]);
 /// assert_eq!(fround_vec(&mult_num_vec(0.1, &[0.0, 0.1, 0.2])), [0.0, 0.01, 0.02]);
 /// ```
-///
+/// <small>End Fun Doc</small>
 pub fn mult_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
     y.iter().map(|&y| mult(x, y)).collect()
 }
@@ -75,7 +75,7 @@ pub fn mult_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
 /// //assert_eq!(divi_num_vec(0.2, &[0.0, 0.1, 0.2, 0.3]), [inf, 2.0, 1.0, 0.6666666666666666]);
 /// //assert_eq!(fround_vec(&divi_num_vec(0.1, &[0.0, 0.1, 0.2, 0.3])), [inf, 2.0, 1.0, 0.6666667]);
 /// ```
-///
+/// <small>End Fun Doc</small>
 pub fn divi_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
     y.iter().map(|&y| divi(x, y)).collect()
 }
@@ -94,7 +94,7 @@ pub fn divi_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
 /// assert_eq!(pow(2.0 , -3.0), 0.125);
 /// assert_eq!(pow_num_vec(2.0, &[-3.0, 0.0, 4.0, INF_F64]), [0.125, 1.0, 16.0, INF_F64]);
 /// ```
-///
+/// <small>End Fun Doc</small>
 pub fn pow_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
     y.iter().map(|&y| pow(x, y)).collect()
 }

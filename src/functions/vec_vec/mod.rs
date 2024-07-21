@@ -15,7 +15,7 @@ use super::num::{add, divi, mult, pow, subt};
 /// assert_eq!(add_vec_vec(&[0.0, 0.1, 0.2, 0.3], &[0.3, 0.2, 0.1, 0.0]), [0.3, 0.30000000000000004, 0.30000000000000004, 0.3]);
 /// assert_eq!(fround_vec(&add_vec_vec(&[0.0, 0.1, 0.2, 0.3], &[0.3, 0.2, 0.1, 0.0])), [0.3, 0.3, 0.3, 0.3]);
 /// ```
-///
+/// <small>End Fun Doc</small>
 pub fn add_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
     x.iter().zip(y.iter()).map(|(&x, &y)| add(x, y)).collect()
 }
@@ -33,7 +33,7 @@ pub fn add_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
 /// assert_eq!(subt(0.1, 0.2), -0.1);
 /// assert_eq!(subt_vec_vec(&[0.0, 0.1, 0.2, 0.3], &[0.3, 0.2, 0.1, 0.0]), [-0.3, -0.1, 0.1, 0.3]);
 /// ```
-///
+/// <small>End Fun Doc</small>
 pub fn subt_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
     x.iter().zip(y.iter()).map(|(&x, &y)| subt(x, y)).collect()
 }
@@ -53,7 +53,7 @@ pub fn subt_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
 /// assert_eq!(mult_vec_vec(&[0.0, 0.1, 0.2, 0.3], &[0.3, 0.2, 0.1, 0.0]), [0.0, 0.020000000000000004, 0.020000000000000004, 0.0]);
 /// assert_eq!(fround_vec(&mult_vec_vec(&[0.0, 0.1, 0.2, 0.3], &[0.3, 0.2, 0.1, 0.0])), [0.0, 0.02, 0.02, 0.0]);
 /// ```
-///
+/// <small>End Fun Doc</small>
 pub fn mult_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
     x.iter().zip(y.iter()).map(|(&x, &y)| mult(x, y)).collect()
 }
@@ -71,7 +71,7 @@ pub fn mult_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
 /// assert_eq!(divi(0.1, 0.2), 0.5);
 /// assert_eq!(divi_vec_vec(&[0.0, 0.1, 0.2, 0.3], &[0.3, 0.2, 0.1, 0.0]), [0.0, 0.5, 2.0, INF_F64]);
 /// ```
-///
+/// <small>End Fun Doc</small>
 pub fn divi_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
     x.iter().zip(y.iter()).map(|(&x, &y)| divi(x, y)).collect()
 }
@@ -89,7 +89,7 @@ pub fn divi_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
 /// assert_eq!(pow(0.1, 0.2), 0.6309573444801932);
 /// assert_eq!(pow_vec_vec(&[0.0, 0.1, 0.2, 0.3], &[0.3, 0.2, 0.1, 0.0]), [0.0, 0.6309573444801932, 0.8513399225207846, 1.0]);
 /// ```
-///
+/// <small>End Fun Doc</small>
 pub fn pow_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
     x.iter().zip(y.iter()).map(|(&x, &y)| pow(x, y)).collect()
 }
