@@ -1,3 +1,8 @@
+## 0.3.1
+
+- Added args module.
+- Added monolist function.
+
 ## 0.3.0
 
 - Added NAN_F32 constant.

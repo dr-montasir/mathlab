@@ -3,7 +3,7 @@ use super::num::{
     sign, u64_to_f64,
 };
 
-/// ### abs_vec(x: &[[f64]])
+/// ### abs_vec(x)
 ///
 /// Array Function with One Parameter
 ///
@@ -49,11 +49,12 @@ use super::num::{
 /// assert_eq!(abs(-1.0), 1.0);
 /// assert_eq!(abs_vec(&my_x_f64_array), [0.0, 1.0, 3.33, 3.33]);
 /// ```
+///
 pub fn abs_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| abs(x)).collect()
 }
 
-/// ### sign_vec(x: &[[f64]])
+/// ### sign_vec(x)
 ///
 /// Array Function with One Parameter
 ///
@@ -68,11 +69,12 @@ pub fn abs_vec(x: &[f64]) -> Vec<f64> {
 /// assert_eq!(sign(-9.0), -1.0);
 /// assert_eq!(sign_vec(&my_x_f64_array), [-1.0, 1.0, 1.0, -1.0, 0.0, 0.0]);
 /// ```
+///
 pub fn sign_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| sign(x)).collect()
 }
 
-/// ### fact_vec(x: &[[u64]])
+/// ### fact_vec(x)
 ///
 /// Array Function with One Parameter
 ///
@@ -91,11 +93,12 @@ pub fn sign_vec(x: &[f64]) -> Vec<f64> {
 /// assert_eq!(fact_vec(&my_x_u64_array).iter().map(|&x| x as f64).collect::<Vec<f64>>(), vec![1.0, 1.0, 2.0, 6.0, 20922789888000.0, 6402373705728000.0]);
 /// assert_eq!(u64_to_f64_vec(&fact_vec(&my_x_u64_array)), [1.0, 1.0, 2.0, 6.0, 20922789888000.0, 6402373705728000.0]);
 /// ```
+///
 pub fn fact_vec(x: &[u64]) -> Vec<u64> {
     x.iter().map(|&x| fact(x)).collect()
 }
 
-/// ### gamma_vec(x: &[[u64]])
+/// ### gamma_vec(x)
 ///
 /// Array Function with One Parameter
 ///
@@ -113,11 +116,12 @@ pub fn fact_vec(x: &[u64]) -> Vec<u64> {
 /// assert_eq!(gamma_vec(&my_x_u64_array).iter().map(|&x| x as f64).collect::<Vec<f64>>(), vec![1.0, 1.0, 2.0, 6.0, 20922789888000.0, 6402373705728000.0]);
 /// assert_eq!(u64_to_f64_vec(&gamma_vec(&my_x_u64_array)), [1.0, 1.0, 2.0, 6.0, 20922789888000.0, 6402373705728000.0]);
 /// ```
+///
 pub fn gamma_vec(x: &[u64]) -> Vec<u64> {
     x.iter().map(|&x| gamma(x)).collect()
 }
 
-/// ### floor_vec(x: &[[f64]])
+/// ### floor_vec(x)
 ///
 /// Array Function with One Parameter
 ///
@@ -132,11 +136,12 @@ pub fn gamma_vec(x: &[u64]) -> Vec<u64> {
 /// assert_eq!(floor(1.99), 1.0);
 /// assert_eq!(floor_vec(&my_x_f64_array), [0.0, 0.0, 1.0, 1.0, -1.0, -2.0, -2.0]);
 /// ```
+///
 pub fn floor_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| floor(x)).collect()
 }
 
-/// ### ceil_vec(x: &[[f64]])
+/// ### ceil_vec(x)
 ///
 /// Array Function with One Parameter
 ///
@@ -151,11 +156,12 @@ pub fn floor_vec(x: &[f64]) -> Vec<f64> {
 /// assert_eq!(ceil(1.99), 2.0);
 /// assert_eq!(ceil_vec(&my_x_f64_array), [0.0, 1.0, 2.0, 2.0, 0.0, -1.0, -1.0]);
 /// ```
+///
 pub fn ceil_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| ceil(x)).collect()
 }
 
-/// ### round_vec(x: &[[f64]])
+/// ### round_vec(x)
 ///
 /// Array Function with One Parameter
 ///
@@ -172,11 +178,12 @@ pub fn ceil_vec(x: &[f64]) -> Vec<f64> {
 /// assert_eq!(round(1.5), 2.0);
 /// assert_eq!(round_vec(&my_x_f64_array), [0.0, 1.0, 1.0, 1.0, 2.0, -1.0, -1.0, -1.0, -2.0]);
 /// ```
+///
 pub fn round_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| round(x)).collect()
 }
 
-/// ### fround_vec(x: &[[f64]])
+/// ### fround_vec(x)
 ///
 /// Array Function with One Parameter
 ///
@@ -194,11 +201,12 @@ pub fn round_vec(x: &[f64]) -> Vec<f64> {
 /// assert_eq!(fround(0.09999999999999998), 0.1);
 /// assert_eq!(fround_vec(&my_x_f64_array), [0.6666667, 0.3, 0.02, 0.1]);
 /// ```
+///
 pub fn fround_vec(x: &[f64]) -> Vec<f32> {
     x.iter().map(|&x| fround(x)).collect()
 }
 
-/// ### f64_to_f32_vec(x: &[[f64]])
+/// ### f64_to_f32_vec(x)
 ///
 /// Array Function with One Parameter
 ///
@@ -216,11 +224,12 @@ pub fn fround_vec(x: &[f64]) -> Vec<f32> {
 /// assert_eq!(f64_to_f32(0.09999999999999998), 0.1);
 /// assert_eq!(f64_to_f32_vec(&my_x_f64_array), [0.6666667, 0.3, 0.02, 0.1]);
 /// ```
+///
 pub fn f64_to_f32_vec(x: &[f64]) -> Vec<f32> {
     x.iter().map(|&x| f64_to_f32(x)).collect()
 }
 
-/// ### u64_to_f64_vec(x: &[[u64]])
+/// ### u64_to_f64_vec(x)
 ///
 /// Array Function with One Parameter
 ///
@@ -235,11 +244,12 @@ pub fn f64_to_f32_vec(x: &[f64]) -> Vec<f32> {
 /// assert_eq!(u64_to_f64(0), 0.0);
 /// assert_eq!(u64_to_f64_vec(&my_x_f64_array), [0.0, 1.0, 2.0, 3.0]);
 /// ```
+///
 pub fn u64_to_f64_vec(x: &[u64]) -> Vec<f64> {
     x.iter().map(|&x| u64_to_f64(x)).collect()
 }
 
-/// ### i64_to_f64_vec(x: &[[i64]])
+/// ### i64_to_f64_vec(x)
 ///
 /// Array Function with One Parameter
 ///
@@ -254,11 +264,12 @@ pub fn u64_to_f64_vec(x: &[u64]) -> Vec<f64> {
 /// assert_eq!(i64_to_f64(0), 0.0);
 /// assert_eq!(i64_to_f64_vec(&my_x_f64_array), [-1.0, -2.0, 0.0, 1.0, 2.0]);
 /// ```
+///
 pub fn i64_to_f64_vec(x: &[i64]) -> Vec<f64> {
     x.iter().map(|&x| i64_to_f64(x)).collect()
 }
 
-/// ### deg_to_rad_vec(x: &[[f64]])
+/// ### deg_to_rad_vec(x)
 ///
 /// Array Function with One Parameter
 ///
@@ -274,11 +285,12 @@ pub fn i64_to_f64_vec(x: &[i64]) -> Vec<f64> {
 /// assert_eq!(deg_to_rad(30.0), 0.5235987755982988);
 /// assert_eq!(deg_to_rad_vec(&my_x_f64_array), [0.0, 0.017453292519943295, 0.5235987755982988, 0.7853981633974483, 1.0471975511965976, 1.5707963267948966, 3.141592653589793, 6.283185307179586, -6.283185307179586]);
 /// ```
+///
 pub fn deg_to_rad_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| deg_to_rad(x)).collect()
 }
 
-/// ### rad_to_deg_vec(x: &[[f64]])
+/// ### rad_to_deg_vec(x)
 ///
 /// Appending a Float Value to a Vector of Floats
 ///
@@ -297,6 +309,7 @@ pub fn deg_to_rad_vec(x: &[f64]) -> Vec<f64> {
 /// assert_eq!(f64_to_f32_vec(&rad_to_deg_vec(&my_x_f64_array)), [0.0, 1.0, 30.0, 45.0, 60.0, 90.0, 180.0, 360.0, -360.0]);
 /// assert_eq!(fround_vec(&rad_to_deg_vec(&my_x_f64_array)), [0.0, 1.0, 30.0, 45.0, 60.0, 90.0, 180.0, 360.0, -360.0]);
 /// ```
+///
 pub fn rad_to_deg_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| rad_to_deg(x)).collect()
 }

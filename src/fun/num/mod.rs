@@ -14,6 +14,7 @@ use crate::con::{INF_F32, INF_F64, NINF_F32, NINF_F64, PI};
 /// assert_eq!(abs(3.33), 3.33);
 /// assert_eq!(abs(-3.33), 3.33);
 /// ```
+///
 pub fn abs(x: f64) -> f64 {
     if x < 0.0 {
         -x
@@ -37,6 +38,7 @@ pub fn abs(x: f64) -> f64 {
 /// assert_eq!(sign(0.0), 0.0);
 /// assert_eq!(sign(0.0 / 0.0), 0.0);
 /// ```
+///
 pub fn sign(x: f64) -> f64 {
     if x > 0.0 {
         1.0
@@ -63,6 +65,7 @@ pub fn sign(x: f64) -> f64 {
 /// assert_eq!(floor(1.01), 1.0);
 /// assert_eq!(floor(-1.99), -2.0);
 /// ```
+///
 pub fn floor(x: f64) -> f64 {
     x.floor()
 }
@@ -83,6 +86,7 @@ pub fn floor(x: f64) -> f64 {
 /// assert_eq!(ceil(1.01), 2.0);
 /// assert_eq!(ceil(-1.99), -1.0);
 /// ```
+///
 pub fn ceil(x: f64) -> f64 {
     x.ceil()
 }
@@ -123,6 +127,7 @@ pub fn ceil(x: f64) -> f64 {
 /// assert_eq!(round(1.01), 1.0);
 /// assert_eq!(round(-1.99), -2.0);
 /// ```
+///
 pub fn round(x: f64) -> f64 {
     x.round()
 }
@@ -144,6 +149,7 @@ pub fn round(x: f64) -> f64 {
 /// assert_eq!(fround(0.020000000000000004), 0.02);
 /// assert_eq!(fround(0.09999999999999998), 0.1);
 /// ```
+///
 pub fn fround(x: f64) -> f32 {
     x as f32
 }
@@ -165,6 +171,7 @@ pub fn fround(x: f64) -> f32 {
 /// assert_eq!(f64_to_f32(0.020000000000000004), 0.02);
 /// assert_eq!(f64_to_f32(0.09999999999999998), 0.1);
 /// ```
+///
 pub fn f64_to_f32(x: f64) -> f32 {
     x as f32
 }
@@ -183,6 +190,7 @@ pub fn f64_to_f32(x: f64) -> f32 {
 /// assert_eq!(u64_to_f64(2), 2.0);
 /// assert_eq!(u64_to_f64(3), 3.0);
 /// ```
+///
 pub fn u64_to_f64(x: u64) -> f64 {
     x as f64
 }
@@ -202,6 +210,7 @@ pub fn u64_to_f64(x: u64) -> f64 {
 /// assert_eq!(i64_to_f64(1), 1.0);
 /// assert_eq!(i64_to_f64(2), 2.0);
 /// ```
+///
 pub fn i64_to_f64(x: i64) -> f64 {
     x as f64
 }
@@ -220,6 +229,7 @@ pub fn i64_to_f64(x: i64) -> f64 {
 /// assert!(is_nan_f32(f64_to_f32(add(NAN_F64, 1.0))));
 /// assert_eq!(assert!(is_nan_f32(add(NAN_F64, 1.0) as f32)), assert!(is_nan_f32(f64_to_f32(add(NAN_F64, 1.0)))));
 /// ```
+///
 pub fn is_nan_f32(x: f32) -> bool {
     x != x
 }
@@ -238,6 +248,7 @@ pub fn is_nan_f32(x: f32) -> bool {
 /// assert!(is_inf_f32(f64_to_f32(divi(2.0, 0.0))));
 /// assert_eq!(assert!(is_inf_f32(divi(2.0, 0.0) as f32)), assert!(is_inf_f32(f64_to_f32(divi(2.0, 0.0)))));
 /// ```
+///
 pub fn is_inf_f32(x: f32) -> bool {
     if x == INF_F32 {
         true
@@ -261,6 +272,7 @@ pub fn is_inf_f32(x: f32) -> bool {
 /// assert!(is_ninf_f32(f64_to_f32(divi(-2.0, 0.0))));
 /// assert_eq!(assert!(is_ninf_f32(divi(-2.0, 0.0) as f32)), assert!(is_ninf_f32(f64_to_f32(divi(-2.0, 0.0)))));
 /// ```
+///
 pub fn is_ninf_f32(x: f32) -> bool {
     if x == NINF_F32 {
         true
@@ -283,6 +295,7 @@ pub fn is_ninf_f32(x: f32) -> bool {
 /// assert!(is_nan_f64(divi(0.0, 0.0)));
 /// assert_eq!(assert!(is_nan_f64(add(NAN_F64, 1.0))), assert!(is_nan_f64(divi(0.0, 0.0))));
 /// ```
+///
 pub fn is_nan_f64(x: f64) -> bool {
     x != x
 }
@@ -301,6 +314,7 @@ pub fn is_nan_f64(x: f64) -> bool {
 /// assert!(is_inf_f64(mult(10.0, INF_F64)));
 /// assert_eq!(assert!(is_inf_f64(divi(2.0, 0.0))), assert!(is_inf_f64(mult(10.0, INF_F64))));
 /// ```
+///
 pub fn is_inf_f64(x: f64) -> bool {
     if x == INF_F64 {
         true
@@ -324,6 +338,7 @@ pub fn is_inf_f64(x: f64) -> bool {
 /// assert_eq!(assert!(is_ninf_f64(divi(-2.0, 0.0))), assert!(is_ninf_f64(mult(10.0, -INF_F64))));
 /// assert_eq!(assert!(is_ninf_f64(divi(-2.0, 0.0))), assert!(is_ninf_f64(mult(10.0, NINF_F64))));
 /// ```
+///
 pub fn is_ninf_f64(x: f64) -> bool {
     if x == NINF_F64 {
         true
@@ -360,6 +375,7 @@ pub fn is_ninf_f64(x: f64) -> bool {
 /// assert_eq!(fact(16), 20922789888000);
 /// assert_eq!(fact(18), 6402373705728000);
 /// ```
+///
 pub fn fact(x: u64) -> u64 {
     if x == 0 {
         1
@@ -397,6 +413,7 @@ pub fn fact(x: u64) -> u64 {
 /// assert_eq!(gamma(17), 20922789888000);
 /// assert_eq!(gamma(19), 6402373705728000);
 /// ```
+///
 pub fn gamma(x: u64) -> u64 {
     fact(x - 1)
 }
@@ -415,6 +432,7 @@ pub fn gamma(x: u64) -> u64 {
 /// assert_eq!(add(0.1, 0.2) as f64, 0.30000000000000004);
 /// assert_eq!(add(0.1, 0.2) as f32, 0.3);
 /// ```
+///
 pub fn add(x: f64, y: f64) -> f64 {
     x + y
 }
@@ -438,6 +456,7 @@ pub fn add(x: f64, y: f64) -> f64 {
 /// assert_eq!(subt(1.0, INF_F64), -INF_F64);
 /// assert_eq!(subt(1.0, INF_F64), NINF_F64);
 /// ```
+///
 pub fn subt(x: f64, y: f64) -> f64 {
     x - y
 }
@@ -460,6 +479,7 @@ pub fn subt(x: f64, y: f64) -> f64 {
 /// assert_eq!(mult(-1.0, INF_F64), -INF_F64);
 /// assert_eq!(mult(1.0, -INF_F64), NINF_F64);
 /// ```
+///
 pub fn mult(x: f64, y: f64) -> f64 {
     x * y
 }
@@ -490,6 +510,7 @@ pub fn mult(x: f64, y: f64) -> f64 {
 /// assert!(is_ninf_f64(divi(-1.0, 0.0)));
 /// assert!(is_ninf_f32(divi(-1.0, 0.0) as f32));
 /// ```
+///
 pub fn divi(x: f64, y: f64) -> f64 {
     x / y
 }
@@ -516,6 +537,7 @@ pub fn divi(x: f64, y: f64) -> f64 {
 /// assert!(is_nan_f64(pow(NAN_F64, 2.0)));
 /// assert_eq!(pow(INF_F64, 2.0), INF_F64);
 /// ```
+///
 pub fn pow(x: f64, y: f64) -> f64 {
     x.powf(y)
 }
@@ -540,6 +562,7 @@ pub fn pow(x: f64, y: f64) -> f64 {
 /// assert_eq!(deg_to_rad(360.0), 6.283185307179586);
 /// assert_eq!(deg_to_rad(-360.0), -6.283185307179586);
 /// ```
+///
 pub fn deg_to_rad(x: f64) -> f64 {
     x * PI / 180.0
 }
@@ -572,6 +595,7 @@ pub fn deg_to_rad(x: f64) -> f64 {
 /// assert_eq!(rad_to_deg(-6.283185307179586), -360.0);
 /// assert_eq!(rad_to_deg(-6.283185307179586) as f32, -360.0);
 /// ```
+///
 pub fn rad_to_deg(x: f64) -> f64 {
     x * 180.0 / PI
 }
