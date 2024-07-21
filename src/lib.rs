@@ -1,14 +1,14 @@
 // Constants
-pub mod con;
+pub mod constants;
 
 // Functions
-pub mod fun;
+pub mod functions;
 
 #[allow(dead_code)]
 pub mod math {
     // Constants
-    pub use crate::con::*;
+    pub use crate::constants::*;
 
     // Functions
-    pub use crate::fun::*;
+    pub use crate::functions::*;
 }

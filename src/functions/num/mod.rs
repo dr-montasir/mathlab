@@ -1,4 +1,4 @@
-use crate::con::{INF_F32, INF_F64, NINF_F32, NINF_F64, PI};
+use crate::constants::{INF_F32, INF_F64, NINF_F32, NINF_F64, PI};
 
 /// ### abs(x)
 ///

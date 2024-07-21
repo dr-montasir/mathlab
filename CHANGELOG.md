@@ -1,3 +1,8 @@
+## 0.3.2
+
+- Renamed the con module in src/con to constants due to a warning: file src/con/mod.rs is a reserved Windows filename, it will not work on Windows platforms.
+- Renamed the fun module in src/con to functions.
+
 ## 0.3.1
 
 - Added args module.
