@@ -1,3 +1,8 @@
+## 0.3.4
+
+- Added inv function.
+- Added inv_vec function.
+
 ## 0.3.3
 
 - Improved documentation.

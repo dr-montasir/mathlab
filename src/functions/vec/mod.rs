@@ -1,6 +1,6 @@
 use super::num::{
-    abs, ceil, deg_to_rad, f64_to_f32, fact, floor, fround, gamma, i64_to_f64, rad_to_deg, round,
-    sign, u64_to_f64,
+    abs, ceil, deg_to_rad, f64_to_f32, fact, floor, fround, gamma, i64_to_f64, inv, rad_to_deg,
+    round, sign, u64_to_f64,
 };
 
 /// ### abs_vec(x)
@@ -119,6 +119,27 @@ pub fn fact_vec(x: &[u64]) -> Vec<u64> {
 /// <small>End Fun Doc</small>
 pub fn gamma_vec(x: &[u64]) -> Vec<u64> {
     x.iter().map(|&x| gamma(x)).collect()
+}
+
+/// ### inv_vec(x)
+///
+/// Native function
+///
+/// The `inv_vec` function takes a slice of floating-point numbers `x` and
+/// returns a new vector containing the inverses of each element in `x`
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{inv, inv_vec, INF_F64, INF_F32, fround_vec};
+/// assert_eq!(inv(0.0), INF_F64);
+/// assert_eq!(inv(0.1), 10.0);
+/// assert_eq!(inv_vec(&[0.0, 0.1, 0.2, 0.3]), [INF_F64, 10.0, 5.0, 3.3333333333333335]);
+/// assert_eq!(fround_vec(&inv_vec(&[0.0, 0.1, 0.2, 0.3])), [INF_F32, 10.0, 5.0, 3.3333333]);
+/// assert_eq!(fround_vec(&inv_vec(&[0.0, 0.1, 0.2, 0.3])), [INF_F32, 10.0, 5.0, 3.3333333333333335]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn inv_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| inv(x)).collect()
 }
 
 /// ### floor_vec(x)

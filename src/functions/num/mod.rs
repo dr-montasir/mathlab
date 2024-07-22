@@ -418,11 +418,31 @@ pub fn gamma(x: u64) -> u64 {
     fact(x - 1)
 }
 
+/// ### inv(x)
+///
+/// Native function
+///
+/// The `inv` function returns the inverse of `x`.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{inv, INF_F64};
+/// assert_eq!(inv(0.0), INF_F64);
+/// assert_eq!(inv(1.0), 1.0);
+/// assert_eq!(inv(2.0), 0.5);
+/// assert_eq!(inv(10.0), 0.1);
+/// assert_eq!(inv(0.1), 10.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn inv(x: f64) -> f64 {
+    1.0 / x
+}
+
 /// ### add(x, y)
 ///
 /// Native function
 ///
-/// The `add(x, y)` function returns the sum of `x` and `y`.
+/// The `add` function returns the sum of `x` and `y`.
 ///
 /// ### Examples
 /// ```rust
@@ -441,7 +461,7 @@ pub fn add(x: f64, y: f64) -> f64 {
 ///
 /// Native function
 ///
-/// The `subt(x, y)` function is a mathematical operation that subtracts the value of `y` from `x`.
+/// The `subt` function is a mathematical operation that subtracts the value of `y` from `x`.
 ///
 /// ### Examples
 /// ```rust
@@ -465,7 +485,7 @@ pub fn subt(x: f64, y: f64) -> f64 {
 ///
 /// Native function
 ///
-/// The `mult(x, y)` function is a mathematical operation that multiplies the value of `x` by `y`.
+/// The `mult` function is a mathematical operation that multiplies the value of `x` by `y`.
 ///
 /// ### Examples
 /// ```rust
@@ -488,7 +508,7 @@ pub fn mult(x: f64, y: f64) -> f64 {
 ///
 /// Native function
 ///
-/// The `divi(x, y)` function is a mathematical operation that divides the value of `x` by `y`.
+/// The `divi` function is a mathematical operation that divides the value of `x` by `y`.
 ///
 /// ### Examples
 /// ```rust
