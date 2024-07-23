@@ -1,4 +1,4 @@
-use super::num::{add, divi, mult, pow, subt};
+use super::num::{add, divi, mult, pow, rem, subt};
 
 /// ### add_vec_vec(x, y)
 ///
@@ -92,4 +92,27 @@ pub fn divi_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn pow_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
     x.iter().zip(y.iter()).map(|(&x, &y)| pow(x, y)).collect()
+}
+
+/// ### rem_vec_vec(x, y)
+///
+/// Operation Function
+///
+/// The `rem_vec_vec` function takes in two slices of floating-point numbers `x` and `y` and generates
+/// a new vector of remainders by applying the remainder operator rem to their corresponding elements.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{rem, rem_vec_vec, is_nan_f64, INF_F64};
+/// assert!(is_nan_f64(rem(0.0, 0.0)));
+/// assert!(is_nan_f64(rem(1.0, 0.0)));
+/// assert!(is_nan_f64(rem(INF_F64, 0.0)));
+/// assert!(is_nan_f64(rem(INF_F64, 2.0)));
+/// assert!(is_nan_f64(rem(INF_F64, INF_F64)));
+/// assert!(is_nan_f64(rem(INF_F64, INF_F64)));
+/// assert_eq!(rem_vec_vec(&[1.0, 2.0, 3.0, 4.0], &[4.0, 3.0, 2.0, 1.0]), [1.0, 2.0, 1.0, 0.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn rem_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
+    x.iter().zip(y.iter()).map(|(&x, &y)| rem(x, y)).collect()
 }

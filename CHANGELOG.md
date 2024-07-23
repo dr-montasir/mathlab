@@ -1,3 +1,12 @@
+## 0.3.5
+
+- Added sqr function.
+- Added sqr_vec function.
+- Added rem function.
+- Added rem_num_vec function.
+- Added rem_vec_num function.
+- Added rem_vec_vec function.
+
 ## 0.3.4
 
 - Added inv function.

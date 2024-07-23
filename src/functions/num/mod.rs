@@ -619,3 +619,55 @@ pub fn deg_to_rad(x: f64) -> f64 {
 pub fn rad_to_deg(x: f64) -> f64 {
     x * 180.0 / PI
 }
+
+/// ### sqr(x)
+///
+/// Native function
+///
+/// The `sqr` function calculates its square by multiplying it with itself.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sqr, INF_F64};
+/// assert_eq!(sqr(0.0), 0.0);
+/// assert_eq!(sqr(0.1), 0.010000000000000002);
+/// assert_eq!(sqr(0.1) as f32, 0.01);
+/// assert_eq!(sqr(1.0), 1.0);
+/// assert_eq!(sqr(2.0), 4.0);
+/// assert_eq!(sqr(10.0), 100.0);
+/// assert_eq!(sqr(INF_F64), INF_F64);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sqr(x: f64) -> f64 {
+    x * x
+}
+
+/// ### rem(x, y)
+///
+/// Operation Function
+///
+/// The `rem` function provides the remainder of dividing `x` by `y`, returning a `f64` floating-point number.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{rem, is_nan_f64, INF_F64};
+/// assert!(is_nan_f64(rem(0.0, 0.0)));
+/// assert!(is_nan_f64(rem(1.0, 0.0)));
+/// assert!(is_nan_f64(rem(INF_F64, 0.0)));
+/// assert!(is_nan_f64(rem(INF_F64, 2.0)));
+/// assert!(is_nan_f64(rem(INF_F64, INF_F64)));
+/// assert!(is_nan_f64(rem(INF_F64, INF_F64)));
+/// assert_eq!(rem(0.0, INF_F64), 0.0);
+/// assert_eq!(rem(2.0, INF_F64), 2.0);
+/// assert_eq!(rem(1.0, 0.1), 0.09999999999999995);
+/// assert_eq!(rem(1.0, 0.1) as f32, 0.1);
+/// assert_eq!(rem(0.0, 3.0), 0.0);
+/// assert_eq!(rem(1.0, 3.0), 1.0);
+/// assert_eq!(rem(2.0, 3.0), 2.0);
+/// assert_eq!(rem(3.0, 3.0), 0.0);
+/// assert_eq!(rem(4.0, 3.0), 1.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn rem(x: f64, y: f64) -> f64 {
+    x % y
+}

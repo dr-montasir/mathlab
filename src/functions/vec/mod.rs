@@ -1,6 +1,6 @@
 use super::num::{
     abs, ceil, deg_to_rad, f64_to_f32, fact, floor, fround, gamma, i64_to_f64, inv, rad_to_deg,
-    round, sign, u64_to_f64,
+    round, sign, sqr, u64_to_f64,
 };
 
 /// ### abs_vec(x)
@@ -333,4 +333,24 @@ pub fn deg_to_rad_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn rad_to_deg_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| rad_to_deg(x)).collect()
+}
+
+/// ### sqr_vec(x)
+///
+/// Native function
+///
+/// The `sqr_vec` function applies the `sqr` operation to every element of a provided slice of floats,
+/// collecting their squares into a new vector.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sqr, sqr_vec, INF_F64, INF_F32, fround_vec};
+/// assert_eq!(sqr(0.1), 0.010000000000000002);
+/// assert_eq!(sqr(0.1) as f32, 0.01);
+/// assert_eq!(sqr_vec(&[0.0, 0.1, 1.0, 2.0, 10.0, INF_F64]), [0.0, 0.010000000000000002, 1.0, 4.0, 100.0, INF_F64]);
+/// assert_eq!(fround_vec(&sqr_vec(&[0.0, 0.1, 1.0, 2.0, 10.0, INF_F64])), [0.0, 0.01, 1.0, 4.0, 100.0, INF_F32]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sqr_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| sqr(x)).collect()
 }

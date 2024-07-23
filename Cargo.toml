@@ -1,6 +1,6 @@
 [package]
 name = "mathlab"
-version = "0.3.4"
+version = "0.3.5"
 authors = ["Montasir Mirghani <contact@montasir.me>"]
 edition = "2021"
 description = "A Powerful Math Library for Rust"

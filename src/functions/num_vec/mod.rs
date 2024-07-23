@@ -1,4 +1,4 @@
-use super::num::{add, divi, mult, pow, subt};
+use super::num::{add, divi, mult, pow, rem, subt};
 
 /// ### add_num_vec(x, y)
 ///
@@ -97,4 +97,26 @@ pub fn divi_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn pow_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
     y.iter().map(|&y| pow(x, y)).collect()
+}
+
+/// ### rem_num_vec(x, y)
+///
+/// Operation Function
+///
+/// The `rem_num_vec` function computes the remainders obtained after dividing each element in `y` by another fixed number `x`, and accumulates these leftovers into a new vector.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{rem, rem_num_vec, is_nan_f64, INF_F64};
+/// assert!(is_nan_f64(rem(0.0, 0.0)));
+/// assert!(is_nan_f64(rem(1.0, 0.0)));
+/// assert!(is_nan_f64(rem(INF_F64, 0.0)));
+/// assert!(is_nan_f64(rem(INF_F64, 2.0)));
+/// assert!(is_nan_f64(rem(INF_F64, INF_F64)));
+/// assert!(is_nan_f64(rem(INF_F64, INF_F64)));
+/// assert_eq!(rem_num_vec(3.0, &[1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]), [0.0, 1.0, 0.0, 3.0, 3.0, 3.0, 3.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn rem_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
+    y.iter().map(|&y| rem(x, y)).collect()
 }
