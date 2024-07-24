@@ -1,3 +1,7 @@
+## 0.3.6
+
+- Improved documentation.
+
 ## 0.3.5
 
 - Added sqr function.
