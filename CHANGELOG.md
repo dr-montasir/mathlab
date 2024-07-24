@@ -1,3 +1,11 @@
+## 0.3.7
+
+- Added exp function.
+- Added ln function.
+- Added ln1p function.
+- Added log2 function.
+- Added log10 function.
+
 ## 0.3.6
 
 - Improved documentation.

@@ -123,11 +123,11 @@ let my_add_f32 = add(0.1, 0.2) as f32;
 >
 > A Powerful Math Library for Rust
 >
-> [All Items](https://docs.rs/mathlab/latest/mathlab/all.html) <small>[75]</small>
+> [All Items](https://docs.rs/mathlab/latest/mathlab/all.html)&emsp;<small>[80]</small>
 
 ### Modules
 
-### 1. [constants](https://docs.rs/mathlab/latest/mathlab/constants/index.html) <small>[14 items]</small>
+### 1. [constants](https://docs.rs/mathlab/latest/mathlab/constants/index.html)&emsp;<small>[ 14 items ]</small>
 
 |                                    constant                                     |                                     constant                                      |                                     constant                                      |
 | :-----------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
@@ -137,27 +137,25 @@ let my_add_f32 = add(0.1, 0.2) as f32;
 
 [NINF_F32](https://docs.rs/mathlab/latest/mathlab/constants/constant.NINF_F32.html)&emsp;[NINF_F64](https://docs.rs/mathlab/latest/mathlab/constants/constant.NINF_F64.html)&emsp;[PHI](https://docs.rs/mathlab/latest/mathlab/constants/constant.PHI.html)&emsp;[PI](https://docs.rs/mathlab/latest/mathlab/constants/constant.PI.html)&emsp;[TAU](https://docs.rs/mathlab/latest/mathlab/constants/constant.TAU.html)
 
-### 2. [functions](https://docs.rs/mathlab/latest/mathlab/functions/index.html) <small>[61 items]</small>
+### 2. [functions](https://docs.rs/mathlab/latest/mathlab/functions/index.html)&emsp;<small>[ 66 items ]</small>
 
-- #### [args](https://docs.rs/mathlab/latest/mathlab/functions/args/index.html) <small>[1 item]</small>
+- ### [args](https://docs.rs/mathlab/latest/mathlab/functions/args/index.html)&emsp;<small>[ 1 item ]</small>
 
 |                                      function                                      | function | function |
 | :--------------------------------------------------------------------------------: | :------: | :------: |
 | [monolist](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.monolist.html) |          |          |
 
-- #### [num](https://docs.rs/mathlab/latest/mathlab/functions/num/index.html) <small>[27 items]</small>
+- ### [num](https://docs.rs/mathlab/latest/mathlab/functions/num/index.html)&emsp;<small>[ 32 items ]</small>
 
-|                                       function                                        |                                  function                                   |                                       function                                        |
-| :-----------------------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
-|        [abs](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.abs.html)        |   [add](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.add.html)   |       [ceil](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.ceil.html)       |
-| [deg_to_rad](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.deg_to_rad.html) |  [divi](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.divi.html)  | [f64_to_f32](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.f64_to_f32.html) |
-|       [fact](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.fact.html)       | [floor](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.floor.html) |     [fround](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.fround.html)     |
+|                           function                           |                           function                           |                           function                           |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| [abs](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.abs.html) | [add](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.add.html) | [ceil](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.ceil.html) |
+| [deg_to_rad](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.deg_to_rad.html) | [divi](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.divi.html) | [exp](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.exp.html) |
+| [f64_to_f32](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.f64_to_f32.html) | [fact](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.fact.html) | [floor](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.floor.html) |
 
-[gamma](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.gamma.html)&emsp;[i64_to_f64](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.i64_to_f64.html)&emsp;[inv](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.inv.html)&emsp;[is_inf_f32](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.is_inf_f32.html)&emsp;[is_inf_f64](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.is_inf_f64.html)&emsp;[is_nan_f32](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.is_nan_f32.html)&emsp;[is_nan_f64](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.is_nan_f64.html)&emsp;[is_ninf_f32](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.is_ninf_f32.html)&emsp;[is_ninf_f64](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.is_ninf_f64.html)&emsp;[mult](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.mult.html)&emsp;[pow](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.pow.html)&emsp;[rad_to_deg](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.rad_to_deg.html)&emsp;[rem](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.rem.html)&emsp;[round](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.round.html)&emsp;[sign](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.sign.html)&emsp;[sqr](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.sqr.html)&emsp;[subt](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.subt.html)&emsp;[u64_to_f64](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.u64_to_f64.html)
+[fround](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.fround.html)&emsp;[gamma](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.gamma.html)&emsp;[i64_to_f64](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.i64_to_f64.html)&emsp;[inv](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.inv.html)&emsp;[is_inf_f32](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.is_inf_f32.html)&emsp;[is_inf_f64](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.is_inf_f64.html)&emsp;[is_nan_f32](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.is_nan_f32.html)&emsp;[is_nan_f64](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.is_nan_f64.html)&emsp;[is_ninf_f32](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.is_ninf_f32.html)&emsp;[is_ninf_f64](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.is_ninf_f64.html)&emsp;[ln](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.ln.html)&emsp;[ln1p](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.ln1p.html)&emsp;[log2](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.log2.html)&emsp;[log10](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.log10.html)&emsp;[mult](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.mult.html)&emsp;[pow](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.pow.html)&emsp;[rad_to_deg](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.rad_to_deg.html)&emsp;[rem](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.rem.html)&emsp;[round](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.round.html)&emsp;[sign](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.sign.html)&emsp;[sqr](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.sqr.html)&emsp;[subt](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.subt.html)&emsp;[u64_to_f64](https://docs.rs/mathlab/latest/mathlab/functions/num/fn.u64_to_f64.html)
 
----
-
-- #### [vec](https://docs.rs/mathlab/latest/mathlab/functions/vec/index.html) <small>[15 items]</small>
+- ### [vec](https://docs.rs/mathlab/latest/mathlab/functions/vec/index.html)&emsp;<small>[ 15 items ]</small>
 
 |                                           function                                            |                                      function                                       |                                           function                                            |
 | :-------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: |
@@ -167,34 +165,32 @@ let my_add_f32 = add(0.1, 0.2) as f32;
 
 [inv_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec/fn.inv_vec.html)&emsp;[rad_to_deg_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec/fn.rad_to_deg_vec.html)&emsp;[round_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec/fn.round_vec.html)&emsp;[sign_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec/fn.sign_vec.html)&emsp;[sqr_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec/fn.sqr_vec.html)&emsp;[u64_to_f64_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec/fn.u64_to_f64_vec.html)
 
----
-
-- #### [num_vec](https://docs.rs/mathlab/latest/mathlab/functions/num_vec/index.html) <small>[6 items]</small>
+- ### [num_vec](https://docs.rs/mathlab/latest/mathlab/functions/num_vec/index.html)&emsp;<small>[ 6 items ]</small>
 
 |                                          function                                           |                                           function                                            |                                           function                                            |
 | :-----------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: |
 | [add_num_vec](https://docs.rs/mathlab/latest/mathlab/functions/num_vec/fn.add_num_vec.html) | [divi_num_vec](https://docs.rs/mathlab/latest/mathlab/functions/num_vec/fn.divi_num_vec.html) | [mult_num_vec](https://docs.rs/mathlab/latest/mathlab/functions/num_vec/fn.mult_num_vec.html) |
 | [pow_num_vec](https://docs.rs/mathlab/latest/mathlab/functions/num_vec/fn.pow_num_vec.html) |  [rem_num_vec](https://docs.rs/mathlab/latest/mathlab/functions/num_vec/fn.rem_num_vec.html)  | [subt_num_vec](https://docs.rs/mathlab/latest/mathlab/functions/num_vec/fn.subt_num_vec.html) |
 
-- #### [vec_num](https://docs.rs/mathlab/latest/mathlab/functions/vec_num/index.html) <small>[6 items]</small>
+- ### [vec_num](https://docs.rs/mathlab/latest/mathlab/functions/vec_num/index.html)&emsp;<small>[ 6 items ]</small>
 
 |                                          function                                           |                                           function                                            |                                           function                                            |
 | :-----------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: |
 | [add_vec_num](https://docs.rs/mathlab/latest/mathlab/functions/vec_num/fn.add_vec_num.html) | [divi_vec_num](https://docs.rs/mathlab/latest/mathlab/functions/vec_num/fn.divi_vec_num.html) | [mult_vec_num](https://docs.rs/mathlab/latest/mathlab/functions/vec_num/fn.mult_vec_num.html) |
 | [pow_vec_num](https://docs.rs/mathlab/latest/mathlab/functions/vec_num/fn.pow_vec_num.html) |  [rem_vec_num](https://docs.rs/mathlab/latest/mathlab/functions/vec_num/fn.rem_vec_num.html)  | [subt_vec_num](https://docs.rs/mathlab/latest/mathlab/functions/vec_num/fn.subt_vec_num.html) |
 
-- #### [vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/index.html) <small>[6 items]</small>
+- ### [vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/index.html)&emsp;<small>[ 6 items ]</small>
 
 |                                          function                                           |                                           function                                            |                                           function                                            |
 | :-----------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: |
 | [add_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.add_vec_vec.html) | [divi_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.divi_vec_vec.html) | [mult_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.mult_vec_vec.html) |
 | [pow_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.pow_vec_vec.html) |  [rem_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.rem_vec_vec.html)  | [subt_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.subt_vec_vec.html) |
 
-### 3. [math](https://docs.rs/mathlab/latest/mathlab/math/index.html) <small>[75 items]</small>
+### 3. [math](https://docs.rs/mathlab/latest/mathlab/math/index.html)&emsp;<small>[ 80 items ]</small>
 
 The math module contains all constants and functions.
 
-### [All Items](https://docs.rs/mathlab/latest/mathlab/all.html) <small>[75 items]</small>
+### [All Items](https://docs.rs/mathlab/latest/mathlab/all.html)&emsp;<small>[ 80 items ]</small>
 
 [![crates.io](https://img.shields.io/crates/v/mathlab.svg?style=for-the-badge&color=fc8d62&logo=rust)](https://crates.io/crates/mathlab)
 

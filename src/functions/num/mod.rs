@@ -1,4 +1,4 @@
-use crate::constants::{INF_F32, INF_F64, NINF_F32, NINF_F64, PI};
+use crate::constants::{E, INF_F32, INF_F64, NINF_F32, NINF_F64, PI};
 
 /// ### abs(x)
 ///
@@ -670,4 +670,111 @@ pub fn sqr(x: f64) -> f64 {
 /// <small>End Fun Doc</small>
 pub fn rem(x: f64, y: f64) -> f64 {
     x % y
+}
+
+/// ### exp(x)
+///
+/// Operation Function
+///
+/// The `exp` function defined as `pow(E, x)` raises the mathematical constant `e` to the power of `x`.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{exp, E};
+/// assert_eq!(exp(0.0), 1.0);
+/// assert_eq!(exp(-1.0), 0.36787944117144233);
+/// assert_eq!(exp(-1.0) as f32, 0.36787945);
+/// assert_eq!(exp(1.0), E);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn exp(x: f64) -> f64 {
+    pow(E, x)
+}
+
+/// ### ln(x)
+///
+/// Logarithm Function
+///
+/// The `ln` function returns the natural logarithm (base e) of the given float value 'x'.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{ln, E, INF_F64 as inf, LN10, is_nan_f64};
+/// assert!(is_nan_f64(ln(-inf)));
+/// assert_eq!(ln(0.0), -inf);
+/// assert_eq!(ln(1.0), 0.0);
+/// assert_eq!(ln(E), 1.0);
+/// assert_eq!(ln(10.0), 2.302585092994046);
+/// assert_eq!(ln(10.0), LN10);
+/// assert_eq!(-ln(1.5), -0.4054651081081644);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn ln(x: f64) -> f64 {
+    x.ln()
+}
+
+/// ### ln1p(x)
+///
+/// Logarithm Function
+///
+/// The `ln1p` returns `ln(1+x)` (natural logarithm) more accurately than if the operations were performed separately.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{ln1p, E, INF_F64 as inf, LN10, is_nan_f64};
+/// assert!(is_nan_f64(ln1p(-inf)));
+/// assert_eq!(ln1p(0.0), 0.0);
+/// assert_eq!(ln1p(1.0), 0.6931471805599453);
+/// assert_eq!(ln1p(E), 1.3132616875182228);
+/// assert_eq!(ln1p(10.0), 2.3978952727983707);
+/// assert_eq!(ln1p(LN10), 1.1947055233182953);
+/// assert_eq!(-ln1p(1.5), -0.9162907318741551);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn ln1p(x: f64) -> f64 {
+    x.ln_1p()
+}
+
+/// ### log2(x)
+///
+/// Logarithm Function
+///
+/// The `log2` computes the base-2 logarithm of the supplied float number 'x'.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{log2, E, INF_F64 as inf, LN10, is_nan_f64};
+/// assert!(is_nan_f64(log2(-inf)));
+/// assert_eq!(log2(0.0), -inf);
+/// assert_eq!(log2(1.0), 0.0);
+/// assert_eq!(log2(E), 1.4426950408889634);
+/// assert_eq!(log2(10.0), 3.321928094887362);
+/// assert_eq!(log2(LN10), 1.2032544726997219);
+/// assert_eq!(-log2(1.5), -0.5849625007211562);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn log2(x: f64) -> f64 {
+    x.log2()
+}
+
+/// ### log10(x)
+///
+/// Logarithm Function
+///
+/// The `log10` computes the base-10 logarithm of the supplied float number 'x'.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{log10, E, INF_F64 as inf, LN10, is_nan_f64};
+/// assert!(is_nan_f64(log10(-inf)));
+/// assert_eq!(log10(0.0), -inf);
+/// assert_eq!(log10(1.0), 0.0);
+/// assert_eq!(log10(E), 0.4342944819032518);
+/// assert_eq!(log10(10.0), 1.0);
+/// assert_eq!(log10(LN10), 0.36221568869946325);
+/// assert_eq!(-log10(1.5), -0.17609125905568124);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn log10(x: f64) -> f64 {
+    x.log10()
 }
