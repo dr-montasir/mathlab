@@ -1,3 +1,11 @@
+## 0.3.8
+
+- Added exp_vec function.
+- Added ln_vec function.
+- Added ln1p_vec function.
+- Added log2_vec function.
+- Added log10_vec function.
+
 ## 0.3.7
 
 - Added exp function.
@@ -119,7 +127,7 @@
 
 ## 0.1.1
 
-- Nothing changed
+- Nothing changed.
 
 ## 0.1.0
 

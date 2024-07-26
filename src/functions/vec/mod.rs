@@ -1,6 +1,6 @@
 use super::num::{
-    abs, ceil, deg_to_rad, f64_to_f32, fact, floor, fround, gamma, i64_to_f64, inv, rad_to_deg,
-    round, sign, sqr, u64_to_f64,
+    abs, ceil, deg_to_rad, exp, f64_to_f32, fact, floor, fround, gamma, i64_to_f64, inv, ln, ln1p,
+    log10, log2, rad_to_deg, round, sign, sqr, u64_to_f64,
 };
 
 /// ### abs_vec(x)
@@ -353,4 +353,103 @@ pub fn rad_to_deg_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn sqr_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| sqr(x)).collect()
+}
+
+/// ### exp_vec(x)
+///
+/// Operation Function
+///
+/// The `exp_vec` function applies the exponential function `exp(x)` to each element
+/// of a provided slice of floats, collects their results into a new vector.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{exp, exp_vec, E};
+/// assert_eq!(exp(0.0), 1.0);
+/// assert_eq!(exp(-1.0) as f32, 0.36787945);
+/// assert_eq!(exp_vec(&[-1.0, 0.0, 1.0]), &[0.36787944117144233, 1.0, E]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn exp_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| exp(x)).collect()
+}
+
+/// ### ln_vec(x)
+///
+/// Logarithm Function
+///
+/// The `ln_vec` function applies the natural logarithm `ln` to each element of a given slice of floats,
+/// producing a new vector containing the resultant values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{ln, ln_vec, is_nan_f64, E, INF_F64 as inf, LN10};
+/// assert!(is_nan_f64(ln(-inf)));
+/// assert_eq!(ln(10.0), 2.302585092994046);
+/// assert_eq!(ln_vec(&[0.0, 1.0, E, 10.0, 1.5]), &[-inf, 0.0, 1.0, LN10, 0.4054651081081644]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn ln_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| ln(x)).collect()
+}
+
+/// ### ln1p_vec(x)
+///
+/// Logarithm Function
+///
+/// The `ln1p_vec` function computes the natural logarithm (base e) of all elements in a slice,
+/// accounting for numerically stable evaluation near zero through the use of the "Lambert W" function,
+/// returns the results as a new vector.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{ln1p, ln1p_vec, is_nan_f64, E, INF_F64 as inf, LN10};
+/// assert!(is_nan_f64(ln1p(-inf)));
+/// assert_eq!(ln1p(0.0), 0.0);
+/// assert_eq!(ln1p(1.0), 0.6931471805599453);
+/// assert_eq!(ln1p_vec(&[0.0, 1.0, E, 10.0]), &[0.0, 0.6931471805599453, 1.3132616875182228, 2.3978952727983707]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn ln1p_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| ln1p(x)).collect()
+}
+
+/// ### log2_vec(x)
+///
+/// Logarithm Function
+///
+/// The `log2_vec` function applies the base-2 logarithm to each element of `x`,
+/// returning a new vector containing the results of these computations.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{log2, log2_vec, is_nan_f64, E, INF_F64 as inf, LN10};
+/// assert!(is_nan_f64(log2(-inf)));
+/// assert_eq!(log2(0.0), -inf);
+/// assert_eq!(log2(1.0), 0.0);
+/// assert_eq!(log2(E), 1.4426950408889634);
+/// assert_eq!(log2_vec(&[0.0, 1.0, E, LN10]), &[-inf, 0.0, 1.4426950408889634, 1.2032544726997219]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn log2_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| log2(x)).collect()
+}
+
+/// ### log10_vec(x)
+///
+/// Logarithm Function
+///
+/// The `log10_vec` function applies the base-10 logarithm to each element of `x`,
+/// returning a new vector containing the results of these computations.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{log10, log10_vec, is_nan_f64, E, INF_F64 as inf,};
+/// assert!(is_nan_f64(log10(-inf)));
+/// assert_eq!(log10(E), 0.4342944819032518);
+/// assert_eq!(log10_vec(&[0.0, 1.5, 10.0]), &[-inf, 0.17609125905568124, 1.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn log10_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| log10(x)).collect()
 }
