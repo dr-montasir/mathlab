@@ -778,3 +778,27 @@ pub fn log2(x: f64) -> f64 {
 pub fn log10(x: f64) -> f64 {
     x.log10()
 }
+
+/// ### fix64(x)
+///
+/// Fixation function
+///
+/// The `fix64` function, takes a `64-bit floating-point number` (a double precision value) as input
+/// and returns an equivalent `fixed-point value` with `the same bit width`. To achieve this conversion,
+/// the input float is first converted to a 32-bit floating-point type (an f32) using (as f32) method. Then,
+/// this intermediate value is converted back to a string representation using to_string(),
+/// parsed as an f32 again, and finally returned as an `f64`.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::fix64;
+/// // assert_eq!(fix64("abc"), 0.3); // error: expected `f64`, found `&str`
+/// // assert_eq!(fix64("0.1"), 0.3); // error: expected `f64`, found `&str`
+/// // assert_eq!(fix64(1), 0.3); // error: expected `f64`, found integer
+/// assert_eq!(fix64(0.1 + 0.2), 0.3);
+/// assert_eq!(fix64(0.30000000000000004), 0.3);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn fix64(x: f64) -> f64 {
+    ((x) as f32).to_string().parse().expect("")
+}

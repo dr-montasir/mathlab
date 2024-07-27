@@ -1,3 +1,10 @@
+## 0.3.9
+
+- Optimized the vector size of the the monolist function.
+- Added fix64 function.
+- Added fix64_vec function.
+- Added range function.
+
 ## 0.3.8
 
 - Added exp_vec function.

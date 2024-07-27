@@ -1,6 +1,6 @@
 use super::num::{
-    abs, ceil, deg_to_rad, exp, f64_to_f32, fact, floor, fround, gamma, i64_to_f64, inv, ln, ln1p,
-    log10, log2, rad_to_deg, round, sign, sqr, u64_to_f64,
+    abs, ceil, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln,
+    ln1p, log10, log2, rad_to_deg, round, sign, sqr, u64_to_f64,
 };
 
 /// ### abs_vec(x)
@@ -452,4 +452,26 @@ pub fn log2_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn log10_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| log10(x)).collect()
+}
+
+/// ### fix64_vec(x)
+///
+/// Fixation function
+///
+/// The `fix64_vec` function converts a slice of `double precision floats` to their equivalent
+/// `fixed-point values` with `the same bit width`, returning them as a new vector.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{fix64, fix64_vec};
+/// // assert_eq!(fix64("abc"), 0.3); // error: expected `f64`, found `&str`
+/// // assert_eq!(fix64("0.1"), 0.3); // error: expected `f64`, found `&str`
+/// // assert_eq!(fix64(1), 0.3); // error: expected `f64`, found integer
+/// assert_eq!(fix64(0.1 + 0.2), 0.3);
+/// assert_eq!(fix64(0.30000000000000004), 0.3);
+/// assert_eq!(fix64_vec(&[0.3, 0.30000000000000004, 0.1 + 0.2]), [0.3, 0.3, 0.3]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn fix64_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| fix64(x)).collect()
 }
