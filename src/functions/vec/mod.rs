@@ -1,11 +1,12 @@
 use super::num::{
-    abs, ceil, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln,
-    ln1p, log10, log2, rad_to_deg, round, sign, sqr, u64_to_f64,
+    abs, cbrt, ceil, cos, cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma,
+    i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round, sign, sin, sqr, tan, trunc,
+    u64_to_f64,
 };
 
 /// ### abs_vec(x)
 ///
-/// Array Function with One Parameter
+/// Native Function
 ///
 /// The `abs_vec` function takes a single parameter, a slice of floating-point numbers (`&[f64]`),
 /// and returns a vector (`Vec<f64>`) containing the absolute values of each element in the input slice.
@@ -56,7 +57,7 @@ pub fn abs_vec(x: &[f64]) -> Vec<f64> {
 
 /// ### sign_vec(x)
 ///
-/// Array Function with One Parameter
+/// Native Function
 ///
 /// The `sign_vec` function takes a slice of floating-point numbers (`&[f64]`)
 /// and returns a vector (`Vec<f64>`) containing the sign of each element in the input slice.
@@ -76,7 +77,7 @@ pub fn sign_vec(x: &[f64]) -> Vec<f64> {
 
 /// ### fact_vec(x)
 ///
-/// Array Function with One Parameter
+/// Native Function
 ///
 /// The `fact_vec` function takes a slice of `unsigned` `64-bit` integers
 /// and returns a vector containing the factorial of each element in the input slice.
@@ -100,7 +101,7 @@ pub fn fact_vec(x: &[u64]) -> Vec<u64> {
 
 /// ### gamma_vec(x)
 ///
-/// Array Function with One Parameter
+/// Extended Factorial Function
 ///
 /// The `gamma_vec` function takes a slice of `64-bit unsigned` integers (`&[u64]`)
 /// and returns a vector of `64-bit unsigned` integers (`Vec<u64]`).
@@ -123,7 +124,7 @@ pub fn gamma_vec(x: &[u64]) -> Vec<u64> {
 
 /// ### inv_vec(x)
 ///
-/// Native function
+/// Native Function
 ///
 /// The `inv_vec` function takes a slice of floating-point numbers `x` and
 /// returns a new vector containing the inverses of each element in `x`
@@ -144,7 +145,7 @@ pub fn inv_vec(x: &[f64]) -> Vec<f64> {
 
 /// ### floor_vec(x)
 ///
-/// Array Function with One Parameter
+/// Rounding Function
 ///
 /// The `floor_vec` function takes a slice of `f64` values as input and returns
 /// a `Vec<f64>` where each element is the floor value of the corresponding input element.
@@ -164,7 +165,7 @@ pub fn floor_vec(x: &[f64]) -> Vec<f64> {
 
 /// ### ceil_vec(x)
 ///
-/// Array Function with One Parameter
+/// Rounding Function
 ///
 /// The `ceil_vec` function takes a slice of `f64` values as input and returns
 /// a `Vec<f64>` where each element is the ceiling value of the corresponding input element.
@@ -184,7 +185,7 @@ pub fn ceil_vec(x: &[f64]) -> Vec<f64> {
 
 /// ### round_vec(x)
 ///
-/// Array Function with One Parameter
+/// Rounding Function
 ///
 /// The `round_vec` function takes a slice of `f64` values as input and returns
 /// a `Vec<f64>` where each element is the rounded value of the corresponding input element.
@@ -206,7 +207,7 @@ pub fn round_vec(x: &[f64]) -> Vec<f64> {
 
 /// ### fround_vec(x)
 ///
-/// Array Function with One Parameter
+/// Rounding Function
 ///
 /// The `fround_vec` function takes a slice of `f64` values as input and returns
 /// a `Vec<f32>` where each element is the `f32` representation of the corresponding input element.
@@ -229,7 +230,7 @@ pub fn fround_vec(x: &[f64]) -> Vec<f32> {
 
 /// ### f64_to_f32_vec(x)
 ///
-/// Array Function with One Parameter
+/// Conversion Function
 ///
 /// The `f64_to_f32_vec` function takes a slice of `f64` values as input and returns
 /// a `Vec<f32>` where each element is the `f32` representation of the corresponding input element.
@@ -252,7 +253,7 @@ pub fn f64_to_f32_vec(x: &[f64]) -> Vec<f32> {
 
 /// ### u64_to_f64_vec(x)
 ///
-/// Array Function with One Parameter
+/// Conversion Function
 ///
 /// The `u64_to_f64_vec` function takes a slice of `u64` values as input
 /// and returns a `Vec<f64>` where each element is the `f64`
@@ -272,7 +273,7 @@ pub fn u64_to_f64_vec(x: &[u64]) -> Vec<f64> {
 
 /// ### i64_to_f64_vec(x)
 ///
-/// Array Function with One Parameter
+/// Conversion Function
 ///
 /// The `i64_to_f64_vec` function takes a slice of `i64` values as input
 /// and returns a `Vec<f64>` where each element is the `f64`
@@ -292,7 +293,7 @@ pub fn i64_to_f64_vec(x: &[i64]) -> Vec<f64> {
 
 /// ### deg_to_rad_vec(x)
 ///
-/// Array Function with One Parameter
+/// Conversion Function
 ///
 /// The `deg_to_rad_vec` function takes a slice of `f64` values
 /// representing `angles` in `degrees` and returns a `Vec<f64>`
@@ -313,7 +314,7 @@ pub fn deg_to_rad_vec(x: &[f64]) -> Vec<f64> {
 
 /// ### rad_to_deg_vec(x)
 ///
-/// Appending a Float Value to a Vector of Floats
+/// Conversion Function
 ///
 /// The `rad_to_deg_vec` function takes a slice of `f64` values
 /// representing `angles` in `radians` and returns a `Vec<f64>`
@@ -322,13 +323,10 @@ pub fn deg_to_rad_vec(x: &[f64]) -> Vec<f64> {
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::{rad_to_deg, rad_to_deg_vec, f64_to_f32_vec, fround_vec};
+/// use mathlab::math::{rad_to_deg, rad_to_deg_vec};
 /// let my_x_f64_array = [0.0, 0.017453292519943295, 0.5235987755982988, 0.7853981633974483, 1.0471975511965976, 1.5707963267948966, 3.141592653589793, 6.283185307179586, -6.283185307179586];
-/// assert_eq!(rad_to_deg(0.5235987755982988), 29.999999999999996);
-/// assert_eq!(rad_to_deg(0.5235987755982988) as f32, 30.0);
-/// assert_eq!(rad_to_deg_vec(&my_x_f64_array), [0.0, 1.0, 29.999999999999996, 45.0, 59.99999999999999, 90.0, 180.0, 360.0, -360.0]);
-/// assert_eq!(f64_to_f32_vec(&rad_to_deg_vec(&my_x_f64_array)), [0.0, 1.0, 30.0, 45.0, 60.0, 90.0, 180.0, 360.0, -360.0]);
-/// assert_eq!(fround_vec(&rad_to_deg_vec(&my_x_f64_array)), [0.0, 1.0, 30.0, 45.0, 60.0, 90.0, 180.0, 360.0, -360.0]);
+/// assert_eq!(rad_to_deg(0.5235987755982988), 30.0);
+/// assert_eq!(rad_to_deg_vec(&my_x_f64_array), [0.0, 1.0, 30.0, 45.0, 60.0, 90.0, 180.0, 360.0, -360.0]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn rad_to_deg_vec(x: &[f64]) -> Vec<f64> {
@@ -337,7 +335,7 @@ pub fn rad_to_deg_vec(x: &[f64]) -> Vec<f64> {
 
 /// ### sqr_vec(x)
 ///
-/// Native function
+/// Native Function
 ///
 /// The `sqr_vec` function applies the `sqr` operation to every element of a provided slice of floats,
 /// collecting their squares into a new vector.
@@ -456,7 +454,7 @@ pub fn log10_vec(x: &[f64]) -> Vec<f64> {
 
 /// ### fix64_vec(x)
 ///
-/// Fixation function
+/// Fixation Function
 ///
 /// The `fix64_vec` function converts a slice of `double precision floats` to their equivalent
 /// `fixed-point values` with `the same bit width`, returning them as a new vector.
@@ -474,4 +472,112 @@ pub fn log10_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn fix64_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| fix64(x)).collect()
+}
+
+/// ### cube_vec(x)
+///
+/// Native Function
+///
+/// The `cube_vec` function applies the cube operation elementwise to each
+/// number in input vector x, returning a new vector containing the results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{cube_vec, fix64_vec};
+/// assert_eq!(cube_vec(&[0.0, 0.1, 0.2]), [0.0, 0.0010000000000000002, 0.008000000000000002]);
+/// assert_eq!(fix64_vec(&cube_vec(&[0.0, 0.1, 0.2])), [0.0, 0.001, 0.008]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cube_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| cube(x)).collect()
+}
+
+/// ### cbrt_vec(x)
+///
+/// Native Function
+///
+/// The `cbrt_vec` function maps the cbrt function over each element in the provided float slice,
+/// collecting the resulting values into a new vector.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{cbrt_vec, fix64_vec};
+/// assert_eq!(cbrt_vec(&[0.0, 0.001, 0.008]), [0.0, 0.1, 0.2]);
+/// assert_eq!(cbrt_vec(&[8.0, 27.0]), [2.0, 3.0000000000000004]);
+/// assert_eq!(fix64_vec(&cbrt_vec(&[8.0, 27.0])), [2.0, 3.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cbrt_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| cbrt(x)).collect()
+}
+
+/// ### trunc_vec(x)
+///
+/// Rounding Function
+///
+/// The `trunc_vec` function performs rounding downwards (i.e. Truncation) on every single-precision
+/// floating-point number in the input slice, gathering the outcomes into a new vector.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::trunc_vec;
+/// assert_eq!(trunc_vec(&[-0.37, 0.37, -3.7, 3.7]), [0.0, 0.0, -3.0, 3.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn trunc_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| trunc(x)).collect()
+}
+
+/// ### sin_vec(x)
+///
+/// Trigonometric Function
+///
+/// The `sin_vec` function calculates the sine value of each angle represented as a radian in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sin_vec, deg_to_rad_vec};
+/// assert_eq!(sin_vec(&[0.0, 9.999e-15, 1e-14, 0.5235987755982988]), [0.0, 0.0, 1e-14, 0.5]);
+/// assert_eq!(sin_vec(&deg_to_rad_vec(&[0.0, 5.7295775e-13, 5.7295780e-13, 30.0])), [0.0, 0.0, 1e-14, 0.5]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sin_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| sin(x)).collect()
+}
+
+/// ### cos_vec(x)
+///
+/// Trigonometric Function
+///
+/// The `cos_vec` function calculates the cosine value of each angle represented as a radian in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{cos_vec, deg_to_rad_vec};
+/// assert_eq!(cos_vec(&[0.0, 9.999e-15, 1e-14, 1.0471975511965976]), [1.0, 1.0, 1.0, 0.5]);
+/// assert_eq!(cos_vec(&deg_to_rad_vec(&[0.0, 5.7295775e-13, 5.7295780e-13, 60.0])), [1.0, 1.0, 1.0, 0.5]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cos_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| cos(x)).collect()
+}
+
+/// ### tan_vec(x)
+///
+/// Trigonometric Function
+///
+/// The `tan_vec` function calculates the tangent value of each angle represented as a radian in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{tan_vec, deg_to_rad_vec};
+/// assert_eq!(tan_vec(&[0.0, 9.999e-15, 1e-14, 0.7853981633974483]), [0.0, 0.0, 1e-14, 1.0]);
+/// assert_eq!(tan_vec(&deg_to_rad_vec(&[0.0, 5.7295775e-13, 5.7295780e-13, 45.0])), [0.0, 0.0, 1e-14, 1.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn tan_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| tan(x)).collect()
 }

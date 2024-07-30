@@ -9,16 +9,14 @@ use super::num::fix64;
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::{monolist, fix64, f64_to_f32_vec, fround_vec};
+/// use mathlab::math::{monolist, fix64};
 /// assert_eq!(monolist(0.1, 0), []);
 /// assert_eq!(monolist(0.1, 1000000000), monolist(0.1, 1000000000)); // if size > 1 million {  function will replace size with 0 } -> []
 /// assert_eq!(monolist(-1.0, 2), [-1.0, -1.0]);
 /// assert_eq!(monolist(0.0, 2), [0.0, 0.0]);
-/// assert_eq!(monolist(1.0, 2), [1.0, 1.0]); // How to prevent 0.1 + 0.2 = 0.30000000000000004 using `fix64` function.
-/// assert_eq!(monolist(fix64(0.1 + 0.2), 2), [0.3, 0.3]);
-/// assert_eq!(monolist(0.30000000000000004, 2), [0.30000000000000004, 0.30000000000000004]);
-/// assert_eq!(f64_to_f32_vec(&monolist(0.30000000000000004, 2)), [0.3, 0.3]);
-/// assert_eq!(fround_vec(&monolist(0.30000000000000004, 2)), [0.3, 0.3]);
+/// assert_eq!(monolist(1.0, 2), [1.0, 1.0]);
+/// assert_eq!(monolist(0.1 + 0.2, 2), [0.3, 0.3]);
+/// assert_eq!(monolist(0.30000000000000004, 2), [0.3, 0.3]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn monolist(x: f64, mut size: usize) -> Vec<f64> {
@@ -27,7 +25,7 @@ pub fn monolist(x: f64, mut size: usize) -> Vec<f64> {
     }
     let mut vector = Vec::with_capacity(size);
     for _i in 0..size {
-        vector.push(x)
+        vector.push(fix64(x))
     }
     vector
 }

@@ -2,7 +2,7 @@ use crate::constants::{E, INF_F32, INF_F64, NINF_F32, NINF_F64, PI};
 
 /// ### abs(x)
 ///
-/// Native function
+/// Native Function
 ///
 /// The `abs` function returns the absolute value of a number.
 ///
@@ -25,7 +25,7 @@ pub fn abs(x: f64) -> f64 {
 
 /// ### sign(x)
 ///
-/// Native function
+/// Native Function
 ///
 /// The `sign` function returns only one of three possible values: `−1`, `0` or `1`.
 /// ### Examples
@@ -51,7 +51,7 @@ pub fn sign(x: f64) -> f64 {
 
 /// ### floor(x)
 ///
-/// Rounding function
+/// Rounding Function
 ///
 /// The `floor` function returns the largest integer less than or equal to a given floating-point number.
 ///
@@ -72,7 +72,7 @@ pub fn floor(x: f64) -> f64 {
 
 /// ### ceil(x)
 ///
-/// Rounding function
+/// Rounding Function
 ///
 /// The `ceil` function rounds a number up to the nearest integer greater than or equal to it.
 ///
@@ -93,7 +93,7 @@ pub fn ceil(x: f64) -> f64 {
 
 /// ### round(x)
 ///
-/// Rounding function
+/// Rounding Function
 ///
 /// The `round` function aligns a number to the closest integer,
 /// adjusting fractions of `0.5` or greater up, and less than `0.5` down.
@@ -134,7 +134,7 @@ pub fn round(x: f64) -> f64 {
 
 /// ### fround(x)
 ///
-/// Rounding function
+/// Rounding Function
 ///
 /// The `fround` function performs the same operation as the `f64_to_f32` function.
 ///
@@ -156,7 +156,7 @@ pub fn fround(x: f64) -> f32 {
 
 /// ### f64_to_f32(x)
 ///
-/// Rounding function
+/// Rounding Function
 ///
 /// The `f64_to_f32` function performs the same operation as the `fround` function.
 ///
@@ -178,7 +178,7 @@ pub fn f64_to_f32(x: f64) -> f32 {
 
 /// ### u64_to_f64(x)
 ///
-/// Conversion function
+/// Conversion Function
 ///
 /// The `u64_to_f64` function takes a u64 value as input and returns its `f64` representation.
 ///
@@ -197,7 +197,7 @@ pub fn u64_to_f64(x: u64) -> f64 {
 
 /// ### i64_to_f64(x)
 ///
-/// Conversion function
+/// Conversion Function
 ///
 /// The `i64_to_f64` function takes a i64 value as input and returns its `f64` representation.
 ///
@@ -349,7 +349,7 @@ pub fn is_ninf_f64(x: f64) -> bool {
 
 /// ### fact(x)
 ///
-/// Native function
+/// Native Function
 ///
 /// The factorial function, denoted as `n!`, is a mathematical function
 /// that multiplies a given positive integer n by all the positive integers less than it.
@@ -386,7 +386,7 @@ pub fn fact(x: u64) -> u64 {
 
 /// ### gamma(x)
 ///
-/// Extended factorial function
+/// Extended Factorial Function
 ///
 /// `Γ(n)` is a way to extend the factorial function to all complex numbers
 /// except the negative integers and zero.
@@ -420,7 +420,7 @@ pub fn gamma(x: u64) -> u64 {
 
 /// ### inv(x)
 ///
-/// Native function
+/// Native Function
 ///
 /// The `inv` function returns the inverse of `x`.
 ///
@@ -440,17 +440,20 @@ pub fn inv(x: f64) -> f64 {
 
 /// ### add(x, y)
 ///
-/// Native function
+/// Native Function
 ///
 /// The `add` function returns the sum of `x` and `y`.
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::add;
+/// use mathlab::math::{add, fix64};
 /// assert_eq!(add(1.0, 2.0), 3.0);
 /// assert_eq!(add(0.1, 0.2), 0.30000000000000004);
 /// assert_eq!(add(0.1, 0.2) as f64, 0.30000000000000004);
-/// assert_eq!(add(0.1, 0.2) as f32, 0.3);
+/// assert_eq!(add(0.1, 0.2) as f32, 0.3); // 0.3 -> f32
+/// assert_eq!(fix64(add(0.1, 0.2)), 0.3); // 0.3 -> f64
+/// assert_eq!(0.1 + 0.2, 0.30000000000000004);
+/// assert_eq!(fix64(0.1 + 0.2), 0.3); // 0.3 -> f64
 /// ```
 /// <small>End Fun Doc</small>
 pub fn add(x: f64, y: f64) -> f64 {
@@ -459,18 +462,19 @@ pub fn add(x: f64, y: f64) -> f64 {
 
 /// ### subt(x, y)
 ///
-/// Native function
+/// Native Function
 ///
 /// The `subt` function is a mathematical operation that subtracts the value of `y` from `x`.
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::{subt, is_nan_f64, NAN_F64, INF_F64, NINF_F64};
+/// use mathlab::math::{subt, fix64, is_nan_f64, NAN_F64, INF_F64, NINF_F64};
 /// assert_eq!(subt(1.0, 2.0), -1.0);
 /// assert_eq!(subt(1.0, 2.0), -1.0);
 /// assert_eq!(subt(0.3, 0.2), 0.09999999999999998);
 /// assert_eq!(subt(0.3, 0.2) as f64, 0.09999999999999998);
-/// assert_eq!(subt(0.3, 0.2) as f32, 0.1);
+/// assert_eq!(subt(0.3, 0.2) as f32, 0.1); // 0.1 -> f32
+/// assert_eq!(fix64(subt(0.3, 0.2)), 0.1); // 0.1 -> f64
 /// assert!(is_nan_f64(subt(NAN_F64, 2.0)));
 /// assert_eq!(subt(INF_F64, 2.0), INF_F64);
 /// assert_eq!(subt(1.0, INF_F64), -INF_F64);
@@ -483,17 +487,17 @@ pub fn subt(x: f64, y: f64) -> f64 {
 
 /// ### mult(x, y)
 ///
-/// Native function
+/// Native Function
 ///
 /// The `mult` function is a mathematical operation that multiplies the value of `x` by `y`.
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::{mult, is_nan_f64, NAN_F64, INF_F64, NINF_F64};
+/// use mathlab::math::{mult, fix64, is_nan_f64, NAN_F64, INF_F64, NINF_F64};
 /// assert_eq!(mult(2.0, 3.0), 6.0);
 /// assert_eq!(mult(0.1, 0.2), 0.020000000000000004);
-/// assert_eq!(mult(0.1, 0.2) as f64, 0.020000000000000004);
-/// assert_eq!(mult(0.1, 0.2) as f32, 0.02);
+/// assert_eq!(mult(0.1, 0.2) as f32, 0.02); // 0.02 -> f32
+/// assert_eq!(fix64(mult(0.1, 0.2)), 0.02); // 0.02 -> f64
 /// assert!(is_nan_f64(mult(NAN_F64, 2.0)));
 /// assert_eq!(mult(INF_F64, 2.0), INF_F64);
 /// assert_eq!(mult(-1.0, INF_F64), -INF_F64);
@@ -506,16 +510,16 @@ pub fn mult(x: f64, y: f64) -> f64 {
 
 /// ### divi(x, y)
 ///
-/// Native function
+/// Native Function
 ///
 /// The `divi` function is a mathematical operation that divides the value of `x` by `y`.
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::{divi, is_nan_f64, is_inf_f64, is_ninf_f64, is_ninf_f32, NAN_F64, INF_F64, NINF_F64};
+/// use mathlab::math::{divi, fix64, is_nan_f64, is_inf_f64, is_ninf_f64, is_ninf_f32, NAN_F64, INF_F64, NINF_F64};
 /// assert_eq!(divi(2.0, 3.0), 0.6666666666666666);
-/// assert_eq!(divi(2.0, 3.0) as f32, 0.6666667);
-/// assert_eq!(divi(2.0, 3.0) as f32, 0.6666667 as f32);
+/// assert_eq!(divi(2.0, 3.0) as f32, 0.6666667); // 0.6666667 -> f32
+/// assert_eq!(fix64(divi(2.0, 3.0)), 0.6666667); // 0.6666667 -> f64
 /// assert_eq!(divi(0.3, 0.6), 0.5);
 /// assert_eq!(divi(0.3, 0.6) as f64, 0.5);
 /// assert_eq!(divi(0.3, 0.6) as f32, 0.5);
@@ -537,7 +541,7 @@ pub fn divi(x: f64, y: f64) -> f64 {
 
 /// ### pow(x, y)
 ///
-/// Native function
+/// Native Function
 ///
 /// The `pow` function is a mathematical function that computes the power of a number.
 ///
@@ -564,7 +568,7 @@ pub fn pow(x: f64, y: f64) -> f64 {
 
 /// ### deg_to_rad(x)
 ///
-/// Conversion function
+/// Conversion Function
 ///
 /// The `deg_to_rad` function converts an `angle` from `degrees` to `radians`.
 /// This is useful in `trigonometric` calculations, where `angles` are often required in `radians`.
@@ -589,40 +593,32 @@ pub fn deg_to_rad(x: f64) -> f64 {
 
 /// ### rad_to_deg(x)
 ///
-/// Conversion function
+/// Conversion Function
 ///
 /// The `rad_to_deg` function converts an `angle` from `radians` to `degrees`.
 /// This is useful in `trigonometric` calculations, where `angles` are often required in `degrees`.
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::rad_to_deg;
+/// use mathlab::math::{rad_to_deg, fix64};
 /// assert_eq!(rad_to_deg(0.0), 0.0);
 /// assert_eq!(rad_to_deg(0.017453292519943295), 1.0);
-/// assert_eq!(rad_to_deg(0.017453292519943295) as f32, 1.0);
-/// assert_eq!(rad_to_deg(0.5235987755982988), 29.999999999999996);
-/// assert_eq!(rad_to_deg(0.5235987755982988) as f32, 30.0);
+/// assert_eq!(rad_to_deg(0.5235987755982988), 30.0);
 /// assert_eq!(rad_to_deg(0.7853981633974483), 45.0);
-/// assert_eq!(rad_to_deg(0.7853981633974483) as f32, 45.0);
-/// assert_eq!(rad_to_deg(1.0471975511965976), 59.99999999999999);
-/// assert_eq!(rad_to_deg(1.0471975511965976) as f32, 60.0);
+/// assert_eq!(rad_to_deg(1.0471975511965976), 60.0);
 /// assert_eq!(rad_to_deg(1.5707963267948966), 90.0);
-/// assert_eq!(rad_to_deg(1.5707963267948966) as f32, 90.0);
 /// assert_eq!(rad_to_deg(3.141592653589793), 180.0);
-/// assert_eq!(rad_to_deg(3.141592653589793) as f32, 180.0);
 /// assert_eq!(rad_to_deg(6.283185307179586), 360.0);
-/// assert_eq!(rad_to_deg(6.283185307179586) as f32, 360.0);
 /// assert_eq!(rad_to_deg(-6.283185307179586), -360.0);
-/// assert_eq!(rad_to_deg(-6.283185307179586) as f32, -360.0);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn rad_to_deg(x: f64) -> f64 {
-    x * 180.0 / PI
+    fix64(x * 180.0 / PI)
 }
 
 /// ### sqr(x)
 ///
-/// Native function
+/// Native Function
 ///
 /// The `sqr` function calculates its square by multiplying it with itself.
 ///
@@ -650,7 +646,7 @@ pub fn sqr(x: f64) -> f64 {
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::{rem, is_nan_f64, INF_F64};
+/// use mathlab::math::{rem, fix64, is_nan_f64, INF_F64};
 /// assert!(is_nan_f64(rem(0.0, 0.0)));
 /// assert!(is_nan_f64(rem(1.0, 0.0)));
 /// assert!(is_nan_f64(rem(INF_F64, 0.0)));
@@ -660,7 +656,8 @@ pub fn sqr(x: f64) -> f64 {
 /// assert_eq!(rem(0.0, INF_F64), 0.0);
 /// assert_eq!(rem(2.0, INF_F64), 2.0);
 /// assert_eq!(rem(1.0, 0.1), 0.09999999999999995);
-/// assert_eq!(rem(1.0, 0.1) as f32, 0.1);
+/// assert_eq!(rem(1.0, 0.1) as f32, 0.1); // f32
+/// assert_eq!(fix64(rem(1.0, 0.1)), 0.1); // f64
 /// assert_eq!(rem(0.0, 3.0), 0.0);
 /// assert_eq!(rem(1.0, 3.0), 1.0);
 /// assert_eq!(rem(2.0, 3.0), 2.0);
@@ -781,7 +778,7 @@ pub fn log10(x: f64) -> f64 {
 
 /// ### fix64(x)
 ///
-/// Fixation function
+/// Fixation Function
 ///
 /// The `fix64` function, takes a `64-bit floating-point number` (a double precision value) as input
 /// and returns an equivalent `fixed-point value` with `the same bit width`. To achieve this conversion,
@@ -795,10 +792,188 @@ pub fn log10(x: f64) -> f64 {
 /// // assert_eq!(fix64("abc"), 0.3); // error: expected `f64`, found `&str`
 /// // assert_eq!(fix64("0.1"), 0.3); // error: expected `f64`, found `&str`
 /// // assert_eq!(fix64(1), 0.3); // error: expected `f64`, found integer
+/// assert_eq!(0.1 + 0.2, 0.30000000000000004);
+/// assert_eq!(0.3 - 0.2, 0.09999999999999998);
 /// assert_eq!(fix64(0.1 + 0.2), 0.3);
+/// assert_eq!(fix64(0.3 - 0.2), 0.1);
 /// assert_eq!(fix64(0.30000000000000004), 0.3);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn fix64(x: f64) -> f64 {
     ((x) as f32).to_string().parse().expect("")
+}
+
+/// ### cube(x)
+///
+/// Native Function
+///
+/// The `cube` function computes the value of `x` raised to the power of three,
+/// which is equivalent to multiplying `x` by itself three times.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{cube, fix64};
+/// assert_eq!(cube(0.1), 0.0010000000000000002);
+/// assert_eq!(fix64(cube(0.1)), 0.001);
+/// assert_eq!(cube(2.0), 8.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cube(x: f64) -> f64 {
+    x * x * x
+}
+
+/// ### cbrt(x)
+///
+/// Native Function
+///
+/// The `cbrt` function computes the real cube root of the given floating-point number `x`.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::cbrt;
+/// assert_eq!(cbrt(0.001), 0.1);
+/// assert_eq!(cbrt(8.0), 2.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cbrt(x: f64) -> f64 {
+    x.cbrt()
+}
+
+/// ### trunc(x)
+///
+/// Rounding Function
+///
+/// The `trunc` function returns the integer part of self.
+/// This means that non-integer numbers are always truncated towards zero.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::trunc;
+/// assert_eq!(trunc(-0.37), 0.0);
+/// assert_eq!(trunc(0.37), 0.0);
+/// assert_eq!(trunc(-3.7), -3.0);
+/// assert_eq!(trunc(3.7), 3.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn trunc(x: f64) -> f64 {
+    x.trunc()
+}
+
+/// ### sin(x)
+///
+/// Trigonometric Function
+///
+/// The `sin` function computes the sine of a number (in radians).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sin, deg_to_rad};
+/// // x in radians.
+/// assert_eq!(sin(0.0), 0.0);
+/// assert_eq!(sin(9.999e-15), 0.0);
+/// assert_eq!(sin(1e-14), 1e-14);
+/// assert_eq!(sin(0.5235987755982988), 0.5);
+/// assert_eq!(sin(0.7853981633974483), 0.70710677);
+/// assert_eq!(sin(1.0471975511965976), 0.8660254);
+/// assert_eq!(sin(1.5707963267948966), 1.0);
+/// assert_eq!(sin(3.141592653589793), 0.0);
+/// assert_eq!(sin(4.71238898038469), -1.0);
+/// assert_eq!(sin(6.283185307179586), 0.0);
+/// // If x is in degrees, use the deg_to_rad function.
+/// assert_eq!(sin(deg_to_rad(0.0)), 0.0);
+/// assert_eq!(sin(deg_to_rad(5.7295775e-13)), 0.0);   // 5.7295775e-13 deg = 9.999999e-15 rad
+/// assert_eq!(sin(deg_to_rad(5.7295780e-13)), 1e-14); // 5.7295780e-13 deg = 1e-14 rad
+/// assert_eq!(sin(deg_to_rad(30.0)), 0.5);
+/// assert_eq!(sin(deg_to_rad(45.0)), 0.70710677);
+/// assert_eq!(sin(deg_to_rad(60.0)), 0.8660254);
+/// assert_eq!(sin(deg_to_rad(90.0)), 1.0);
+/// assert_eq!(sin(deg_to_rad(180.0)), 0.0);
+/// assert_eq!(sin(deg_to_rad(270.0)), -1.0);
+/// assert_eq!(sin(deg_to_rad(360.0)), 0.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sin(x: f64) -> f64 {
+    if abs(x.sin()) < 1e-14 {
+        0.0
+    } else {
+        fix64(x.sin())
+    }
+}
+
+/// ### cos(x)
+///
+/// Trigonometric Function
+///
+/// The `cos` function computes the cosine of a number (in radians).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{cos, deg_to_rad};
+/// // x in radians.
+/// assert_eq!(cos(0.0), 1.0);
+/// assert_eq!(cos(9.999e-15), 1.0);
+/// assert_eq!(cos(1e-14), 1.0);
+/// assert_eq!(cos(0.5235987755982988), 0.8660254);
+/// assert_eq!(cos(0.7853981633974483), 0.70710677);
+/// assert_eq!(cos(1.0471975511965976), 0.5);
+/// assert_eq!(cos(1.5707963267948966), 0.0);
+/// assert_eq!(cos(3.141592653589793), -1.0);
+/// assert_eq!(cos(4.71238898038469), 0.0);
+/// assert_eq!(cos(6.283185307179586), 1.0);
+/// // If x is in degrees, use the deg_to_rad function.
+/// assert_eq!(cos(deg_to_rad(0.0)), 1.0);
+/// assert_eq!(cos(deg_to_rad(5.7295775e-13)), 1.0); // 5.7295775e-13 deg = 9.999999e-15 rad
+/// assert_eq!(cos(deg_to_rad(5.7295780e-13)), 1.0); // 5.7295780e-13 deg = 1e-14 rad
+/// assert_eq!(cos(deg_to_rad(30.0)), 0.8660254);
+/// assert_eq!(cos(deg_to_rad(45.0)), 0.70710677);
+/// assert_eq!(cos(deg_to_rad(60.0)), 0.5);
+/// assert_eq!(cos(deg_to_rad(90.0)), 0.0);
+/// assert_eq!(cos(deg_to_rad(180.0)), -1.0);
+/// assert_eq!(cos(deg_to_rad(270.0)), 0.0);
+/// assert_eq!(cos(deg_to_rad(360.0)), 1.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cos(x: f64) -> f64 {
+    if abs(x.cos()) >= 1e-14 {
+        fix64(x.cos())
+    } else {
+        0.0
+    }
+}
+
+/// ### tan(x)
+///
+/// Trigonometric Function
+///
+/// The `tan` function computes the tangent of a number (in radians).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{tan, deg_to_rad, INF_F64 as inf};
+/// // x in radians.
+/// assert_eq!(tan(0.0), 0.0);
+/// assert_eq!(tan(9.999e-15), 0.0);
+/// assert_eq!(tan(1e-14), 1e-14);
+/// assert_eq!(tan(0.5235987755982988), 0.57735026);
+/// assert_eq!(tan(0.7853981633974483), 1.0);
+/// assert_eq!(tan(1.0471975511965976), 1.7320508);
+/// assert_eq!(tan(1.5707963267948966), inf);
+/// assert_eq!(tan(3.141592653589793), 0.0);
+/// assert_eq!(tan(4.71238898038469), -inf);
+/// assert_eq!(tan(6.283185307179586), 0.0);
+/// // If x is in degrees, use the deg_to_rad function.
+/// assert_eq!(tan(deg_to_rad(0.0)), 0.0);
+/// assert_eq!(tan(deg_to_rad(5.7295775e-13)), 0.0); // 5.7295775e-13 deg = 9.999999e-15 rad
+/// assert_eq!(tan(deg_to_rad(5.7295780e-13)), 1e-14); // 5.7295780e-13 deg = 1e-14 rad
+/// assert_eq!(tan(deg_to_rad(30.0)), 0.57735026);
+/// assert_eq!(tan(deg_to_rad(45.0)), 1.0);
+/// assert_eq!(tan(deg_to_rad(60.0)), 1.7320508);
+/// assert_eq!(tan(deg_to_rad(90.0)), inf);
+/// assert_eq!(tan(deg_to_rad(180.0)), 0.0);
+/// assert_eq!(tan(deg_to_rad(270.0)), -inf);
+/// assert_eq!(tan(deg_to_rad(360.0)), 0.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn tan(x: f64) -> f64 {
+    fix64(sin(x) / cos(x))
 }

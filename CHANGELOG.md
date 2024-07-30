@@ -1,6 +1,25 @@
+## 0.4.0
+
+- Optimized monolist function.
+- Improved functions documentation.
+- Improved rad_to_deg function.
+- Improved rad_to_deg_vec function.
+- Added cube function.
+- Added cube_vec function.
+- Added cbrt function.
+- Added cbrt_vec function.
+- Added trunc function.
+- Added trunc_vec function.
+- Added sin function.
+- Added sin_vec function.
+- Added cos function.
+- Added cos_vec function.
+- Added tan function.
+- Added tan_vec function.
+
 ## 0.3.9
 
-- Optimized the vector size of the the monolist function.
+- Optimized the vector size of the monolist function.
 - Added fix64 function.
 - Added fix64_vec function.
 - Added range function.
