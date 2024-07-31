@@ -1,3 +1,9 @@
+## 0.4.2
+
+- Added sin_deg_vec function.
+- Added cos_deg_vec function.
+- Added tan_deg_vec function.
+
 ## 0.4.1
 
 - Added sin_deg function.

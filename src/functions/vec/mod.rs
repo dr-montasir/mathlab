@@ -1,7 +1,7 @@
 use super::num::{
-    abs, cbrt, ceil, cos, cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma,
-    i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round, sign, sin, sqr, tan, trunc,
-    u64_to_f64,
+    abs, cbrt, ceil, cos, cos_deg, cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround,
+    gamma, i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round, sign, sin, sin_deg, sqr, tan,
+    tan_deg, trunc, u64_to_f64,
 };
 
 /// ### abs_vec(x)
@@ -546,6 +546,23 @@ pub fn sin_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| sin(x)).collect()
 }
 
+/// ### sin_deg_vec(x)
+///
+/// Trigonometric Function
+///
+/// The `sin_deg_vec` function calculates the sine value of each angle represented in degrees in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::sin_deg_vec;
+/// assert_eq!(sin_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [0.0, 0.5, 0.70710677, 0.8660254, 1.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sin_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| sin_deg(x)).collect()
+}
+
 /// ### cos_vec(x)
 ///
 /// Trigonometric Function
@@ -564,6 +581,23 @@ pub fn cos_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| cos(x)).collect()
 }
 
+/// ### cos_deg_vec(x)
+///
+/// Trigonometric Function
+///
+/// The `cos_deg_vec` function calculates the cosine value of each angle represented in degrees in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::cos_deg_vec;
+/// assert_eq!(cos_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [1.0, 0.8660254, 0.70710677, 0.5, 0.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cos_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| cos_deg(x)).collect()
+}
+
 /// ### tan_vec(x)
 ///
 /// Trigonometric Function
@@ -580,4 +614,21 @@ pub fn cos_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn tan_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| tan(x)).collect()
+}
+
+/// ### tan_deg_vec(x)
+///
+/// Trigonometric Function
+///
+/// The `tan_deg_vec` function calculates the tangent value of each angle represented in degrees in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{tan_deg_vec, INF_F64 as inf};
+/// assert_eq!(tan_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [0.0, 0.57735026, 1.0, 1.7320508, inf]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn tan_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| tan_deg(x)).collect()
 }
