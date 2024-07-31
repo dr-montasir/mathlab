@@ -900,6 +900,31 @@ pub fn sin(x: f64) -> f64 {
     }
 }
 
+/// ### sin_deg(x)
+///
+/// Trigonometric Function
+///
+/// The `sin_deg` function computes the sine of an angle given in degrees.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::sin_deg;
+/// assert_eq!(sin_deg(0.0), 0.0);
+/// assert_eq!(sin_deg(5.7295775e-13), 0.0);   // 5.7295775e-13 deg = 9.999999e-15 rad
+/// assert_eq!(sin_deg(5.7295780e-13), 1e-14); // 5.7295780e-13 deg = 1e-14 rad
+/// assert_eq!(sin_deg(30.0), 0.5);
+/// assert_eq!(sin_deg(45.0), 0.70710677);
+/// assert_eq!(sin_deg(60.0), 0.8660254);
+/// assert_eq!(sin_deg(90.0), 1.0);
+/// assert_eq!(sin_deg(180.0), 0.0);
+/// assert_eq!(sin_deg(270.0), -1.0);
+/// assert_eq!(sin_deg(360.0), 0.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sin_deg(x: f64) -> f64 {
+    sin(deg_to_rad(x))
+}
+
 /// ### cos(x)
 ///
 /// Trigonometric Function
@@ -941,6 +966,31 @@ pub fn cos(x: f64) -> f64 {
     }
 }
 
+/// ### cos_deg(x)
+///
+/// Trigonometric Function
+///
+/// The `cos_deg` function computes the cosine of an angle given in degrees.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::cos_deg;
+/// assert_eq!(cos_deg(0.0), 1.0);
+/// assert_eq!(cos_deg(5.7295775e-13), 1.0); // 5.7295775e-13 deg = 9.999999e-15 rad
+/// assert_eq!(cos_deg(5.7295780e-13), 1.0); // 5.7295780e-13 deg = 1e-14 rad
+/// assert_eq!(cos_deg(30.0), 0.8660254);
+/// assert_eq!(cos_deg(45.0), 0.70710677);
+/// assert_eq!(cos_deg(60.0), 0.5);
+/// assert_eq!(cos_deg(90.0), 0.0);
+/// assert_eq!(cos_deg(180.0), -1.0);
+/// assert_eq!(cos_deg(270.0), 0.0);
+/// assert_eq!(cos_deg(360.0), 1.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cos_deg(x: f64) -> f64 {
+    cos(deg_to_rad(x))
+}
+
 /// ### tan(x)
 ///
 /// Trigonometric Function
@@ -976,4 +1026,29 @@ pub fn cos(x: f64) -> f64 {
 /// <small>End Fun Doc</small>
 pub fn tan(x: f64) -> f64 {
     fix64(sin(x) / cos(x))
+}
+
+/// ### tan_deg(x)
+///
+/// Trigonometric Function
+///
+/// The `tan_deg` function computes the tangent of an angle given in degrees.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{tan_deg, INF_F64 as inf};
+/// assert_eq!(tan_deg(0.0), 0.0);
+/// assert_eq!(tan_deg(5.7295775e-13), 0.0); // 5.7295775e-13 deg = 9.999999e-15 rad
+/// assert_eq!(tan_deg(5.7295780e-13), 1e-14); // 5.7295780e-13 deg = 1e-14 rad
+/// assert_eq!(tan_deg(30.0), 0.57735026);
+/// assert_eq!(tan_deg(45.0), 1.0);
+/// assert_eq!(tan_deg(60.0), 1.7320508);
+/// assert_eq!(tan_deg(90.0), inf);
+/// assert_eq!(tan_deg(180.0), 0.0);
+/// assert_eq!(tan_deg(270.0), -inf);
+/// assert_eq!(tan_deg(360.0), 0.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn tan_deg(x: f64) -> f64 {
+    tan(deg_to_rad(x))
 }

@@ -1,3 +1,9 @@
+## 0.4.1
+
+- Added sin_deg function.
+- Added cos_deg function.
+- Added tan_deg function.
+
 ## 0.4.0
 
 - Optimized monolist function.
