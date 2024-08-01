@@ -1,3 +1,18 @@
+## 0.5.0
+
+- Added csc function.
+- Added csc_deg function.
+- Added sec function.
+- Added sec_deg function.
+- Added cot function.
+- Added cot_deg function.
+- Added csc_vec function.
+- Added csc_deg_vec function.
+- Added sec_vec function.
+- Added sec_deg_vec function.
+- Added cot_vec function.
+- Added cot_deg_vec function.
+
 ## 0.4.2
 
 - Added sin_deg_vec function.

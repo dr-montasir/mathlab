@@ -881,7 +881,7 @@ pub fn trunc(x: f64) -> f64 {
 /// assert_eq!(sin(6.283185307179586), 0.0);
 /// // If x is in degrees, use the deg_to_rad function.
 /// assert_eq!(sin(deg_to_rad(0.0)), 0.0);
-/// assert_eq!(sin(deg_to_rad(5.7295775e-13)), 0.0);   // 5.7295775e-13 deg = 9.999999e-15 rad
+/// assert_eq!(sin(deg_to_rad(5.7295775e-13)), 0.0);   // 5.7295775e-13 deg = 9.999e-15 rad
 /// assert_eq!(sin(deg_to_rad(5.7295780e-13)), 1e-14); // 5.7295780e-13 deg = 1e-14 rad
 /// assert_eq!(sin(deg_to_rad(30.0)), 0.5);
 /// assert_eq!(sin(deg_to_rad(45.0)), 0.70710677);
@@ -910,7 +910,7 @@ pub fn sin(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::sin_deg;
 /// assert_eq!(sin_deg(0.0), 0.0);
-/// assert_eq!(sin_deg(5.7295775e-13), 0.0);   // 5.7295775e-13 deg = 9.999999e-15 rad
+/// assert_eq!(sin_deg(5.7295775e-13), 0.0);   // 5.7295775e-13 deg = 9.999e-15 rad
 /// assert_eq!(sin_deg(5.7295780e-13), 1e-14); // 5.7295780e-13 deg = 1e-14 rad
 /// assert_eq!(sin_deg(30.0), 0.5);
 /// assert_eq!(sin_deg(45.0), 0.70710677);
@@ -947,7 +947,7 @@ pub fn sin_deg(x: f64) -> f64 {
 /// assert_eq!(cos(6.283185307179586), 1.0);
 /// // If x is in degrees, use the deg_to_rad function.
 /// assert_eq!(cos(deg_to_rad(0.0)), 1.0);
-/// assert_eq!(cos(deg_to_rad(5.7295775e-13)), 1.0); // 5.7295775e-13 deg = 9.999999e-15 rad
+/// assert_eq!(cos(deg_to_rad(5.7295775e-13)), 1.0); // 5.7295775e-13 deg = 9.999e-15 rad
 /// assert_eq!(cos(deg_to_rad(5.7295780e-13)), 1.0); // 5.7295780e-13 deg = 1e-14 rad
 /// assert_eq!(cos(deg_to_rad(30.0)), 0.8660254);
 /// assert_eq!(cos(deg_to_rad(45.0)), 0.70710677);
@@ -976,7 +976,7 @@ pub fn cos(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::cos_deg;
 /// assert_eq!(cos_deg(0.0), 1.0);
-/// assert_eq!(cos_deg(5.7295775e-13), 1.0); // 5.7295775e-13 deg = 9.999999e-15 rad
+/// assert_eq!(cos_deg(5.7295775e-13), 1.0); // 5.7295775e-13 deg = 9.999e-15 rad
 /// assert_eq!(cos_deg(5.7295780e-13), 1.0); // 5.7295780e-13 deg = 1e-14 rad
 /// assert_eq!(cos_deg(30.0), 0.8660254);
 /// assert_eq!(cos_deg(45.0), 0.70710677);
@@ -1013,7 +1013,7 @@ pub fn cos_deg(x: f64) -> f64 {
 /// assert_eq!(tan(6.283185307179586), 0.0);
 /// // If x is in degrees, use the deg_to_rad function.
 /// assert_eq!(tan(deg_to_rad(0.0)), 0.0);
-/// assert_eq!(tan(deg_to_rad(5.7295775e-13)), 0.0); // 5.7295775e-13 deg = 9.999999e-15 rad
+/// assert_eq!(tan(deg_to_rad(5.7295775e-13)), 0.0); // 5.7295775e-13 deg = 9.999e-15 rad
 /// assert_eq!(tan(deg_to_rad(5.7295780e-13)), 1e-14); // 5.7295780e-13 deg = 1e-14 rad
 /// assert_eq!(tan(deg_to_rad(30.0)), 0.57735026);
 /// assert_eq!(tan(deg_to_rad(45.0)), 1.0);
@@ -1038,7 +1038,7 @@ pub fn tan(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{tan_deg, INF_F64 as inf};
 /// assert_eq!(tan_deg(0.0), 0.0);
-/// assert_eq!(tan_deg(5.7295775e-13), 0.0); // 5.7295775e-13 deg = 9.999999e-15 rad
+/// assert_eq!(tan_deg(5.7295775e-13), 0.0); // 5.7295775e-13 deg = 9.999e-15 rad
 /// assert_eq!(tan_deg(5.7295780e-13), 1e-14); // 5.7295780e-13 deg = 1e-14 rad
 /// assert_eq!(tan_deg(30.0), 0.57735026);
 /// assert_eq!(tan_deg(45.0), 1.0);
@@ -1051,4 +1051,154 @@ pub fn tan(x: f64) -> f64 {
 /// <small>End Fun Doc</small>
 pub fn tan_deg(x: f64) -> f64 {
     tan(deg_to_rad(x))
+}
+
+/// ### csc(x)
+///
+/// Trigonometric Function
+///
+/// The `csc` function computes the cosecant of a number (in radians).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{csc, INF_F64 as inf};
+/// assert_eq!(csc(0.0), inf);
+/// assert_eq!(csc(9.999e-15), inf);
+/// assert_eq!(csc(1e-14), 1e14);
+/// assert_eq!(csc(0.5235987755982988), 2.0);
+/// assert_eq!(csc(0.7853981633974483), 1.4142135);
+/// assert_eq!(csc(1.0471975511965976), 1.1547005);
+/// assert_eq!(csc(1.5707963267948966), 1.0);
+/// assert_eq!(csc(3.141592653589793), inf);
+/// assert_eq!(csc(4.71238898038469), -1.0);
+/// assert_eq!(csc(6.283185307179586), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn csc(x: f64) -> f64 {
+    fix64(1.0 / sin(x))
+}
+
+/// ### csc_deg(x)
+///
+/// Trigonometric Function
+///
+/// The `csc_deg` function computes the cosecant of an angle given in degrees.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{csc_deg, INF_F64 as inf};
+/// assert_eq!(csc_deg(0.0), inf);
+/// assert_eq!(csc_deg(5.7295775e-13), inf); // 5.7295775e-13 deg = 9.999e-15 rad
+/// assert_eq!(csc_deg(5.7295780e-13), 1e14); // 5.7295780e-13 deg = 1e-14 rad
+/// assert_eq!(csc_deg(30.0), 2.0);
+/// assert_eq!(csc_deg(45.0), 1.4142135);
+/// assert_eq!(csc_deg(60.0), 1.1547005);
+/// assert_eq!(csc_deg(90.0), 1.0);
+/// assert_eq!(csc_deg(180.0), inf);
+/// assert_eq!(csc_deg(270.0), -1.0);
+/// assert_eq!(csc_deg(360.0), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn csc_deg(x: f64) -> f64 {
+    csc(deg_to_rad(x))
+}
+
+/// ### sec(x)
+///
+/// Trigonometric Function
+///
+/// The `sec` function computes the secant of a number (in radians).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sec, INF_F64 as inf};
+/// assert_eq!(sec(0.0), 1.0);
+/// assert_eq!(sec(9.999e-15), 1.0);
+/// assert_eq!(sec(1e-14), 1.0);
+/// assert_eq!(sec(0.5235987755982988), 1.1547005);
+/// assert_eq!(sec(0.7853981633974483), 1.4142135);
+/// assert_eq!(sec(1.0471975511965976), 2.0);
+/// assert_eq!(sec(1.5707963267948966), inf);
+/// assert_eq!(sec(3.141592653589793), -1.0);
+/// assert_eq!(sec(4.71238898038469), inf);
+/// assert_eq!(sec(6.283185307179586), 1.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sec(x: f64) -> f64 {
+    fix64(1.0 / cos(x))
+}
+
+/// ### sec_deg(x)
+///
+/// Trigonometric Function
+///
+/// The `sec_deg` function computes the secant of an angle given in degrees.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sec_deg, INF_F64 as inf};
+/// assert_eq!(sec_deg(0.0), 1.0);
+/// assert_eq!(sec_deg(5.7295775e-13), 1.0); // 5.7295775e-13 deg = 9.999e-15 rad
+/// assert_eq!(sec_deg(5.7295780e-13), 1.0); // 5.7295780e-13 deg = 1e-14 rad
+/// assert_eq!(sec_deg(30.0), 1.1547005);
+/// assert_eq!(sec_deg(45.0), 1.4142135);
+/// assert_eq!(sec_deg(60.0), 2.0);
+/// assert_eq!(sec_deg(90.0), inf);
+/// assert_eq!(sec_deg(180.0), -1.0);
+/// assert_eq!(sec_deg(270.0), inf);
+/// assert_eq!(sec_deg(360.0), 1.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sec_deg(x: f64) -> f64 {
+    sec(deg_to_rad(x))
+}
+
+/// ### cot(x)
+///
+/// Trigonometric Function
+///
+/// The `cot` function computes the cotangent of a number (in radians).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{cot, INF_F64 as inf};
+/// assert_eq!(cot(0.0), inf);
+/// assert_eq!(cot(9.999e-15), inf);
+/// assert_eq!(cot(1e-14), 1e14);
+/// assert_eq!(cot(0.5235987755982988), 1.7320508);
+/// assert_eq!(cot(0.7853981633974483), 1.0);
+/// assert_eq!(cot(1.0471975511965976), 0.57735026);
+/// assert_eq!(cot(1.5707963267948966), 0.0);
+/// assert_eq!(cot(3.141592653589793), -inf);
+/// assert_eq!(cot(4.71238898038469), 0.0);
+/// assert_eq!(cot(6.283185307179586), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cot(x: f64) -> f64 {
+    fix64(cos(x) / sin(x))
+}
+
+/// ### cot_deg(x)
+///
+/// Trigonometric Function
+///
+/// The `cot_deg` function computes the cotangent of an angle given in degrees.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{cot_deg, INF_F64 as inf};
+/// assert_eq!(cot_deg(0.0), inf);
+/// assert_eq!(cot_deg(5.7295775e-13), inf); // 5.7295775e-13 deg = 9.999e-15 rad
+/// assert_eq!(cot_deg(5.7295780e-13), 1e14); // 5.7295780e-13 deg = 1e-14 rad
+/// assert_eq!(cot_deg(30.0), 1.7320508);
+/// assert_eq!(cot_deg(45.0), 1.0);
+/// assert_eq!(cot_deg(60.0), 0.57735026);
+/// assert_eq!(cot_deg(90.0), 0.0);
+/// assert_eq!(cot_deg(180.0), -inf);
+/// assert_eq!(cot_deg(270.0), 0.0);
+/// assert_eq!(cot_deg(360.0), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cot_deg(x: f64) -> f64 {
+    cot(deg_to_rad(x))
 }

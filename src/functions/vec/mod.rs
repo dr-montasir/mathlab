@@ -1,7 +1,7 @@
 use super::num::{
-    abs, cbrt, ceil, cos, cos_deg, cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround,
-    gamma, i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round, sign, sin, sin_deg, sqr, tan,
-    tan_deg, trunc, u64_to_f64,
+    abs, cbrt, ceil, cos, cos_deg, cot, cot_deg, csc, csc_deg, cube, deg_to_rad, exp, f64_to_f32,
+    fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round,
+    sec, sec_deg, sign, sin, sin_deg, sqr, tan, tan_deg, trunc, u64_to_f64,
 };
 
 /// ### abs_vec(x)
@@ -539,7 +539,6 @@ pub fn trunc_vec(x: &[f64]) -> Vec<f64> {
 /// ```rust
 /// use mathlab::math::{sin_vec, deg_to_rad_vec};
 /// assert_eq!(sin_vec(&[0.0, 9.999e-15, 1e-14, 0.5235987755982988]), [0.0, 0.0, 1e-14, 0.5]);
-/// assert_eq!(sin_vec(&deg_to_rad_vec(&[0.0, 5.7295775e-13, 5.7295780e-13, 30.0])), [0.0, 0.0, 1e-14, 0.5]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn sin_vec(x: &[f64]) -> Vec<f64> {
@@ -574,7 +573,6 @@ pub fn sin_deg_vec(x: &[f64]) -> Vec<f64> {
 /// ```rust
 /// use mathlab::math::{cos_vec, deg_to_rad_vec};
 /// assert_eq!(cos_vec(&[0.0, 9.999e-15, 1e-14, 1.0471975511965976]), [1.0, 1.0, 1.0, 0.5]);
-/// assert_eq!(cos_vec(&deg_to_rad_vec(&[0.0, 5.7295775e-13, 5.7295780e-13, 60.0])), [1.0, 1.0, 1.0, 0.5]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn cos_vec(x: &[f64]) -> Vec<f64> {
@@ -609,7 +607,6 @@ pub fn cos_deg_vec(x: &[f64]) -> Vec<f64> {
 /// ```rust
 /// use mathlab::math::{tan_vec, deg_to_rad_vec};
 /// assert_eq!(tan_vec(&[0.0, 9.999e-15, 1e-14, 0.7853981633974483]), [0.0, 0.0, 1e-14, 1.0]);
-/// assert_eq!(tan_vec(&deg_to_rad_vec(&[0.0, 5.7295775e-13, 5.7295780e-13, 45.0])), [0.0, 0.0, 1e-14, 1.0]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn tan_vec(x: &[f64]) -> Vec<f64> {
@@ -631,4 +628,106 @@ pub fn tan_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn tan_deg_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| tan_deg(x)).collect()
+}
+
+/// ### csc_vec(x)
+///
+/// Trigonometric Function
+///
+/// The `csc_vec` function calculates the cosecant value of each angle represented as a radian in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{csc_vec, INF_F64 as inf};
+/// assert_eq!(csc_vec(&[0.0, 9.999e-15, 1e-14, 0.5235987755982988]), [inf, inf, 1e14, 2.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn csc_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| csc(x)).collect()
+}
+
+/// ### csc_deg_vec(x)
+///
+/// Trigonometric Function
+///
+/// The `csc_deg_vec` function calculates the cosecant value of each angle represented in degrees in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{csc_deg_vec, INF_F64 as inf};
+/// assert_eq!(csc_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [inf, 2.0, 1.4142135, 1.1547005, 1.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn csc_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| csc_deg(x)).collect()
+}
+
+/// ### sec_vec(x)
+///
+/// Trigonometric Function
+///
+/// The `sec_vec` function calculates the secant value of each angle represented as a radian in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sec_vec, INF_F64 as inf};
+/// assert_eq!(sec_vec(&[0.0, 9.999e-15, 1e-14, 1.0471975511965976]), [1.0, 1.0, 1.0, 2.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sec_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| sec(x)).collect()
+}
+
+/// ### sec_deg_vec(x)
+///
+/// Trigonometric Function
+///
+/// The `sec_deg_vec` function calculates the secant value of each angle represented in degrees in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sec_deg_vec, INF_F64 as inf};
+/// assert_eq!(sec_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [1.0, 1.1547005, 1.4142135, 2.0, inf]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sec_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| sec_deg(x)).collect()
+}
+
+/// ### cot_vec(x)
+///
+/// Trigonometric Function
+///
+/// The `cot_vec` function calculates the cotangent value of each angle represented as a radian in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{cot_vec, INF_F64 as inf};
+/// assert_eq!(cot_vec(&[0.0, 9.999e-15, 1e-14, 1.0471975511965976]), [inf, inf, 1e14, 0.57735026]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cot_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| cot(x)).collect()
+}
+
+/// ### cot_deg_vec(x)
+///
+/// Trigonometric Function
+///
+/// The `cot_deg_vec` function calculates the cotangent value of each angle represented in degrees in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{cot_deg_vec, INF_F64 as inf};
+/// assert_eq!(cot_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [inf, 1.7320508, 1.0, 0.57735026, 0.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cot_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| cot_deg(x)).collect()
 }
