@@ -1,3 +1,8 @@
+## 0.5.1
+
+- Added (mathlab + yew) demo project.
+- Improved documentation.
+
 ## 0.5.0
 
 - Added csc function.
