@@ -1,13 +1,13 @@
 [package]
 name = "mathlab"
-version = "0.5.1"
+version = "0.5.2"
 authors = ["Montasir Mirghani <contact@montasir.me>"]
 edition = "2021"
 description = "A Powerful Math Library for Rust"
 homepage = "https://github.com/dr-montasir/mathlab"
 repository = "https://github.com/dr-montasir/mathlab"
 readme = "README.md"
-keywords = ["math", "numeric", "vector", "trigonometry", "function"]
+keywords = ["math", "numeric", "vector", "trigonometry", "wasm"]
 categories = ["mathematics"]
 license = "Apache-2.0"
 

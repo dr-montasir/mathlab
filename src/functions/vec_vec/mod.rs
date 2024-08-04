@@ -1,4 +1,4 @@
-use super::num::{add, divi, mult, pow, rem, subt};
+use super::num::{add, divi, mult, nrt, pow, rem, subt};
 
 /// ### add_vec_vec(x, y)
 ///
@@ -115,4 +115,22 @@ pub fn pow_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn rem_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
     x.iter().zip(y.iter()).map(|(&x, &y)| rem(x, y)).collect()
+}
+
+/// ### nrt_vec_vec(x, n)
+///
+/// Operation Function
+///
+/// The `nrt_vec_vec` function calculates the `n-th` root of each element in the input vector `x`, using the corresponding power
+/// from the input vector `n`, and returns the results as a vector of floating-point numbers.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{nrt, nrt_vec_vec};
+/// assert_eq!(nrt(27.0, 3.0), 3.0);
+/// assert_eq!(nrt_vec_vec(&[1.0, 4.0, 27.0, 9.0], &[1.0, 2.0, 3.0, 2.0]), [1.0, 2.0, 3.0, 3.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn nrt_vec_vec(x: &[f64], n: &[f64]) -> Vec<f64> {
+    x.iter().zip(n.iter()).map(|(&x, &n)| nrt(x, n)).collect()
 }

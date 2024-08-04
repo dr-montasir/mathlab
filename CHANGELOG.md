@@ -1,3 +1,10 @@
+## 0.5.2
+
+- Added nrt function.
+- Added nrt_num_vec function.
+- Added nrt_vec_num function.
+- Added nrt_vec_vec function.
+
 ## 0.5.1
 
 - Added (mathlab + yew) demo project.

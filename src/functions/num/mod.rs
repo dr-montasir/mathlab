@@ -669,6 +669,27 @@ pub fn rem(x: f64, y: f64) -> f64 {
     x % y
 }
 
+/// ### nrt(x, n)
+///
+/// Operation Function
+///
+/// The `nrt` function calculates the `n-th` root of `x`, where `n` is a given power,
+/// and returns the result as a floating-point number.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::nrt;
+/// assert_eq!(nrt(1.0, 3.0), 1.0);
+/// assert_eq!(nrt(3.0, 1.0), 3.0);
+/// assert_eq!(nrt(9.0, 2.0), 3.0);
+/// assert_eq!(nrt(27.0, 3.0), 3.0);
+/// assert_eq!(nrt(81.0, 4.0), 3.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn nrt(x: f64, n: f64) -> f64 {
+    x.powf(1.0 / n)
+}
+
 /// ### exp(x)
 ///
 /// Operation Function
