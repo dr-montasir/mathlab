@@ -1,6 +1,6 @@
 [package]
 name = "mathlab"
-version = "0.5.2"
+version = "0.5.3"
 authors = ["Montasir Mirghani <contact@montasir.me>"]
 edition = "2021"
 description = "A Powerful Math Library for Rust"
@@ -8,7 +8,7 @@ homepage = "https://github.com/dr-montasir/mathlab"
 repository = "https://github.com/dr-montasir/mathlab"
 readme = "README.md"
 keywords = ["math", "numeric", "vector", "trigonometry", "wasm"]
-categories = ["mathematics"]
+categories = ["mathematics", "science"]
 license = "Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

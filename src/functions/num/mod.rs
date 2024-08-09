@@ -1223,3 +1223,28 @@ pub fn cot(x: f64) -> f64 {
 pub fn cot_deg(x: f64) -> f64 {
     cot(deg_to_rad(x))
 }
+
+/// ### fix(x, decimal_places)
+///
+/// Fixation Function
+///
+/// The `fix` function rounds a floating-point number `x` to a fixed-point value with a
+/// specified number of decimal places, returning the result as a floating-point number.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{fix, to_fixed, is_nan_f64, INF_F64 as inf, NAN_F64 as NaN};
+/// assert_eq!(fix(0.5235987755982988, 3), 0.524);
+/// assert_eq!(fix(0.5235987755982928, 15), 0.523598775598293);
+/// assert_eq!(fix(0.5235987755982928, 1), 0.5);
+/// assert_eq!(fix(0.5235987755982928, 0), 1.0);
+/// assert_eq!(fix(0.0, 0), 0.0);
+/// assert_eq!(fix(inf, 0), inf);
+/// assert!(is_nan_f64(fix(NaN, 0)));
+/// assert_eq!(to_fixed(NaN, 0), "NaN");
+/// ```
+/// <small>End Fun Doc</small>
+pub fn fix(x: f64, decimal_places: u32) -> f64 {
+    let multiplier = 10f64.powi(decimal_places as i32);
+    (x * multiplier).round() / multiplier
+}

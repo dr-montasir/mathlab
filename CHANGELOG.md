@@ -1,3 +1,8 @@
+## 0.5.3
+
+- Added fix function.
+- Added to_fixed function.
+
 ## 0.5.2
 
 - Added nrt function.

@@ -1,4 +1,4 @@
-use super::num::fix64;
+use super::num::{fix, fix64};
 
 /// ### monolist(x, size)
 ///
@@ -68,4 +68,29 @@ pub fn range(x: f64, step: f64, mut size: usize, order: &str) -> Vec<f64> {
         }
     }
     vector
+}
+
+/// ### to_fixed(x, decimal_places)
+///
+/// Fixation Function
+///
+/// The `to_fixed` function converts a floating-point number `x` to a string with a specified
+/// number of decimal places, returning a fixed-point string representation.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{to_fixed, fix, is_nan_f64, INF_F64 as inf, NAN_F64 as NaN};
+/// assert_eq!(to_fixed(0.5235987755982988, 3), "0.524");
+/// assert_eq!(to_fixed(0.5235987755982928, 15), "0.523598775598293");
+/// assert_eq!(to_fixed(0.5235987755982928, 1), "0.5");
+/// assert_eq!(to_fixed(0.5235987755982928, 0), "1");
+/// assert_eq!(to_fixed(0.0, 0), "0");
+/// assert_eq!(to_fixed(inf, 0), "inf");
+/// assert_eq!(to_fixed(inf, 0), "inf");
+/// assert_eq!(to_fixed(NaN, 0), "NaN");
+/// assert!(is_nan_f64(fix(NaN, 0)));
+/// ```
+/// <small>End Fun Doc</small>
+pub fn to_fixed(x: f64, decimal_places: u32) -> String {
+    fix(x, decimal_places).to_string()
 }
