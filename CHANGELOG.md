@@ -1,3 +1,8 @@
+## 0.5.4
+
+- Improved documentation.
+- Added (yew-plotly) to demo project
+
 ## 0.5.3
 
 - Added fix function.

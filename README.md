@@ -43,6 +43,8 @@ fn main() {
     println!("{}", add_f64); // 0.30000000000000004
     println!("{}", math::add(0.1, 0.2) as f32); // 0.3
     println!("{}", math::fix64(0.1 + 0.2)); // 0.3
+    println!("{}", math::fix(0.1 + 0.2, 15)); // 0.3
+    println!("{}", math::to_fixed(0.1 + 0.2, 15)); // "0.3"
 
     println!(
         "{:?}",
@@ -98,6 +100,8 @@ fn main() {
     println!("{}", my_add_f64); // 0.30000000000000004
     println!("{}", add(0.1, 0.2) as f32); // 0.3
     println!("{}", fix64(0.1 + 0.2)); // 0.3
+    println!("{}", math::fix(0.1 + 0.2, 15)); // 0.3
+    println!("{}", math::to_fixed(0.1 + 0.2, 15)); // "0.3"
 
     println!(
         "{:?}",

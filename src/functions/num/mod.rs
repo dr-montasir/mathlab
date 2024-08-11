@@ -1242,6 +1242,7 @@ pub fn cot_deg(x: f64) -> f64 {
 /// assert_eq!(fix(inf, 0), inf);
 /// assert!(is_nan_f64(fix(NaN, 0)));
 /// assert_eq!(to_fixed(NaN, 0), "NaN");
+/// assert_eq!(to_fixed(0.1 + 0.2, 15), "0.3");
 /// ```
 /// <small>End Fun Doc</small>
 pub fn fix(x: f64, decimal_places: u32) -> f64 {

@@ -89,6 +89,7 @@ pub fn range(x: f64, step: f64, mut size: usize, order: &str) -> Vec<f64> {
 /// assert_eq!(to_fixed(inf, 0), "inf");
 /// assert_eq!(to_fixed(NaN, 0), "NaN");
 /// assert!(is_nan_f64(fix(NaN, 0)));
+/// assert_eq!(to_fixed(0.1 + 0.2, 15), "0.3");
 /// ```
 /// <small>End Fun Doc</small>
 pub fn to_fixed(x: f64, decimal_places: u32) -> String {
