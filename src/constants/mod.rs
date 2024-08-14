@@ -12,21 +12,55 @@
 /// <small>End Con Doc</small>
 pub const E: f64 = 2.718281828459045;
 
+/// ### H_PI
+///
+/// Mathematical constant
+///
+/// Half Pi (π / 2)
+///
+/// (3.1415926536 / 2) = 3.1415926536
+///
+/// ### Example
+/// ```rust
+/// use mathlab::math::{H_PI, PI};
+/// assert_eq!(H_PI, PI / 2.0);
+/// assert_eq!(H_PI, 1.5707963268);
+/// ```
+/// <small>End Con Doc</small>
+pub const H_PI: f64 = 1.5707963268;
+
 /// ### PI
 ///
 /// Mathematical constant
 ///
 /// The Number Pi
 ///
-/// (21.991148575128552 / 7) = 3.141592653589793
+/// (21.9911485752 / 7) = 3.1415926536
 ///
 /// ### Example
 /// ```rust
 /// use mathlab::math::PI;
-/// assert_eq!(PI, 3.141592653589793);
+/// assert_eq!(PI, 3.1415926536);
 /// ```
 /// <small>End Con Doc</small>
-pub const PI: f64 = 3.141592653589793;
+pub const PI: f64 = 3.1415926536;
+
+/// ### Q_PI
+///
+/// Mathematical constant
+///
+/// Quarter Pi (π / 4)
+///
+/// (3.1415926536 / 4) = 0.7853981634
+///
+/// ### Example
+/// ```rust
+/// use mathlab::math::{Q_PI, PI};
+/// assert_eq!(Q_PI, PI / 4.0);
+/// assert_eq!(Q_PI, 0.7853981634);
+/// ```
+/// <small>End Con Doc</small>
+pub const Q_PI: f64 = 0.7853981634;
 
 /// ### PHI
 ///
@@ -50,15 +84,16 @@ pub const PHI: f64 = 1.618033988749895;
 ///
 /// Tau is a circle constant and the value is equivalent to 2π
 ///
-/// (2 * PI) = 6.283185307179586
+/// (2 * PI) = 6.2831853072
 ///
 /// ### Example
 /// ```rust
-/// use mathlab::math::TAU;
-/// assert_eq!(TAU, 6.283185307179586);
+/// use mathlab::math::{TAU, PI};
+/// assert_eq!(TAU, 2.0 * PI);
+/// assert_eq!(TAU, 6.2831853072);
 /// ```
 /// <small>End Con Doc</small>
-pub const TAU: f64 = 6.283185307179586;
+pub const TAU: f64 = 6.2831853072;
 
 /// ### LN2
 ///

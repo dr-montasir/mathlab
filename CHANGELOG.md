@@ -1,3 +1,18 @@
+## 0.6.0
+
+- Improved documentation.
+- Optimized PI & TAU constants.
+- Added H_PI constant.
+- Added Q_PI constant.
+- Optimized deg_to_rad function.
+- Optimized trigonometric functions.
+- Added asin function.
+- Added acos function.
+- Added atan function.
+- Added asin_deg function.
+- Added acos_deg function.
+- Added atan_deg function.
+
 ## 0.5.4
 
 - Improved documentation.

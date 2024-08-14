@@ -577,18 +577,20 @@ pub fn pow(x: f64, y: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::deg_to_rad;
 /// assert_eq!(deg_to_rad(0.0), 0.0);
-/// assert_eq!(deg_to_rad(1.0), 0.017453292519943295);
-/// assert_eq!(deg_to_rad(30.0), 0.5235987755982988);
-/// assert_eq!(deg_to_rad(45.0), 0.7853981633974483);
-/// assert_eq!(deg_to_rad(60.0), 1.0471975511965976);
-/// assert_eq!(deg_to_rad(90.0), 1.5707963267948966);
-/// assert_eq!(deg_to_rad(180.0), 3.141592653589793);
-/// assert_eq!(deg_to_rad(360.0), 6.283185307179586);
-/// assert_eq!(deg_to_rad(-360.0), -6.283185307179586);
+/// assert_eq!(deg_to_rad(1.0), 0.0174532925);
+/// assert_eq!(deg_to_rad(30.0), 0.5235987756);
+/// assert_eq!(deg_to_rad(45.0), 0.7853981634);
+/// assert_eq!(deg_to_rad(60.0), 1.0471975512);
+/// assert_eq!(deg_to_rad(90.0), 1.5707963268);
+/// assert_eq!(deg_to_rad(135.0), 2.3561944902);
+/// assert_eq!(deg_to_rad(180.0), 3.1415926536);
+/// assert_eq!(deg_to_rad(270.0), 4.7123889804);
+/// assert_eq!(deg_to_rad(360.0), 6.2831853072);
+/// assert_eq!(deg_to_rad(-360.0), -6.2831853072);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn deg_to_rad(x: f64) -> f64 {
-    x * PI / 180.0
+    fix(x * PI / 180.0, 10)
 }
 
 /// ### rad_to_deg(x)
@@ -602,14 +604,15 @@ pub fn deg_to_rad(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{rad_to_deg, fix64};
 /// assert_eq!(rad_to_deg(0.0), 0.0);
-/// assert_eq!(rad_to_deg(0.017453292519943295), 1.0);
-/// assert_eq!(rad_to_deg(0.5235987755982988), 30.0);
-/// assert_eq!(rad_to_deg(0.7853981633974483), 45.0);
-/// assert_eq!(rad_to_deg(1.0471975511965976), 60.0);
-/// assert_eq!(rad_to_deg(1.5707963267948966), 90.0);
-/// assert_eq!(rad_to_deg(3.141592653589793), 180.0);
-/// assert_eq!(rad_to_deg(6.283185307179586), 360.0);
-/// assert_eq!(rad_to_deg(-6.283185307179586), -360.0);
+/// assert_eq!(rad_to_deg(0.0174532925), 1.0);
+/// assert_eq!(rad_to_deg(0.5235987756), 30.0);
+/// assert_eq!(rad_to_deg(0.7853981634), 45.0);
+/// assert_eq!(rad_to_deg(1.0471975512), 60.0);
+/// assert_eq!(rad_to_deg(1.5707963268), 90.0);
+/// assert_eq!(rad_to_deg(3.1415926536), 180.0);
+/// assert_eq!(rad_to_deg(4.7123889804), 270.0);
+/// assert_eq!(rad_to_deg(6.2831853072), 360.0);
+/// assert_eq!(rad_to_deg(-6.2831853072), -360.0);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn rad_to_deg(x: f64) -> f64 {
@@ -821,7 +824,7 @@ pub fn log10(x: f64) -> f64 {
 /// ```
 /// <small>End Fun Doc</small>
 pub fn fix64(x: f64) -> f64 {
-    ((x) as f32).to_string().parse().expect("")
+    (x as f32).to_string().parse().expect("")
 }
 
 /// ### cube(x)
@@ -888,36 +891,26 @@ pub fn trunc(x: f64) -> f64 {
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::{sin, deg_to_rad};
-/// // x in radians.
+/// use mathlab::math::sin;
 /// assert_eq!(sin(0.0), 0.0);
-/// assert_eq!(sin(9.999e-15), 0.0);
-/// assert_eq!(sin(1e-14), 1e-14);
-/// assert_eq!(sin(0.5235987755982988), 0.5);
-/// assert_eq!(sin(0.7853981633974483), 0.70710677);
-/// assert_eq!(sin(1.0471975511965976), 0.8660254);
-/// assert_eq!(sin(1.5707963267948966), 1.0);
-/// assert_eq!(sin(3.141592653589793), 0.0);
-/// assert_eq!(sin(4.71238898038469), -1.0);
-/// assert_eq!(sin(6.283185307179586), 0.0);
-/// // If x is in degrees, use the deg_to_rad function.
-/// assert_eq!(sin(deg_to_rad(0.0)), 0.0);
-/// assert_eq!(sin(deg_to_rad(5.7295775e-13)), 0.0);   // 5.7295775e-13 deg = 9.999e-15 rad
-/// assert_eq!(sin(deg_to_rad(5.7295780e-13)), 1e-14); // 5.7295780e-13 deg = 1e-14 rad
-/// assert_eq!(sin(deg_to_rad(30.0)), 0.5);
-/// assert_eq!(sin(deg_to_rad(45.0)), 0.70710677);
-/// assert_eq!(sin(deg_to_rad(60.0)), 0.8660254);
-/// assert_eq!(sin(deg_to_rad(90.0)), 1.0);
-/// assert_eq!(sin(deg_to_rad(180.0)), 0.0);
-/// assert_eq!(sin(deg_to_rad(270.0)), -1.0);
-/// assert_eq!(sin(deg_to_rad(360.0)), 0.0);
+/// assert_eq!(sin(1e-11), 1e-11);
+/// assert_eq!(sin(1e-10), 1e-10);
+/// assert_eq!(sin(1e-4), 1e-4);
+/// assert_eq!(sin(0.0050000208), 5e-3);
+/// assert_eq!(sin(0.5235987756), 0.5);
+/// assert_eq!(sin(0.7853981634), 0.7071067812);
+/// assert_eq!(sin(1.0471975512), 0.8660254038);
+/// assert_eq!(sin(1.5707963268), 1.0);
+/// assert_eq!(sin(3.1415926536), 0.0);
+/// assert_eq!(sin(4.7123889804), -1.0);
+/// assert_eq!(sin(6.2831853072), 0.0);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn sin(x: f64) -> f64 {
-    if abs(x.sin()) < 1e-14 {
-        0.0
+    if abs(x) <= 1e-10 {
+        x
     } else {
-        fix64(x.sin())
+        fix(x.sin(), 10)
     }
 }
 
@@ -931,11 +924,9 @@ pub fn sin(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::sin_deg;
 /// assert_eq!(sin_deg(0.0), 0.0);
-/// assert_eq!(sin_deg(5.7295775e-13), 0.0);   // 5.7295775e-13 deg = 9.999e-15 rad
-/// assert_eq!(sin_deg(5.7295780e-13), 1e-14); // 5.7295780e-13 deg = 1e-14 rad
 /// assert_eq!(sin_deg(30.0), 0.5);
-/// assert_eq!(sin_deg(45.0), 0.70710677);
-/// assert_eq!(sin_deg(60.0), 0.8660254);
+/// assert_eq!(sin_deg(45.0), 0.7071067812);
+/// assert_eq!(sin_deg(60.0), 0.8660254038);
 /// assert_eq!(sin_deg(90.0), 1.0);
 /// assert_eq!(sin_deg(180.0), 0.0);
 /// assert_eq!(sin_deg(270.0), -1.0);
@@ -946,6 +937,56 @@ pub fn sin_deg(x: f64) -> f64 {
     sin(deg_to_rad(x))
 }
 
+/// ### asin(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `asin` function computes the inverse sine of a number (in radians), returning the angle whose sine is equal to the input value.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::asin;
+/// assert_eq!(asin(0.0), 0.0);
+/// assert_eq!(asin(1e-11), 1e-11);
+/// assert_eq!(asin(1e-10), 1e-10);
+/// assert_eq!(asin(1e-4), 1e-4);
+/// assert_eq!(asin(5e-3), 0.0050000208);
+/// assert_eq!(asin(0.5), 0.5235987756);
+/// assert_eq!(asin(0.7071067812), 0.7853981634);
+/// assert_eq!(asin(0.8660254038), 1.0471975512);
+/// assert_eq!(asin(1.0), 1.5707963268);
+/// assert_eq!(asin(-1.0), -1.5707963268);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asin(x: f64) -> f64 {
+    if abs(x) <= 1e-10 {
+        x
+    } else {
+        fix(x.asin(), 10)
+    }
+}
+
+/// ### asin_deg(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `asin_deg` function computes the inverse sine of a number (in degrees), returning the angle whose sine is equal to the input value.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::asin_deg;
+/// assert_eq!(asin_deg(0.0), 0.0);
+/// assert_eq!(asin_deg(0.5), 30.0);
+/// assert_eq!(asin_deg(0.7071067812), 45.0);
+/// assert_eq!(asin_deg(0.8660254038), 60.0);
+/// assert_eq!(asin_deg(1.0), 90.0);
+/// assert_eq!(asin_deg(-1.0), -90.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asin_deg(x: f64) -> f64 {
+    rad_to_deg(asin(x))
+}
+
 /// ### cos(x)
 ///
 /// Trigonometric Function
@@ -954,36 +995,26 @@ pub fn sin_deg(x: f64) -> f64 {
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::{cos, deg_to_rad};
-/// // x in radians.
+/// use mathlab::math::cos;
 /// assert_eq!(cos(0.0), 1.0);
-/// assert_eq!(cos(9.999e-15), 1.0);
-/// assert_eq!(cos(1e-14), 1.0);
-/// assert_eq!(cos(0.5235987755982988), 0.8660254);
-/// assert_eq!(cos(0.7853981633974483), 0.70710677);
-/// assert_eq!(cos(1.0471975511965976), 0.5);
-/// assert_eq!(cos(1.5707963267948966), 0.0);
-/// assert_eq!(cos(3.141592653589793), -1.0);
-/// assert_eq!(cos(4.71238898038469), 0.0);
-/// assert_eq!(cos(6.283185307179586), 1.0);
-/// // If x is in degrees, use the deg_to_rad function.
-/// assert_eq!(cos(deg_to_rad(0.0)), 1.0);
-/// assert_eq!(cos(deg_to_rad(5.7295775e-13)), 1.0); // 5.7295775e-13 deg = 9.999e-15 rad
-/// assert_eq!(cos(deg_to_rad(5.7295780e-13)), 1.0); // 5.7295780e-13 deg = 1e-14 rad
-/// assert_eq!(cos(deg_to_rad(30.0)), 0.8660254);
-/// assert_eq!(cos(deg_to_rad(45.0)), 0.70710677);
-/// assert_eq!(cos(deg_to_rad(60.0)), 0.5);
-/// assert_eq!(cos(deg_to_rad(90.0)), 0.0);
-/// assert_eq!(cos(deg_to_rad(180.0)), -1.0);
-/// assert_eq!(cos(deg_to_rad(270.0)), 0.0);
-/// assert_eq!(cos(deg_to_rad(360.0)), 1.0);
+/// assert_eq!(cos(1e-11), 1.0);
+/// assert_eq!(cos(1e-10), 1.0);
+/// assert_eq!(cos(1e-5), 1.0);
+/// assert_eq!(cos(1e-4), 0.999999995);
+/// assert_eq!(cos(0.5235987756), 0.8660254038);
+/// assert_eq!(cos(0.7853981634), 0.7071067812);
+/// assert_eq!(cos(1.0471975512), 0.5);
+/// assert_eq!(cos(1.5707963268), 0.0);
+/// assert_eq!(cos(3.1415926536), -1.0);
+/// assert_eq!(cos(4.7123889804), 0.0);
+/// assert_eq!(cos(6.2831853072), 1.0);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn cos(x: f64) -> f64 {
-    if abs(x.cos()) >= 1e-14 {
-        fix64(x.cos())
+    if abs(x) <= 1e-10 {
+        1.0
     } else {
-        0.0
+        fix(x.cos(), 10)
     }
 }
 
@@ -997,10 +1028,8 @@ pub fn cos(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::cos_deg;
 /// assert_eq!(cos_deg(0.0), 1.0);
-/// assert_eq!(cos_deg(5.7295775e-13), 1.0); // 5.7295775e-13 deg = 9.999e-15 rad
-/// assert_eq!(cos_deg(5.7295780e-13), 1.0); // 5.7295780e-13 deg = 1e-14 rad
-/// assert_eq!(cos_deg(30.0), 0.8660254);
-/// assert_eq!(cos_deg(45.0), 0.70710677);
+/// assert_eq!(cos_deg(30.0), 0.8660254038);
+/// assert_eq!(cos_deg(45.0), 0.7071067812);
 /// assert_eq!(cos_deg(60.0), 0.5);
 /// assert_eq!(cos_deg(90.0), 0.0);
 /// assert_eq!(cos_deg(180.0), -1.0);
@@ -1012,6 +1041,57 @@ pub fn cos_deg(x: f64) -> f64 {
     cos(deg_to_rad(x))
 }
 
+/// ### acos(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `acos` function computes the inverse cosine of a number (in radians), returning the angle whose cosine is equal to the input value.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::acos;
+/// assert_eq!(acos(1.0), 0.0);
+/// assert_eq!(acos(1e-11), 1.5707963268);
+/// assert_eq!(acos(1e-10), 1.5707963268);
+/// assert_eq!(acos(1e-5), 1.5707863268);
+/// assert_eq!(acos(0.999999995), 1e-4);
+/// assert_eq!(acos(0.8660254038), 0.5235987756);
+/// assert_eq!(acos(0.7071067812), 0.7853981634);
+/// assert_eq!(acos(0.5), 1.0471975512);
+/// assert_eq!(acos(0.0), 1.5707963268);
+/// assert_eq!(acos(-1.0), 3.1415926536);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acos(x: f64) -> f64 {
+    if abs(x) <= 1e-10 {
+        1.5707963268
+    } else {
+        fix(x.acos(), 10)
+    }
+}
+
+/// ### acos_deg(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `acos_deg` function computes the inverse cosine of a number (in degrees), returning the angle whose cosine is equal to the input value.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acos_deg, is_nan_f64};
+/// assert_eq!(acos_deg(1.0), 0.0);
+/// assert_eq!(acos_deg(0.8660254038), 30.0);
+/// assert_eq!(acos_deg(0.7071067812), 45.0);
+/// assert_eq!(acos_deg(0.5), 60.0);
+/// assert_eq!(acos_deg(0.0), 90.0);
+/// assert_eq!(acos_deg(-1.0), 180.0);
+/// assert!(is_nan_f64(acos_deg(-2.0)));
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acos_deg(x: f64) -> f64 {
+    rad_to_deg(acos(x))
+}
+
 /// ### tan(x)
 ///
 /// Trigonometric Function
@@ -1020,33 +1100,25 @@ pub fn cos_deg(x: f64) -> f64 {
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::{tan, deg_to_rad, INF_F64 as inf};
-/// // x in radians.
+/// use mathlab::math::{tan, deg_to_rad, INF_F64 as inf, PI};
 /// assert_eq!(tan(0.0), 0.0);
-/// assert_eq!(tan(9.999e-15), 0.0);
-/// assert_eq!(tan(1e-14), 1e-14);
-/// assert_eq!(tan(0.5235987755982988), 0.57735026);
-/// assert_eq!(tan(0.7853981633974483), 1.0);
-/// assert_eq!(tan(1.0471975511965976), 1.7320508);
-/// assert_eq!(tan(1.5707963267948966), inf);
-/// assert_eq!(tan(3.141592653589793), 0.0);
-/// assert_eq!(tan(4.71238898038469), -inf);
-/// assert_eq!(tan(6.283185307179586), 0.0);
-/// // If x is in degrees, use the deg_to_rad function.
-/// assert_eq!(tan(deg_to_rad(0.0)), 0.0);
-/// assert_eq!(tan(deg_to_rad(5.7295775e-13)), 0.0); // 5.7295775e-13 deg = 9.999e-15 rad
-/// assert_eq!(tan(deg_to_rad(5.7295780e-13)), 1e-14); // 5.7295780e-13 deg = 1e-14 rad
-/// assert_eq!(tan(deg_to_rad(30.0)), 0.57735026);
-/// assert_eq!(tan(deg_to_rad(45.0)), 1.0);
-/// assert_eq!(tan(deg_to_rad(60.0)), 1.7320508);
-/// assert_eq!(tan(deg_to_rad(90.0)), inf);
-/// assert_eq!(tan(deg_to_rad(180.0)), 0.0);
-/// assert_eq!(tan(deg_to_rad(270.0)), -inf);
-/// assert_eq!(tan(deg_to_rad(360.0)), 0.0);
+/// assert_eq!(tan(1e-10), 1e-10);
+/// assert_eq!(tan(0.5235987756), 0.5773502692);
+/// assert_eq!(tan(0.7853981634), 1.0);
+/// assert_eq!(tan(1.0471975512), 1.7320508076);
+/// assert_eq!(tan(1.5707963268), -inf);
+/// assert_eq!(tan(2.3561944902), -1.0);
+/// assert_eq!(tan(3.1415926536), 0.0);
+/// assert_eq!(tan(4.7123889804), -inf);
+/// assert_eq!(tan(6.2831853072), 0.0);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn tan(x: f64) -> f64 {
-    fix64(sin(x) / cos(x))
+    if abs(x) <= 1e-10 {
+        x
+    } else {
+        fix(sin(x) / cos(x), 10)
+    }
 }
 
 /// ### tan_deg(x)
@@ -1059,12 +1131,11 @@ pub fn tan(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{tan_deg, INF_F64 as inf};
 /// assert_eq!(tan_deg(0.0), 0.0);
-/// assert_eq!(tan_deg(5.7295775e-13), 0.0); // 5.7295775e-13 deg = 9.999e-15 rad
-/// assert_eq!(tan_deg(5.7295780e-13), 1e-14); // 5.7295780e-13 deg = 1e-14 rad
-/// assert_eq!(tan_deg(30.0), 0.57735026);
+/// assert_eq!(tan_deg(30.0), 0.5773502692);
 /// assert_eq!(tan_deg(45.0), 1.0);
-/// assert_eq!(tan_deg(60.0), 1.7320508);
-/// assert_eq!(tan_deg(90.0), inf);
+/// assert_eq!(tan_deg(60.0), 1.7320508076);
+/// assert_eq!(tan_deg(90.0), -inf);
+/// assert_eq!(tan_deg(135.0), -1.0);
 /// assert_eq!(tan_deg(180.0), 0.0);
 /// assert_eq!(tan_deg(270.0), -inf);
 /// assert_eq!(tan_deg(360.0), 0.0);
@@ -1072,6 +1143,55 @@ pub fn tan(x: f64) -> f64 {
 /// <small>End Fun Doc</small>
 pub fn tan_deg(x: f64) -> f64 {
     tan(deg_to_rad(x))
+}
+
+/// ### atan(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `atan` function computes the inverse tangent of a number (in radians), returning the angle whose tangent is equal to the input value.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{atan, INF_F64 as inf};
+/// assert_eq!(atan(0.0), 0.0);
+/// assert_eq!(atan(1e-10), 1e-10);
+/// assert_eq!(atan(0.5773502692), 0.5235987756);
+/// assert_eq!(atan(1.0), 0.7853981634);
+/// assert_eq!(atan(1.7320508076), 1.0471975512);
+/// assert_eq!(atan(-1.0), -0.7853981634);
+/// assert_eq!(atan(-inf), -1.5707963268);
+/// assert_eq!(atan(inf), 1.5707963268);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn atan(x: f64) -> f64 {
+    if abs(x) <= 1e-10 {
+        x
+    } else {
+        fix(x.atan(), 10)
+    }
+}
+
+/// ### atan_deg(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `atan_deg` function computes the inverse tangent of a number (in degrees), returning the angle whose tangent is equal to the input value.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{atan_deg, INF_F64 as inf};
+/// assert_eq!(atan_deg(0.0), 0.0);
+/// assert_eq!(atan_deg(0.5773502692), 30.0);
+/// assert_eq!(atan_deg(1.0), 45.0);
+/// assert_eq!(atan_deg(1.7320508076), 60.0);
+/// assert_eq!(atan_deg(-1.0), -45.0);
+/// assert_eq!(atan_deg(-inf), -90.0);
+/// assert_eq!(atan_deg(inf), 90.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn atan_deg(x: f64) -> f64 {
+    rad_to_deg(atan(x))
 }
 
 /// ### csc(x)
@@ -1084,19 +1204,21 @@ pub fn tan_deg(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{csc, INF_F64 as inf};
 /// assert_eq!(csc(0.0), inf);
-/// assert_eq!(csc(9.999e-15), inf);
-/// assert_eq!(csc(1e-14), 1e14);
-/// assert_eq!(csc(0.5235987755982988), 2.0);
-/// assert_eq!(csc(0.7853981633974483), 1.4142135);
-/// assert_eq!(csc(1.0471975511965976), 1.1547005);
-/// assert_eq!(csc(1.5707963267948966), 1.0);
-/// assert_eq!(csc(3.141592653589793), inf);
-/// assert_eq!(csc(4.71238898038469), -1.0);
-/// assert_eq!(csc(6.283185307179586), inf);
+/// assert_eq!(csc(0.5235987756), 2.0);
+/// assert_eq!(csc(0.7853981634), 1.4142135623);
+/// assert_eq!(csc(1.0471975512), 1.1547005384);
+/// assert_eq!(csc(1.5707963268), 1.0);
+/// assert_eq!(csc(3.1415926536), -inf);
+/// assert_eq!(csc(4.7123889804), -1.0);
+/// assert_eq!(csc(6.2831853072), inf);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn csc(x: f64) -> f64 {
-    fix64(1.0 / sin(x))
+    if x <= 1e-10 {
+        1.0 / x.sin()
+    } else {
+        fix(1.0 / sin(x), 10)
+    }
 }
 
 /// ### csc_deg(x)
@@ -1109,13 +1231,11 @@ pub fn csc(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{csc_deg, INF_F64 as inf};
 /// assert_eq!(csc_deg(0.0), inf);
-/// assert_eq!(csc_deg(5.7295775e-13), inf); // 5.7295775e-13 deg = 9.999e-15 rad
-/// assert_eq!(csc_deg(5.7295780e-13), 1e14); // 5.7295780e-13 deg = 1e-14 rad
 /// assert_eq!(csc_deg(30.0), 2.0);
-/// assert_eq!(csc_deg(45.0), 1.4142135);
-/// assert_eq!(csc_deg(60.0), 1.1547005);
+/// assert_eq!(csc_deg(45.0), 1.4142135623);
+/// assert_eq!(csc_deg(60.0), 1.1547005384);
 /// assert_eq!(csc_deg(90.0), 1.0);
-/// assert_eq!(csc_deg(180.0), inf);
+/// assert_eq!(csc_deg(180.0), -inf);
 /// assert_eq!(csc_deg(270.0), -1.0);
 /// assert_eq!(csc_deg(360.0), inf);
 /// ```
@@ -1134,19 +1254,21 @@ pub fn csc_deg(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{sec, INF_F64 as inf};
 /// assert_eq!(sec(0.0), 1.0);
-/// assert_eq!(sec(9.999e-15), 1.0);
-/// assert_eq!(sec(1e-14), 1.0);
-/// assert_eq!(sec(0.5235987755982988), 1.1547005);
-/// assert_eq!(sec(0.7853981633974483), 1.4142135);
-/// assert_eq!(sec(1.0471975511965976), 2.0);
-/// assert_eq!(sec(1.5707963267948966), inf);
-/// assert_eq!(sec(3.141592653589793), -1.0);
-/// assert_eq!(sec(4.71238898038469), inf);
-/// assert_eq!(sec(6.283185307179586), 1.0);
+/// assert_eq!(sec(0.5235987756), 1.1547005384);
+/// assert_eq!(sec(0.7853981634), 1.4142135623);
+/// assert_eq!(sec(1.0471975512), 2.0);
+/// assert_eq!(sec(1.5707963268), -inf);
+/// assert_eq!(sec(3.1415926536), -1.0);
+/// assert_eq!(sec(4.7123889804), inf);
+/// assert_eq!(sec(6.2831853072), 1.0);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn sec(x: f64) -> f64 {
-    fix64(1.0 / cos(x))
+    if x <= 1e-10 {
+        1.0 / x.cos()
+    } else {
+        fix(1.0 / cos(x), 10)
+    }
 }
 
 /// ### sec_deg(x)
@@ -1159,12 +1281,10 @@ pub fn sec(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{sec_deg, INF_F64 as inf};
 /// assert_eq!(sec_deg(0.0), 1.0);
-/// assert_eq!(sec_deg(5.7295775e-13), 1.0); // 5.7295775e-13 deg = 9.999e-15 rad
-/// assert_eq!(sec_deg(5.7295780e-13), 1.0); // 5.7295780e-13 deg = 1e-14 rad
-/// assert_eq!(sec_deg(30.0), 1.1547005);
-/// assert_eq!(sec_deg(45.0), 1.4142135);
+/// assert_eq!(sec_deg(30.0), 1.1547005384);
+/// assert_eq!(sec_deg(45.0), 1.4142135623);
 /// assert_eq!(sec_deg(60.0), 2.0);
-/// assert_eq!(sec_deg(90.0), inf);
+/// assert_eq!(sec_deg(90.0), -inf);
 /// assert_eq!(sec_deg(180.0), -1.0);
 /// assert_eq!(sec_deg(270.0), inf);
 /// assert_eq!(sec_deg(360.0), 1.0);
@@ -1184,19 +1304,23 @@ pub fn sec_deg(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{cot, INF_F64 as inf};
 /// assert_eq!(cot(0.0), inf);
-/// assert_eq!(cot(9.999e-15), inf);
-/// assert_eq!(cot(1e-14), 1e14);
-/// assert_eq!(cot(0.5235987755982988), 1.7320508);
-/// assert_eq!(cot(0.7853981633974483), 1.0);
-/// assert_eq!(cot(1.0471975511965976), 0.57735026);
-/// assert_eq!(cot(1.5707963267948966), 0.0);
-/// assert_eq!(cot(3.141592653589793), -inf);
-/// assert_eq!(cot(4.71238898038469), 0.0);
-/// assert_eq!(cot(6.283185307179586), inf);
+/// assert_eq!(cot(1e-10), 1e+10);
+/// assert_eq!(cot(1e-10), 10000000000.0);
+/// assert_eq!(cot(0.5235987756), 1.7320508076);
+/// assert_eq!(cot(0.7853981634), 1.0);
+/// assert_eq!(cot(1.0471975512), 0.5773502692);
+/// assert_eq!(cot(1.5707963268), 0.0);
+/// assert_eq!(cot(3.1415926536), inf);
+/// assert_eq!(cot(4.7123889804), 0.0);
+/// assert_eq!(cot(6.2831853072), inf);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn cot(x: f64) -> f64 {
-    fix64(cos(x) / sin(x))
+    if abs(x) <= 1e-10 {
+        1.0 / tan(x)
+    } else {
+        fix(cos(x) / sin(x), 10)
+    }
 }
 
 /// ### cot_deg(x)
@@ -1209,13 +1333,11 @@ pub fn cot(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{cot_deg, INF_F64 as inf};
 /// assert_eq!(cot_deg(0.0), inf);
-/// assert_eq!(cot_deg(5.7295775e-13), inf); // 5.7295775e-13 deg = 9.999e-15 rad
-/// assert_eq!(cot_deg(5.7295780e-13), 1e14); // 5.7295780e-13 deg = 1e-14 rad
-/// assert_eq!(cot_deg(30.0), 1.7320508);
+/// assert_eq!(cot_deg(30.0), 1.7320508076);
 /// assert_eq!(cot_deg(45.0), 1.0);
-/// assert_eq!(cot_deg(60.0), 0.57735026);
+/// assert_eq!(cot_deg(60.0), 0.5773502692);
 /// assert_eq!(cot_deg(90.0), 0.0);
-/// assert_eq!(cot_deg(180.0), -inf);
+/// assert_eq!(cot_deg(180.0), inf);
 /// assert_eq!(cot_deg(270.0), 0.0);
 /// assert_eq!(cot_deg(360.0), inf);
 /// ```
@@ -1243,6 +1365,8 @@ pub fn cot_deg(x: f64) -> f64 {
 /// assert!(is_nan_f64(fix(NaN, 0)));
 /// assert_eq!(to_fixed(NaN, 0), "NaN");
 /// assert_eq!(to_fixed(0.1 + 0.2, 15), "0.3");
+/// assert_eq!(fix(3.1415926536 * 7.0, 10), 21.9911485752);
+/// assert_eq!(fix(21.9911485752 / 7.0, 10), 3.1415926536);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn fix(x: f64, decimal_places: u32) -> f64 {

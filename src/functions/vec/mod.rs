@@ -3,7 +3,6 @@ use super::num::{
     fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round,
     sec, sec_deg, sign, sin, sin_deg, sqr, tan, tan_deg, trunc, u64_to_f64,
 };
-
 /// ### abs_vec(x)
 ///
 /// Native Function
@@ -304,8 +303,8 @@ pub fn i64_to_f64_vec(x: &[i64]) -> Vec<f64> {
 /// ```rust
 /// use mathlab::math::{deg_to_rad, deg_to_rad_vec};
 /// let my_x_f64_array = [0.0, 1.0, 30.0, 45.0, 60.0, 90.0, 180.0, 360.0, -360.0];
-/// assert_eq!(deg_to_rad(30.0), 0.5235987755982988);
-/// assert_eq!(deg_to_rad_vec(&my_x_f64_array), [0.0, 0.017453292519943295, 0.5235987755982988, 0.7853981633974483, 1.0471975511965976, 1.5707963267948966, 3.141592653589793, 6.283185307179586, -6.283185307179586]);
+/// assert_eq!(deg_to_rad(30.0), 0.5235987756);
+/// assert_eq!(deg_to_rad_vec(&my_x_f64_array), [0.0, 0.0174532925, 0.5235987756, 0.7853981634, 1.0471975512, 1.5707963268, 3.1415926536, 6.2831853072, -6.2831853072]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn deg_to_rad_vec(x: &[f64]) -> Vec<f64> {
@@ -324,8 +323,8 @@ pub fn deg_to_rad_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{rad_to_deg, rad_to_deg_vec};
-/// let my_x_f64_array = [0.0, 0.017453292519943295, 0.5235987755982988, 0.7853981633974483, 1.0471975511965976, 1.5707963267948966, 3.141592653589793, 6.283185307179586, -6.283185307179586];
-/// assert_eq!(rad_to_deg(0.5235987755982988), 30.0);
+/// let my_x_f64_array = [0.0, 0.0174532925, 0.5235987756, 0.7853981634, 1.0471975512, 1.5707963268, 3.1415926536, 6.2831853072, -6.2831853072];
+/// assert_eq!(rad_to_deg(0.5235987756), 30.0);
 /// assert_eq!(rad_to_deg_vec(&my_x_f64_array), [0.0, 1.0, 30.0, 45.0, 60.0, 90.0, 180.0, 360.0, -360.0]);
 /// ```
 /// <small>End Fun Doc</small>
@@ -538,7 +537,7 @@ pub fn trunc_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{sin_vec, deg_to_rad_vec};
-/// assert_eq!(sin_vec(&[0.0, 9.999e-15, 1e-14, 0.5235987755982988]), [0.0, 0.0, 1e-14, 0.5]);
+/// assert_eq!(sin_vec(&[0.0, 1e-10, 0.5235987756]), [0.0, 1e-10, 0.5]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn sin_vec(x: &[f64]) -> Vec<f64> {
@@ -555,7 +554,7 @@ pub fn sin_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::sin_deg_vec;
-/// assert_eq!(sin_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [0.0, 0.5, 0.70710677, 0.8660254, 1.0]);
+/// assert_eq!(sin_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [0.0, 0.5, 0.7071067812, 0.8660254038, 1.0]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn sin_deg_vec(x: &[f64]) -> Vec<f64> {
@@ -572,7 +571,7 @@ pub fn sin_deg_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{cos_vec, deg_to_rad_vec};
-/// assert_eq!(cos_vec(&[0.0, 9.999e-15, 1e-14, 1.0471975511965976]), [1.0, 1.0, 1.0, 0.5]);
+/// assert_eq!(cos_vec(&[0.0, 1e-10, 1.0471975512]), [1.0, 1.0, 0.5]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn cos_vec(x: &[f64]) -> Vec<f64> {
@@ -589,7 +588,7 @@ pub fn cos_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::cos_deg_vec;
-/// assert_eq!(cos_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [1.0, 0.8660254, 0.70710677, 0.5, 0.0]);
+/// assert_eq!(cos_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [1.0, 0.8660254038, 0.7071067812, 0.5, 0.0]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn cos_deg_vec(x: &[f64]) -> Vec<f64> {
@@ -606,7 +605,7 @@ pub fn cos_deg_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{tan_vec, deg_to_rad_vec};
-/// assert_eq!(tan_vec(&[0.0, 9.999e-15, 1e-14, 0.7853981633974483]), [0.0, 0.0, 1e-14, 1.0]);
+/// assert_eq!(tan_vec(&[0.0, 1e-10, 0.7853981634]), [0.0, 1e-10, 1.0]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn tan_vec(x: &[f64]) -> Vec<f64> {
@@ -623,7 +622,7 @@ pub fn tan_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{tan_deg_vec, INF_F64 as inf};
-/// assert_eq!(tan_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [0.0, 0.57735026, 1.0, 1.7320508, inf]);
+/// assert_eq!(tan_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [0.0, 0.5773502692, 1.0, 1.7320508076, -inf]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn tan_deg_vec(x: &[f64]) -> Vec<f64> {
@@ -640,7 +639,7 @@ pub fn tan_deg_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{csc_vec, INF_F64 as inf};
-/// assert_eq!(csc_vec(&[0.0, 9.999e-15, 1e-14, 0.5235987755982988]), [inf, inf, 1e14, 2.0]);
+/// assert_eq!(csc_vec(&[0.0, 1e-10, 0.5235987756]), [inf, 10000000000.0, 2.0]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn csc_vec(x: &[f64]) -> Vec<f64> {
@@ -657,7 +656,7 @@ pub fn csc_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{csc_deg_vec, INF_F64 as inf};
-/// assert_eq!(csc_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [inf, 2.0, 1.4142135, 1.1547005, 1.0]);
+/// assert_eq!(csc_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [inf, 2.0, 1.4142135623, 1.1547005384, 1.0]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn csc_deg_vec(x: &[f64]) -> Vec<f64> {
@@ -674,7 +673,7 @@ pub fn csc_deg_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{sec_vec, INF_F64 as inf};
-/// assert_eq!(sec_vec(&[0.0, 9.999e-15, 1e-14, 1.0471975511965976]), [1.0, 1.0, 1.0, 2.0]);
+/// assert_eq!(sec_vec(&[0.0, 1e-10, 1.0471975512]), [1.0, 1.0, 2.0]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn sec_vec(x: &[f64]) -> Vec<f64> {
@@ -691,7 +690,7 @@ pub fn sec_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{sec_deg_vec, INF_F64 as inf};
-/// assert_eq!(sec_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [1.0, 1.1547005, 1.4142135, 2.0, inf]);
+/// assert_eq!(sec_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [1.0, 1.1547005384, 1.4142135623, 2.0, -inf]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn sec_deg_vec(x: &[f64]) -> Vec<f64> {
@@ -708,7 +707,7 @@ pub fn sec_deg_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{cot_vec, INF_F64 as inf};
-/// assert_eq!(cot_vec(&[0.0, 9.999e-15, 1e-14, 1.0471975511965976]), [inf, inf, 1e14, 0.57735026]);
+/// assert_eq!(cot_vec(&[0.0, 1e-10, 1.0471975512]), [inf, 10000000000.0, 0.5773502692]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn cot_vec(x: &[f64]) -> Vec<f64> {
@@ -725,7 +724,7 @@ pub fn cot_vec(x: &[f64]) -> Vec<f64> {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{cot_deg_vec, INF_F64 as inf};
-/// assert_eq!(cot_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [inf, 1.7320508, 1.0, 0.57735026, 0.0]);
+/// assert_eq!(cot_deg_vec(&[0.0, 30.0, 45.0, 60.0, 90.0]), [inf, 1.7320508076, 1.0, 0.5773502692, 0.0]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn cot_deg_vec(x: &[f64]) -> Vec<f64> {
