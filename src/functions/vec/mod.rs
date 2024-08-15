@@ -1,7 +1,7 @@
 use super::num::{
     abs, cbrt, ceil, cos, cos_deg, cot, cot_deg, csc, csc_deg, cube, deg_to_rad, exp, f64_to_f32,
     fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round,
-    sec, sec_deg, sign, sin, sin_deg, sqr, tan, tan_deg, trunc, u64_to_f64,
+    sec, sec_deg, sign, sin, sin_deg, sqr, sqrt, tan, tan_deg, trunc, u64_to_f64,
 };
 /// ### abs_vec(x)
 ///
@@ -350,6 +350,24 @@ pub fn rad_to_deg_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn sqr_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| sqr(x)).collect()
+}
+
+/// ### sqrt_vec(x)
+///
+/// Native Function
+///
+/// The `sqrt_vec` function takes a slice of floating-point numbers as input and applies the square root operation
+/// to each element in the slice, returning a new vector containing the squared roots of the original elements.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sqrt, sqrt_vec, INF_F64 as inf};
+/// assert_eq!(sqrt(0.01), 0.1);
+/// assert_eq!(sqrt_vec(&[0.0, 0.01, 1.0, 4.0, 9.0, 100.0, inf]), [0.0, 0.1, 1.0, 2.0, 3.0, 10.0, inf]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sqrt_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| sqrt(x)).collect()
 }
 
 /// ### exp_vec(x)

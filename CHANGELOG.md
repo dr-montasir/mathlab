@@ -1,3 +1,10 @@
+## 0.6.1
+
+- Optimized csc function.
+- Optimized sec function.
+- Added sqrt function.
+- Added sqrt_vec function.
+
 ## 0.6.0
 
 - Improved documentation.

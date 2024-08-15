@@ -641,6 +641,28 @@ pub fn sqr(x: f64) -> f64 {
     x * x
 }
 
+/// ### sqrt(x)
+///
+/// Native Function
+///
+/// The `sqrt` function returns the square root of a given number, which is the number that, when multiplied by itself, equals the original input.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sqrt, INF_F64};
+/// assert_eq!(sqrt(0.0), 0.0);
+/// assert_eq!(sqrt(0.01), 0.1);
+/// assert_eq!(sqrt(1.0), 1.0);
+/// assert_eq!(sqrt(4.0), 2.0);
+/// assert_eq!(sqrt(9.0), 3.0);
+/// assert_eq!(sqrt(100.0), 10.0);
+/// assert_eq!(sqrt(INF_F64), INF_F64);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sqrt(x: f64) -> f64 {
+    x.sqrt()
+}
+
 /// ### rem(x, y)
 ///
 /// Operation Function
@@ -1203,6 +1225,7 @@ pub fn atan_deg(x: f64) -> f64 {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{csc, INF_F64 as inf};
+/// assert_eq!(csc(-0.5235987756), -2.0);
 /// assert_eq!(csc(0.0), inf);
 /// assert_eq!(csc(0.5235987756), 2.0);
 /// assert_eq!(csc(0.7853981634), 1.4142135623);
@@ -1214,11 +1237,7 @@ pub fn atan_deg(x: f64) -> f64 {
 /// ```
 /// <small>End Fun Doc</small>
 pub fn csc(x: f64) -> f64 {
-    if x <= 1e-10 {
-        1.0 / x.sin()
-    } else {
-        fix(1.0 / sin(x), 10)
-    }
+    fix(1.0 / sin(x), 10)
 }
 
 /// ### csc_deg(x)
@@ -1230,7 +1249,10 @@ pub fn csc(x: f64) -> f64 {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{csc_deg, INF_F64 as inf};
+/// assert_eq!(csc_deg(-30.0), -2.0);
+/// assert_eq!(csc_deg(-15.0), -3.8637033052);
 /// assert_eq!(csc_deg(0.0), inf);
+/// assert_eq!(csc_deg(15.0), 3.8637033052);
 /// assert_eq!(csc_deg(30.0), 2.0);
 /// assert_eq!(csc_deg(45.0), 1.4142135623);
 /// assert_eq!(csc_deg(60.0), 1.1547005384);
@@ -1253,6 +1275,7 @@ pub fn csc_deg(x: f64) -> f64 {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{sec, INF_F64 as inf};
+/// assert_eq!(sec(-0.5235987756), 1.1547005384);
 /// assert_eq!(sec(0.0), 1.0);
 /// assert_eq!(sec(0.5235987756), 1.1547005384);
 /// assert_eq!(sec(0.7853981634), 1.4142135623);
@@ -1264,11 +1287,7 @@ pub fn csc_deg(x: f64) -> f64 {
 /// ```
 /// <small>End Fun Doc</small>
 pub fn sec(x: f64) -> f64 {
-    if x <= 1e-10 {
-        1.0 / x.cos()
-    } else {
-        fix(1.0 / cos(x), 10)
-    }
+    fix(1.0 / cos(x), 10)
 }
 
 /// ### sec_deg(x)
@@ -1280,7 +1299,10 @@ pub fn sec(x: f64) -> f64 {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{sec_deg, INF_F64 as inf};
+/// assert_eq!(sec_deg(-30.0), 1.1547005384);
+/// assert_eq!(sec_deg(-15.0), 1.0352761804);
 /// assert_eq!(sec_deg(0.0), 1.0);
+/// assert_eq!(sec_deg(15.0), 1.0352761804);
 /// assert_eq!(sec_deg(30.0), 1.1547005384);
 /// assert_eq!(sec_deg(45.0), 1.4142135623);
 /// assert_eq!(sec_deg(60.0), 2.0);
