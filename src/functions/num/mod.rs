@@ -1266,6 +1266,55 @@ pub fn csc_deg(x: f64) -> f64 {
     csc(deg_to_rad(x))
 }
 
+/// ### acsc(x)
+///
+/// Trigonometric Function
+///
+/// The `acsc` function computes the inverse cosecant of a number (in radians),
+/// returning the angle whose cosecant is equal to the input value.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acsc, INF_F64 as inf};
+/// assert_eq!(acsc(-inf), -0.0);
+/// assert_eq!(acsc(-2.0), -0.5235987756);
+/// assert_eq!(acsc(-1.0), -1.5707963268);
+/// assert_eq!(acsc(inf), 0.0);
+/// assert_eq!(acsc(2.0), 0.5235987756);
+/// assert_eq!(acsc(1.4142135623), 0.7853981634);
+/// assert_eq!(acsc(1.1547005384), 1.0471975512);
+/// assert_eq!(acsc(1.0), 1.5707963268);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acsc(x: f64) -> f64 {
+    asin(1.0 / x)
+    // asin(fix(1.0 / x, 10))
+}
+
+/// ### acsc_deg(x)
+///
+/// Trigonometric Function
+///
+/// The `acsc_deg` function computes the inverse cosecant of a number (in degrees),
+/// returning the angle whose cosecant is equal to the input value.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acsc_deg, INF_F64 as inf};
+/// assert_eq!(acsc_deg(-inf), -0.0);
+/// assert_eq!(acsc_deg(-2.0), -30.0);
+/// assert_eq!(acsc_deg(-1.0), -90.0);
+/// assert_eq!(acsc_deg(inf), 0.0);
+/// assert_eq!(acsc_deg(2.0), 30.0);
+/// assert_eq!(acsc_deg(1.4142135623), 45.0);
+/// assert_eq!(acsc_deg(1.1547005384), 60.0);
+/// assert_eq!(acsc_deg(1.0), 90.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acsc_deg(x: f64) -> f64 {
+    asin_deg(1.0 / x)
+}
+
 /// ### sec(x)
 ///
 /// Trigonometric Function
@@ -1314,6 +1363,56 @@ pub fn sec(x: f64) -> f64 {
 /// <small>End Fun Doc</small>
 pub fn sec_deg(x: f64) -> f64 {
     sec(deg_to_rad(x))
+}
+
+/// ### asec(x)
+///
+/// Trigonometric Function
+///
+/// The `asec` function computes the inverse secant of a number (in radians),
+/// returning the angle whose secant is equal to the input value.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{asec, INF_F64 as inf};
+/// assert_eq!(asec(-inf), 1.5707963268);
+/// assert_eq!(asec(-999999999999.0), 1.5707963268);
+/// assert_eq!(asec(-1.0), 3.1415926536);
+/// assert_eq!(asec(1.0), 0.0);
+/// assert_eq!(asec(1.1547005384), 0.5235987756);
+/// assert_eq!(asec(1.4142135623), 0.7853981634);
+/// assert_eq!(asec(2.0), 1.0471975512);
+/// assert_eq!(asec(999999999999.0), 1.5707963268);
+/// assert_eq!(asec(inf), 1.5707963268);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asec(x: f64) -> f64 {
+    acos(fix(1.0 / x, 10))
+}
+
+/// ### asec_deg(x)
+///
+/// Trigonometric Function
+///
+/// The `asec_deg` function computes the inverse secant of a number (in degrees),
+/// returning the angle whose secant is equal to the input value.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{asec_deg, INF_F64 as inf};
+/// assert_eq!(asec_deg(-inf), 90.0);
+/// assert_eq!(asec_deg(-999999999999.0), 90.0);
+/// assert_eq!(asec_deg(-1.0), 180.0);
+/// assert_eq!(asec_deg(1.0), 0.0);
+/// assert_eq!(asec_deg(1.1547005384), 30.0);
+/// assert_eq!(asec_deg(1.4142135623), 45.0);
+/// assert_eq!(asec_deg(2.0), 60.0);
+/// assert_eq!(asec_deg(999999999999.0), 90.0);
+/// assert_eq!(asec_deg(inf), 90.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asec_deg(x: f64) -> f64 {
+    acos_deg(1.0 / x)
 }
 
 /// ### cot(x)
@@ -1366,6 +1465,54 @@ pub fn cot(x: f64) -> f64 {
 /// <small>End Fun Doc</small>
 pub fn cot_deg(x: f64) -> f64 {
     cot(deg_to_rad(x))
+}
+
+/// ### acot(x)
+///
+/// Trigonometric Function
+///
+/// The `acot` function computes the inverse cotangent of a number (in radians),
+/// returning the angle whose cotangent is equal to the input value.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acot, INF_F64 as inf};
+/// assert_eq!(acot(-inf), 0.0);
+/// assert_eq!(acot(1.7320508076), 0.5235987756);
+/// assert_eq!(acot(1.0), 0.7853981634);
+/// assert_eq!(acot(0.5773502692), 1.0471975512);
+/// assert_eq!(acot(0.0), 1.5707963268);
+/// assert_eq!(acot(10000000000.0), 1e-10);
+/// assert_eq!(acot(1e+10), 1e-10);
+/// assert_eq!(acot(inf), 0.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acot(x: f64) -> f64 {
+    atan(1.0 / x)
+}
+
+/// ### acot_deg(x)
+///
+/// Trigonometric Function
+///
+/// The `acot_deg` function computes the inverse cotangent of a number (in degrees),
+/// returning the angle whose cotangent is equal to the input value.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acot_deg, INF_F64 as inf};
+/// assert_eq!(acot_deg(-inf), 0.0);
+/// assert_eq!(acot_deg(1.7320508076), 30.0);
+/// assert_eq!(acot_deg(1.0), 45.0);
+/// assert_eq!(acot_deg(0.5773502692), 60.0);
+/// assert_eq!(acot_deg(0.0), 90.0);
+/// assert_eq!(acot_deg(10000000000.0), 5.729578e-9);
+/// assert_eq!(acot_deg(1e+10), 5.729578e-9);
+/// assert_eq!(acot_deg(inf), 0.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acot_deg(x: f64) -> f64 {
+    atan_deg(1.0 / x)
 }
 
 /// ### fix(x, decimal_places)

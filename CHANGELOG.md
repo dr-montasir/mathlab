@@ -1,3 +1,12 @@
+## 0.6.2
+
+- Added acsc function.
+- Added acsc_deg function.
+- Added asec function.
+- Added asec_deg function.
+- Added acot function.
+- Added acot_deg function.
+
 ## 0.6.1
 
 - Optimized csc function.
