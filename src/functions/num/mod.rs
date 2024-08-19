@@ -1288,7 +1288,6 @@ pub fn csc_deg(x: f64) -> f64 {
 /// <small>End Fun Doc</small>
 pub fn acsc(x: f64) -> f64 {
     asin(1.0 / x)
-    // asin(fix(1.0 / x, 10))
 }
 
 /// ### acsc_deg(x)

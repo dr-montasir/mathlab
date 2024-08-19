@@ -1,7 +1,8 @@
 use super::num::{
-    abs, cbrt, ceil, cos, cos_deg, cot, cot_deg, csc, csc_deg, cube, deg_to_rad, exp, f64_to_f32,
-    fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round,
-    sec, sec_deg, sign, sin, sin_deg, sqr, sqrt, tan, tan_deg, trunc, u64_to_f64,
+    abs, acos, acos_deg, asin, asin_deg, cbrt, ceil, cos, cos_deg, cot, cot_deg, csc, csc_deg,
+    cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln,
+    ln1p, log10, log2, rad_to_deg, round, sec, sec_deg, sign, sin, sin_deg, sqr, sqrt, tan,
+    tan_deg, trunc, u64_to_f64,
 };
 /// ### abs_vec(x)
 ///
@@ -579,6 +580,38 @@ pub fn sin_deg_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| sin_deg(x)).collect()
 }
 
+/// ### asin_vec(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `asin_vec` function computes the inverse sine of each number in the input slice, returning a new vector of angles whose sine is equal to the corresponding input value, in radians.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::asin_vec;
+/// assert_eq!(asin_vec(&[0.0, 0.5, 0.7071067812, 0.8660254038, 1.0]), [0.0, 0.5235987756, 0.7853981634, 1.0471975512, 1.5707963268]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asin_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| asin(x)).collect()
+}
+
+/// ### asin_deg_vec(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `asin_deg_vec` function computes the inverse sine of each number in the input slice, returning a new vector of angles whose sine is equal to the corresponding input value, in degrees.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::asin_deg_vec;
+/// assert_eq!(asin_deg_vec(&[0.0, 0.5, 0.7071067812, 0.8660254038, 1.0]), [0.0, 30.0, 45.0, 60.0, 90.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asin_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| asin_deg(x)).collect()
+}
+
 /// ### cos_vec(x)
 ///
 /// Trigonometric Function
@@ -611,6 +644,38 @@ pub fn cos_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn cos_deg_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| cos_deg(x)).collect()
+}
+
+/// ### acos_vec(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `acos_vec` function computes the inverse cosine of each number in the input slice, returning a new vector of angles whose cosine is equal to the corresponding input value, in radians.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::acos_vec;
+/// assert_eq!(acos_vec(&[0.0, 0.5, 0.7071067812, 0.8660254038, 1.0]), [1.5707963268, 1.0471975512, 0.7853981634, 0.5235987756, 0.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acos_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| acos(x)).collect()
+}
+
+/// ### acos_deg_vec(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `acos_deg_vec` function computes the inverse cosine of each number in the input slice, returning a new vector of angles whose cosine is equal to the corresponding input value, in degrees.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::acos_deg_vec;
+/// assert_eq!(acos_deg_vec(&[0.0, 0.5, 0.7071067812, 0.8660254038, 1.0]), [90.0, 60.0, 45.0, 30.0, 0.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acos_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| acos_deg(x)).collect()
 }
 
 /// ### tan_vec(x)

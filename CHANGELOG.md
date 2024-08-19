@@ -1,3 +1,10 @@
+## 0.6.3
+
+- Added asin_vec function.
+- Added asin_deg_vec function.
+- Added acos_vec function.
+- Added acos_deg_vec function.
+
 ## 0.6.2
 
 - Added acsc function.
