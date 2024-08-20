@@ -1,3 +1,8 @@
+## 0.6.4
+
+- Added atan_vec function.
+- Added atan_deg_vec function.
+
 ## 0.6.3
 
 - Added asin_vec function.

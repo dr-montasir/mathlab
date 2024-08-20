@@ -1,8 +1,8 @@
 use super::num::{
-    abs, acos, acos_deg, asin, asin_deg, cbrt, ceil, cos, cos_deg, cot, cot_deg, csc, csc_deg,
-    cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln,
-    ln1p, log10, log2, rad_to_deg, round, sec, sec_deg, sign, sin, sin_deg, sqr, sqrt, tan,
-    tan_deg, trunc, u64_to_f64,
+    abs, acos, acos_deg, asin, asin_deg, atan, atan_deg, cbrt, ceil, cos, cos_deg, cot, cot_deg,
+    csc, csc_deg, cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma, i64_to_f64,
+    inv, ln, ln1p, log10, log2, rad_to_deg, round, sec, sec_deg, sign, sin, sin_deg, sqr, sqrt,
+    tan, tan_deg, trunc, u64_to_f64,
 };
 /// ### abs_vec(x)
 ///
@@ -710,6 +710,38 @@ pub fn tan_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn tan_deg_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| tan_deg(x)).collect()
+}
+
+/// ### atan_vec(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `atan_vec` function computes the inverse tangent of each number in the input slice, returning a new vector of angles whose tangent is equal to the corresponding input value, in radians.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{atan_vec, INF_F64 as inf};
+/// assert_eq!(atan_vec(&[0.0, 0.5773502692, 1.0, 1.7320508076, inf]), [0.0, 0.5235987756, 0.7853981634, 1.0471975512, 1.5707963268]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn atan_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| atan(x)).collect()
+}
+
+/// ### atan_deg_vec(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `atan_deg_vec` function computes the inverse tangent of each number in the input slice, returning a new vector of angles whose tangent is equal to the corresponding input value, in degrees.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{atan_deg_vec, INF_F64 as inf};
+/// assert_eq!(atan_deg_vec(&[0.0, 0.5773502692, 1.0, 1.7320508076, inf]), [0.0, 30.0, 45.0, 60.0, 90.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn atan_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| atan_deg(x)).collect()
 }
 
 /// ### csc_vec(x)
