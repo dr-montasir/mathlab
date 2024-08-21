@@ -1,8 +1,8 @@
 use super::num::{
-    abs, acos, acos_deg, asin, asin_deg, atan, atan_deg, cbrt, ceil, cos, cos_deg, cot, cot_deg,
-    csc, csc_deg, cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma, i64_to_f64,
-    inv, ln, ln1p, log10, log2, rad_to_deg, round, sec, sec_deg, sign, sin, sin_deg, sqr, sqrt,
-    tan, tan_deg, trunc, u64_to_f64,
+    abs, acos, acos_deg, acsc, acsc_deg, asin, asin_deg, atan, atan_deg, cbrt, ceil, cos, cos_deg,
+    cot, cot_deg, csc, csc_deg, cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround,
+    gamma, i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round, sec, sec_deg, sign, sin,
+    sin_deg, sqr, sqrt, tan, tan_deg, trunc, u64_to_f64,
 };
 /// ### abs_vec(x)
 ///
@@ -776,6 +776,38 @@ pub fn csc_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn csc_deg_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| csc_deg(x)).collect()
+}
+
+/// ### acsc_vec(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `acsc_vec` function computes the inverse cosecant of each number in the input slice, returning a new vector of angles whose cosecant is equal to the corresponding input value, in radians.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acsc_vec, INF_F64 as inf};
+/// assert_eq!(acsc_vec(&[inf, 10000000000.0, 2.0, 1.4142135623, 1.1547005384, 1.0]), [0.0, 1e-10, 0.5235987756, 0.7853981634, 1.0471975512, 1.5707963268]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acsc_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| acsc(x)).collect()
+}
+
+/// ### acsc_deg_vec(x)
+///
+/// Inverse Trigonometric Function
+///
+/// The `acsc_deg_vec` function computes the inverse cosecant of each number in the input slice, returning a new vector of angles whose cosecant is equal to the corresponding input value, in degrees.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acsc_deg_vec, INF_F64 as inf};
+/// assert_eq!(acsc_deg_vec(&[inf, 10000000000.0, 2.0, 1.4142135623, 1.1547005384, 1.0]), [0.0, 5.729578e-9, 30.0, 45.0, 60.0, 90.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acsc_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| acsc_deg(x)).collect()
 }
 
 /// ### sec_vec(x)
