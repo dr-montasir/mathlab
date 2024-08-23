@@ -1,9 +1,17 @@
+## 0.7.1
+
+- Improved documentation.
+- Added sinh function.
+- Added cosh function.
+- Added tanh function.
+
 ## 0.7.0
 
 - Added asec_vec function.
 - Added asec_deg_vec function.
 - Added acot_vec function.
 - Added acot_deg_vec function.
+- Added web 3.0 demo project.
 
 ## 0.6.5
 

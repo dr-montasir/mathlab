@@ -849,6 +849,34 @@ pub fn fix64(x: f64) -> f64 {
     (x as f32).to_string().parse().expect("")
 }
 
+/// ### fix(x, decimal_places)
+///
+/// Fixation Function
+///
+/// The `fix` function rounds a floating-point number `x` to a fixed-point value with a
+/// specified number of decimal places, returning the result as a floating-point number.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{fix, to_fixed, is_nan_f64, INF_F64 as inf, NAN_F64 as NaN};
+/// assert_eq!(fix(0.5235987755982988, 3), 0.524);
+/// assert_eq!(fix(0.5235987755982928, 15), 0.523598775598293);
+/// assert_eq!(fix(0.5235987755982928, 1), 0.5);
+/// assert_eq!(fix(0.5235987755982928, 0), 1.0);
+/// assert_eq!(fix(0.0, 0), 0.0);
+/// assert_eq!(fix(inf, 0), inf);
+/// assert!(is_nan_f64(fix(NaN, 0)));
+/// assert_eq!(to_fixed(NaN, 0), "NaN");
+/// assert_eq!(to_fixed(0.1 + 0.2, 15), "0.3");
+/// assert_eq!(fix(3.1415926536 * 7.0, 10), 21.9911485752);
+/// assert_eq!(fix(21.9911485752 / 7.0, 10), 3.1415926536);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn fix(x: f64, decimal_places: u32) -> f64 {
+    let multiplier = 10f64.powi(decimal_places as i32);
+    (x * multiplier).round() / multiplier
+}
+
 /// ### cube(x)
 ///
 /// Native Function
@@ -1514,30 +1542,92 @@ pub fn acot_deg(x: f64) -> f64 {
     atan_deg(1.0 / x)
 }
 
-/// ### fix(x, decimal_places)
+/// ### sinh(x)
 ///
-/// Fixation Function
+/// Hyperbolic Function
 ///
-/// The `fix` function rounds a floating-point number `x` to a fixed-point value with a
-/// specified number of decimal places, returning the result as a floating-point number.
+/// The `sinh` function computes the hyperbolic sine of a number (in radians).
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::{fix, to_fixed, is_nan_f64, INF_F64 as inf, NAN_F64 as NaN};
-/// assert_eq!(fix(0.5235987755982988, 3), 0.524);
-/// assert_eq!(fix(0.5235987755982928, 15), 0.523598775598293);
-/// assert_eq!(fix(0.5235987755982928, 1), 0.5);
-/// assert_eq!(fix(0.5235987755982928, 0), 1.0);
-/// assert_eq!(fix(0.0, 0), 0.0);
-/// assert_eq!(fix(inf, 0), inf);
-/// assert!(is_nan_f64(fix(NaN, 0)));
-/// assert_eq!(to_fixed(NaN, 0), "NaN");
-/// assert_eq!(to_fixed(0.1 + 0.2, 15), "0.3");
-/// assert_eq!(fix(3.1415926536 * 7.0, 10), 21.9911485752);
-/// assert_eq!(fix(21.9911485752 / 7.0, 10), 3.1415926536);
+/// use mathlab::math::{sinh, INF_F64 as inf};
+/// assert_eq!(sinh(0.0), 0.0);
+/// assert_eq!(sinh(1e-10), 1e-10);
+/// assert_eq!(sinh(1e-8), 1e-8);
+/// assert_eq!(sinh(0.5235987756), 0.5478534739);
+/// assert_eq!(sinh(0.7853981634), 0.8686709615);
+/// assert_eq!(sinh(1.0471975512), 1.2493670505);
+/// assert_eq!(sinh(1.5707963268), 2.3012989023);
+/// assert_eq!(sinh(3.1415926536), 11.5487393574);
+/// assert_eq!(sinh(4.7123889804), 55.6543976003);
+/// assert_eq!(sinh(6.2831853072), 267.7448940465);
+/// assert_eq!(sinh(inf), inf);
 /// ```
 /// <small>End Fun Doc</small>
-pub fn fix(x: f64, decimal_places: u32) -> f64 {
-    let multiplier = 10f64.powi(decimal_places as i32);
-    (x * multiplier).round() / multiplier
+pub fn sinh(x: f64) -> f64 {
+    if abs(x) <= 1e-10 {
+        x
+    } else {
+        fix(x.sinh(), 10)
+    }
+}
+
+/// ### cosh(x)
+///
+/// Hyperbolic Function
+///
+/// The `cosh` function computes the hyperbolic cosine of a number (in radians).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{cosh, INF_F64 as inf};
+/// assert_eq!(cosh(0.0), 1.0);
+/// assert_eq!(cosh(1e-10), 1.0);
+/// assert_eq!(cosh(1e-8), 1.0);
+/// assert_eq!(cosh(0.5235987756), 1.1402383211);
+/// assert_eq!(cosh(0.7853981634), 1.3246090893);
+/// assert_eq!(cosh(1.0471975512), 1.6002868577);
+/// assert_eq!(cosh(1.5707963268), 2.5091784787);
+/// assert_eq!(cosh(3.1415926536), 11.5919532756);
+/// assert_eq!(cosh(4.7123889804), 55.6633808913);
+/// assert_eq!(cosh(6.2831853072), 267.7467614892);
+/// assert_eq!(cosh(inf), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cosh(x: f64) -> f64 {
+    if abs(x) <= 1e-10 {
+        1.0
+    } else {
+        fix(x.cosh(), 10)
+    }
+}
+
+/// ### tanh(x)
+///
+/// Hyperbolic Function
+///
+/// The `tanh` function computes the hyperbolic tangent of a number (in radians).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{tanh, INF_F64 as inf};
+/// assert_eq!(tanh(0.0), 0.0);
+/// assert_eq!(tanh(1e-10), 1e-10);
+/// assert_eq!(tanh(1e-8), 1e-8);
+/// assert_eq!(tanh(0.5235987756), 0.4804727782);
+/// assert_eq!(tanh(0.7853981634), 0.6557942026);
+/// assert_eq!(tanh(1.0471975512), 0.7807144354);
+/// assert_eq!(tanh(1.5707963268), 0.9171523357);
+/// assert_eq!(tanh(3.1415926536), 0.9962720762);
+/// assert_eq!(tanh(4.7123889804), 0.999838614);
+/// assert_eq!(tanh(6.2831853072), 0.9999930253);
+/// assert_eq!(tanh(inf), 1.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn tanh(x: f64) -> f64 {
+    if abs(x) <= 1e-10 {
+        x
+    } else {
+        fix(x.tanh(), 10)
+    }
 }
