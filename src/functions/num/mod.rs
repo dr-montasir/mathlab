@@ -1551,6 +1551,7 @@ pub fn acot_deg(x: f64) -> f64 {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{sinh, INF_F64 as inf};
+/// assert_eq!(sinh(-1e-10), -1e-10);
 /// assert_eq!(sinh(0.0), 0.0);
 /// assert_eq!(sinh(1e-10), 1e-10);
 /// assert_eq!(sinh(1e-8), 1e-8);
@@ -1581,6 +1582,7 @@ pub fn sinh(x: f64) -> f64 {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{cosh, INF_F64 as inf};
+/// assert_eq!(cosh(-1e-10), 1.0);
 /// assert_eq!(cosh(0.0), 1.0);
 /// assert_eq!(cosh(1e-10), 1.0);
 /// assert_eq!(cosh(1e-8), 1.0);
@@ -1611,6 +1613,7 @@ pub fn cosh(x: f64) -> f64 {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{tanh, INF_F64 as inf};
+/// assert_eq!(tanh(-1e-10), -1e-10);
 /// assert_eq!(tanh(0.0), 0.0);
 /// assert_eq!(tanh(1e-10), 1e-10);
 /// assert_eq!(tanh(1e-8), 1e-8);
@@ -1630,4 +1633,79 @@ pub fn tanh(x: f64) -> f64 {
     } else {
         fix(x.tanh(), 10)
     }
+}
+
+/// ### csch(x)
+///
+/// Hyperbolic Function
+///
+/// The `csch` function computes the hyperbolic cosecant of a number (in radians).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{csch, INF_F64 as inf};
+/// assert_eq!(csch(-1.0), 2.7182818285);
+/// assert_eq!(csch(0.0), 1.0);
+/// assert_eq!(csch(0.5235987756), 0.5923848472);
+/// assert_eq!(csch(0.7853981634), 0.4559381278);
+/// assert_eq!(csch(1.0471975512), 0.3509198072);
+/// assert_eq!(csch(1.5707963268), 0.2078795763);
+/// assert_eq!(csch(3.1415926536), 0.0432139183);
+/// assert_eq!(csch(4.7123889804), 0.008983291);
+/// assert_eq!(csch(6.2831853072), 0.0018674427);
+/// assert_eq!(csch(inf), 0.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn csch(x: f64) -> f64 {
+    fix(2.0 / pow(E, x) - pow(E, -x), 10)
+}
+
+/// ### sech(x)
+///
+/// Hyperbolic Function
+///
+/// The `sech` function computes the hyperbolic secant of a number (in radians).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sech, INF_F64 as inf};
+/// assert_eq!(sech(-1.0), 0.6480542737);
+/// assert_eq!(sech(0.0), 1.0);
+/// assert_eq!(sech(0.5235987756), 0.8770096405);
+/// assert_eq!(sech(0.7853981634), 0.7549397087);
+/// assert_eq!(sech(1.0471975512), 0.6248879663);
+/// assert_eq!(sech(1.5707963268), 0.3985368153);
+/// assert_eq!(sech(3.1415926536), 0.0862667383);
+/// assert_eq!(sech(4.7123889804), 0.0179651323);
+/// assert_eq!(sech(6.2831853072), 0.0037348724);
+/// assert_eq!(sech(inf), 0.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sech(x: f64) -> f64 {
+    fix(2.0 / (pow(E, x) + pow(E, -x)), 10)
+}
+
+/// ### coth(x)
+///
+/// Hyperbolic Function
+///
+/// The `coth` function computes the hyperbolic cotangent of a number (in radians).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{coth, INF_F64 as inf};
+/// assert_eq!(coth(-1.0), -1.3130352855);
+/// assert_eq!(coth(0.0), inf);
+/// assert_eq!(coth(0.5235987756), 2.0812833639);
+/// assert_eq!(coth(0.7853981634), 1.5248686188);
+/// assert_eq!(coth(1.0471975512), 1.280878071);
+/// assert_eq!(coth(1.5707963268), 1.0903314107);
+/// assert_eq!(coth(3.1415926536), 1.0037418732);
+/// assert_eq!(coth(4.7123889804), 1.0001614121);
+/// assert_eq!(coth(6.2831853072), 1.0000069747);
+/// assert_eq!(coth(inf), 1.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn coth(x: f64) -> f64 {
+    fix(1.0 / x.tanh(), 10)
 }

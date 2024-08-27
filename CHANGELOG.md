@@ -1,3 +1,9 @@
+## 0.7.2
+
+- Added csch function.
+- Added sech function.
+- Added coth function.
+
 ## 0.7.1
 
 - Improved documentation.
