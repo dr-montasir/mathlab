@@ -1,3 +1,12 @@
+## 0.8.0
+
+- Added sinh_deg function.
+- Added cosh_deg function.
+- Added tanh_deg function.
+- Added csch_deg function.
+- Added sech_deg function.
+- Added coth_deg function.
+
 ## 0.7.2
 
 - Added csch function.

@@ -1573,6 +1573,30 @@ pub fn sinh(x: f64) -> f64 {
     }
 }
 
+/// ### sinh_deg(x)
+///
+/// Hyperbolic Function
+///
+/// The `sinh_deg` function computes the hyperbolic sine of a number (in degrees).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sinh_deg, INF_F64 as inf};
+/// assert_eq!(sinh_deg(0.0), 0.0);
+/// assert_eq!(sinh_deg(30.0), 0.5478534739);
+/// assert_eq!(sinh_deg(45.0), 0.8686709615);
+/// assert_eq!(sinh_deg(60.0), 1.2493670505);
+/// assert_eq!(sinh_deg(90.0), 2.3012989023);
+/// assert_eq!(sinh_deg(180.0), 11.5487393574);
+/// assert_eq!(sinh_deg(270.0), 55.6543976003);
+/// assert_eq!(sinh_deg(360.0), 267.7448940465);
+/// assert_eq!(sinh_deg(inf), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sinh_deg(x: f64) -> f64 {
+    sinh(deg_to_rad(x))
+}
+
 /// ### cosh(x)
 ///
 /// Hyperbolic Function
@@ -1602,6 +1626,30 @@ pub fn cosh(x: f64) -> f64 {
     } else {
         fix(x.cosh(), 10)
     }
+}
+
+/// ### cosh_deg(x)
+///
+/// Hyperbolic Function
+///
+/// The `cosh_deg` function computes the hyperbolic cosine of a number (in degrees).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{cosh_deg, INF_F64 as inf};
+/// assert_eq!(cosh_deg(0.0), 1.0);
+/// assert_eq!(cosh_deg(30.0), 1.1402383211);
+/// assert_eq!(cosh_deg(45.0), 1.3246090893);
+/// assert_eq!(cosh_deg(60.0), 1.6002868577);
+/// assert_eq!(cosh_deg(90.0), 2.5091784787);
+/// assert_eq!(cosh_deg(180.0), 11.5919532756);
+/// assert_eq!(cosh_deg(270.0), 55.6633808913);
+/// assert_eq!(cosh_deg(360.0), 267.7467614892);
+/// assert_eq!(cosh_deg(inf), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn cosh_deg(x: f64) -> f64 {
+    cosh(deg_to_rad(x))
 }
 
 /// ### tanh(x)
@@ -1635,6 +1683,30 @@ pub fn tanh(x: f64) -> f64 {
     }
 }
 
+/// ### tanh_deg(x)
+///
+/// Hyperbolic Function
+///
+/// The `tanh_deg` function computes the hyperbolic tangent of a number (in degrees).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{tanh_deg, INF_F64 as inf};
+/// assert_eq!(tanh_deg(0.0), 0.0);
+/// assert_eq!(tanh_deg(30.0), 0.4804727782);
+/// assert_eq!(tanh_deg(45.0), 0.6557942026);
+/// assert_eq!(tanh_deg(60.0), 0.7807144354);
+/// assert_eq!(tanh_deg(90.0), 0.9171523357);
+/// assert_eq!(tanh_deg(180.0), 0.9962720762);
+/// assert_eq!(tanh_deg(270.0), 0.999838614);
+/// assert_eq!(tanh_deg(360.0), 0.9999930253);
+/// assert_eq!(tanh_deg(inf), 1.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn tanh_deg(x: f64) -> f64 {
+    tanh(deg_to_rad(x))
+}
+
 /// ### csch(x)
 ///
 /// Hyperbolic Function
@@ -1658,6 +1730,30 @@ pub fn tanh(x: f64) -> f64 {
 /// <small>End Fun Doc</small>
 pub fn csch(x: f64) -> f64 {
     fix(2.0 / pow(E, x) - pow(E, -x), 10)
+}
+
+/// ### csch_deg(x)
+///
+/// Hyperbolic Function
+///
+/// The `csch_deg` function computes the hyperbolic cosecant of a number (in degrees).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{csch_deg, INF_F64 as inf};
+/// assert_eq!(csch_deg(0.0), 1.0);
+/// assert_eq!(csch_deg(30.0), 0.5923848472);
+/// assert_eq!(csch_deg(45.0), 0.4559381278);
+/// assert_eq!(csch_deg(60.0), 0.3509198072);
+/// assert_eq!(csch_deg(90.0), 0.2078795763);
+/// assert_eq!(csch_deg(180.0), 0.0432139183);
+/// assert_eq!(csch_deg(270.0), 0.008983291);
+/// assert_eq!(csch_deg(360.0), 0.0018674427);
+/// assert_eq!(csch_deg(inf), 0.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn csch_deg(x: f64) -> f64 {
+    csch(deg_to_rad(x))
 }
 
 /// ### sech(x)
@@ -1685,6 +1781,30 @@ pub fn sech(x: f64) -> f64 {
     fix(2.0 / (pow(E, x) + pow(E, -x)), 10)
 }
 
+/// ### sech_deg(x)
+///
+/// Hyperbolic Function
+///
+/// The `sech_deg` function computes the hyperbolic secant of a number (in degrees).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{sech_deg, INF_F64 as inf};
+/// assert_eq!(sech_deg(0.0), 1.0);
+/// assert_eq!(sech_deg(30.0), 0.8770096405);
+/// assert_eq!(sech_deg(45.0), 0.7549397087);
+/// assert_eq!(sech_deg(60.0), 0.6248879663);
+/// assert_eq!(sech_deg(90.0), 0.3985368153);
+/// assert_eq!(sech_deg(180.0), 0.0862667383);
+/// assert_eq!(sech_deg(270.0), 0.0179651323);
+/// assert_eq!(sech_deg(360.0), 0.0037348724);
+/// assert_eq!(sech_deg(inf), 0.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sech_deg(x: f64) -> f64 {
+    sech(deg_to_rad(x))
+}
+
 /// ### coth(x)
 ///
 /// Hyperbolic Function
@@ -1708,4 +1828,28 @@ pub fn sech(x: f64) -> f64 {
 /// <small>End Fun Doc</small>
 pub fn coth(x: f64) -> f64 {
     fix(1.0 / x.tanh(), 10)
+}
+
+/// ### coth_deg(x)
+///
+/// Hyperbolic Function
+///
+/// The `coth_deg` function computes the hyperbolic cotangent of a number (in degrees).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{coth_deg, INF_F64 as inf};
+/// assert_eq!(coth_deg(0.0), inf);
+/// assert_eq!(coth_deg(30.0), 2.0812833639);
+/// assert_eq!(coth_deg(45.0), 1.5248686188);
+/// assert_eq!(coth_deg(60.0), 1.280878071);
+/// assert_eq!(coth_deg(90.0), 1.0903314107);
+/// assert_eq!(coth_deg(180.0), 1.0037418732);
+/// assert_eq!(coth_deg(270.0), 1.0001614121);
+/// assert_eq!(coth_deg(360.0), 1.0000069747);
+/// assert_eq!(coth_deg(inf), 1.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn coth_deg(x: f64) -> f64 {
+    coth(deg_to_rad(x))
 }
