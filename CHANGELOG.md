@@ -1,3 +1,10 @@
+## 0.8.1
+
+- Optimized hyperbolic functions.
+- Added asinh function.
+- Added acosh function.
+- Added atanh function.
+
 ## 0.8.0
 
 - Added sinh_deg function.
