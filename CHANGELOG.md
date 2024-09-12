@@ -1,3 +1,11 @@
+## 0.8.2
+
+- Optimized hyperbolic functions.
+- Optimized inverse hyperbolic functions.
+- Added acsch function.
+- Added asech function.
+- Added acoth function.
+
 ## 0.8.1
 
 - Optimized hyperbolic functions.

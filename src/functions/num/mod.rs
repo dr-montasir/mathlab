@@ -1556,14 +1556,14 @@ pub fn acot_deg(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{sinh, INF_F64 as inf};
 /// assert_eq!(sinh(0.0), 0.0);
-/// assert_eq!(sinh(0.5235987755982988), 0.5478534738880397);
-/// assert_eq!(sinh(3.1415926535897930), 11.548739357257748);
-/// assert_eq!(sinh(6.2831853071795860), 267.74489404101644);
+/// assert_eq!(sinh(0.523598775598299), 0.547853473888040);
+/// assert_eq!(sinh(3.141592653589793), 11.548739357257748);
+/// assert_eq!(sinh(6.283185307179586), 267.74489404101644);
 /// assert_eq!(sinh(inf), inf);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn sinh(x: f64) -> f64 {
-    x.sinh()
+    fix(x.sinh(), 15)
 }
 
 /// ### sinh_deg(x)
@@ -1576,14 +1576,14 @@ pub fn sinh(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{sinh_deg, INF_F64 as inf};
 /// assert_eq!(sinh_deg(0.0), 0.0);
-/// assert_eq!(sinh_deg(30.0), 0.5478534738880397);
+/// assert_eq!(sinh_deg(30.0), 0.547853473888040);
 /// assert_eq!(sinh_deg(180.0), 11.548739357257748);
 /// assert_eq!(sinh_deg(360.0), 267.74489404101644);
 /// assert_eq!(sinh_deg(inf), inf);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn sinh_deg(x: f64) -> f64 {
-    (x * 3.1415926535897931f64 / 180.0).sinh()
+    fix((x * 3.141592653589793 / 180.0).sinh(), 15)
 }
 
 /// ### asinh(x)
@@ -1600,14 +1600,14 @@ pub fn sinh_deg(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{asinh, INF_F64 as inf};
 /// assert_eq!(asinh(0.0), 0.0);
-/// assert_eq!(asinh(0.5478534738880397), 0.5235987755982988);
-/// assert_eq!(asinh(11.548739357257748), 3.1415926535897930);
-/// assert_eq!(asinh(267.74489404101644), 6.2831853071795860);
+/// assert_eq!(asinh(0.547853473888040), 0.523598775598299);
+/// assert_eq!(asinh(11.548739357257748), 3.141592653589793);
+/// assert_eq!(asinh(267.74489404101644), 6.283185307179586);
 /// assert_eq!(asinh(inf), inf);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn asinh(x: f64) -> f64 {
-    x.asinh()
+    fix(x.asinh(), 15)
 }
 
 /// ### cosh(x)
@@ -1624,14 +1624,14 @@ pub fn asinh(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{cosh, INF_F64 as inf};
 /// assert_eq!(cosh(0.0), 1.0);
-/// assert_eq!(cosh(0.5235987755982988), 1.1402383210764286);
-/// assert_eq!(cosh(3.1415926535897930), 11.591953275521519);
-/// assert_eq!(cosh(6.2831853071795860), 267.74676148374820);
+/// assert_eq!(cosh(0.523598775598299), 1.140238321076429);
+/// assert_eq!(cosh(3.141592653589793), 11.591953275521519);
+/// assert_eq!(cosh(6.283185307179586), 267.7467614837482);
 /// assert_eq!(cosh(inf), inf);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn cosh(x: f64) -> f64 {
-    x.cosh()
+    fix(x.cosh(), 15)
 }
 
 /// ### cosh_deg(x)
@@ -1644,14 +1644,14 @@ pub fn cosh(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{cosh_deg, INF_F64 as inf};
 /// assert_eq!(cosh_deg(0.0), 1.0);
-/// assert_eq!(cosh_deg(30.0), 1.1402383210764286);
+/// assert_eq!(cosh_deg(30.0), 1.140238321076429);
 /// assert_eq!(cosh_deg(180.0), 11.591953275521519);
-/// assert_eq!(cosh_deg(360.0), 267.74676148374820);
+/// assert_eq!(cosh_deg(360.0), 267.7467614837482);
 /// assert_eq!(cosh_deg(inf), inf);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn cosh_deg(x: f64) -> f64 {
-    (x * 3.1415926535897931f64 / 180.0).cosh()
+    fix((x * 3.141592653589793 / 180.0).cosh(), 15)
 }
 
 /// ### acosh(x)
@@ -1668,14 +1668,14 @@ pub fn cosh_deg(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{acosh, INF_F64 as inf};
 /// assert_eq!(acosh(1.0), 0.0);
-/// assert_eq!(acosh(1.1402383210764286), 0.5235987755982986);
-/// assert_eq!(acosh(11.591953275521519), 3.1415926535897930);
-/// assert_eq!(acosh(267.74676148374820), 6.2831853071795860);
+/// assert_eq!(acosh(1.140238321076429), 0.523598775598299);
+/// assert_eq!(acosh(11.591953275521519), 3.141592653589793);
+/// assert_eq!(acosh(267.7467614837482), 6.283185307179586);
 /// assert_eq!(acosh(inf), inf);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn acosh(x: f64) -> f64 {
-    x.acosh()
+    fix(x.acosh(), 15)
 }
 
 /// ### tanh(x)
@@ -1692,14 +1692,14 @@ pub fn acosh(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{tanh, INF_F64 as inf};
 /// assert_eq!(tanh(0.0), 0.0);
-/// assert_eq!(tanh(0.5235987755982988), 0.4804727781564516);
-/// assert_eq!(tanh(3.1415926535897930), 0.9962720762207500);
-/// assert_eq!(tanh(6.2831853071795860), 0.9999930253396107);
+/// assert_eq!(tanh(0.523598775598299), 0.480472778156452);
+/// assert_eq!(tanh(3.141592653589793), 0.99627207622075);
+/// assert_eq!(tanh(6.283185307179586), 0.999993025339611);
 /// assert_eq!(tanh(inf), 1.0);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn tanh(x: f64) -> f64 {
-    x.tanh()
+    fix(x.tanh(), 15)
 }
 
 /// ### tanh_deg(x)
@@ -1712,14 +1712,14 @@ pub fn tanh(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{tanh_deg, INF_F64 as inf};
 /// assert_eq!(tanh_deg(0.0), 0.0);
-/// assert_eq!(tanh_deg(30.0), 0.4804727781564516);
+/// assert_eq!(tanh_deg(30.0), 0.480472778156452);
 /// assert_eq!(tanh_deg(180.0), 0.99627207622075);
-/// assert_eq!(tanh_deg(360.0), 0.9999930253396107);
+/// assert_eq!(tanh_deg(360.0), 0.999993025339611);
 /// assert_eq!(tanh_deg(inf), 1.0);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn tanh_deg(x: f64) -> f64 {
-    (x * 3.1415926535897931f64 / 180.0).tanh()
+    fix((x * 3.141592653589793 / 180.0).tanh(), 15)
 }
 
 /// ### atanh(x)
@@ -1736,14 +1736,14 @@ pub fn tanh_deg(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{atanh, INF_F64 as inf};
 /// assert_eq!(atanh(0.0), 0.0);
-/// assert_eq!(atanh(0.4804727781564516), 0.5235987755982989);
-/// assert_eq!(atanh(0.9962720762207500), 3.1415926535897980);
-/// assert_eq!(atanh(0.9999930253396107), 6.2831853071826090);
+/// assert_eq!(atanh(0.480472778156452), 0.523598775598299);
+/// assert_eq!(atanh(0.99627207622075), 3.141592653589798);
+/// assert_eq!(atanh(0.999993025339611), 6.283185307206486);
 /// assert_eq!(atanh(1.0), inf);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn atanh(x: f64) -> f64 {
-    x.atanh()
+    fix(x.atanh(), 15)
 }
 
 /// ### csch(x)
@@ -1759,14 +1759,14 @@ pub fn atanh(x: f64) -> f64 {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{csch, INF_F64 as inf};
-/// assert_eq!(csch(0.5235987755982988), 1.8253055746879536);
-/// assert_eq!(csch(3.1415926535897930), 0.0865895375300470);
-/// assert_eq!(csch(6.2831853071795860), 0.0037348984882857);
+/// assert_eq!(csch(0.523598775598299), 1.825305574687952);
+/// assert_eq!(csch(3.141592653589793), 0.086589537530047);
+/// assert_eq!(csch(6.283185307179586), 0.003734898488286);
 /// assert_eq!(csch(inf), 0.0);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn csch(x: f64) -> f64 {
-    fix(2.0 / (exp(x) - exp(-x)), 16)
+    fix(2.0 / (exp(x) - exp(-x)), 15)
 }
 
 /// ### csch_deg(x)
@@ -1778,14 +1778,37 @@ pub fn csch(x: f64) -> f64 {
 /// ### Examples
 /// ```rust
 /// use mathlab::math::{csch_deg, INF_F64 as inf};
-/// assert_eq!(csch_deg(30.0), 1.8253055746879536);
-/// assert_eq!(csch_deg(180.0), 0.0865895375300470);
-/// assert_eq!(csch_deg(360.0), 0.0037348984882857);
+/// assert_eq!(csch_deg(30.0), 1.825305574687954);
+/// assert_eq!(csch_deg(180.0), 0.086589537530047);
+/// assert_eq!(csch_deg(360.0), 0.003734898488286);
 /// assert_eq!(csch_deg(inf), 0.0);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn csch_deg(x: f64) -> f64 {
-    csch(x * 3.1415926535897931f64 / 180.0)
+    fix(csch(x * 3.141592653589793 / 180.0), 15)
+}
+
+/// ### acsch(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acsch` function computes the inverse hyperbolic cosecant of a number (in radians).
+///
+/// ### Equation
+///
+/// acsch(x) = (1.0 / x).asinh() = ln((1.0 / x) + sqrt((1.0 / sqr(x)) + 1.0))
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acsch, INF_F64 as inf};
+/// assert_eq!(acsch(0.0), inf);
+/// assert_eq!(acsch(1.825305574687952), 0.523598775598299);
+/// assert_eq!(acsch(0.086589537530047), 3.141592653589793);
+/// assert_eq!(acsch(0.003734898488286), 6.283185307179499);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acsch(x: f64) -> f64 {
+    fix((1.0 / x).asinh(), 15)
 }
 
 /// ### sech(x)
@@ -1802,14 +1825,14 @@ pub fn csch_deg(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{sech, INF_F64 as inf};
 /// assert_eq!(sech(0.0), 1.0);
-/// assert_eq!(sech(0.5235987755982988), 0.8770096404547794);
-/// assert_eq!(sech(3.1415926535897930), 0.0862667383340545);
-/// assert_eq!(sech(6.2831853071795860), 0.0037348724386371);
+/// assert_eq!(sech(0.523598775598299), 0.877009640454779);
+/// assert_eq!(sech(3.141592653589793), 0.086266738334054);
+/// assert_eq!(sech(6.283185307179586), 0.003734872438637);
 /// assert_eq!(sech(inf), 0.0);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn sech(x: f64) -> f64 {
-    fix(2.0 / (exp(x) + exp(-x)), 16)
+    fix(2.0 / (exp(x) + exp(-x)), 15)
 }
 
 /// ### sech_deg(x)
@@ -1822,14 +1845,38 @@ pub fn sech(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{sech_deg, INF_F64 as inf};
 /// assert_eq!(sech_deg(0.0), 1.0);
-/// assert_eq!(sech_deg(30.0), 0.8770096404547794);
-/// assert_eq!(sech_deg(180.0), 0.0862667383340545);
-/// assert_eq!(sech_deg(360.0), 0.0037348724386371);
+/// assert_eq!(sech_deg(30.0), 0.877009640454779);
+/// assert_eq!(sech_deg(180.0), 0.086266738334054);
+/// assert_eq!(sech_deg(360.0), 0.003734872438637);
 /// assert_eq!(sech_deg(inf), 0.0);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn sech_deg(x: f64) -> f64 {
-    sech(x * 3.1415926535897931f64 / 180.0)
+    fix(sech(x * 3.141592653589793 / 180.0), 15)
+}
+
+/// ### asech(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `asech` function computes the inverse hyperbolic secant of a number (in radians).
+///
+/// ### Equation
+///
+/// asech(x) = (1.0 / x).acosh() = = ln((1.0 / x) + sqrt((1.0 / sqr(x)) - 1.0))
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{asech, INF_F64 as inf};
+/// assert_eq!(asech(0.0), inf);
+/// assert_eq!(asech(1.0), 0.0);
+/// assert_eq!(asech(0.877009640454779), 0.523598775598299);
+/// assert_eq!(asech(0.086266738334054), 3.141592653589798);
+/// assert_eq!(asech(0.003734872438637), 6.28318530717962);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asech(x: f64) -> f64 {
+    fix((1.0 / x).acosh(), 15)
 }
 
 /// ### coth(x)
@@ -1846,13 +1893,13 @@ pub fn sech_deg(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{coth, INF_F64 as inf};
 /// assert_eq!(coth(0.0), inf);
-/// assert_eq!(coth(0.5235987755982988), 2.0812833639336374);
-/// assert_eq!(coth(3.1415926535897930), 1.003741873197321);
-/// assert_eq!(coth(6.2831853071795860), 1.0000069747090357);
+/// assert_eq!(coth(0.523598775598299), 2.081283363933637);
+/// assert_eq!(coth(3.141592653589793), 1.003741873197321);
+/// assert_eq!(coth(6.283185307179586), 1.000006974709036);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn coth(x: f64) -> f64 {
-    fix((exp(x) + exp(-x)) / (exp(x) - exp(-x)), 16)
+    fix((exp(x) + exp(-x)) / (exp(x) - exp(-x)), 15)
 }
 
 /// ### coth_deg(x)
@@ -1865,11 +1912,34 @@ pub fn coth(x: f64) -> f64 {
 /// ```rust
 /// use mathlab::math::{coth_deg, INF_F64 as inf};
 /// assert_eq!(coth_deg(0.0), inf);
-/// assert_eq!(coth_deg(30.0), 2.0812833639336374);
+/// assert_eq!(coth_deg(30.0), 2.081283363933638);
 /// assert_eq!(coth_deg(180.0), 1.003741873197321);
-/// assert_eq!(coth_deg(360.0), 1.0000069747090357);
+/// assert_eq!(coth_deg(360.0), 1.000006974709036);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn coth_deg(x: f64) -> f64 {
-    coth(x * 3.1415926535897931f64 / 180.0)
+    fix(coth(x * 3.141592653589793 / 180.0), 15)
+}
+
+/// ### acoth(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acoth` function computes the inverse hyperbolic cotangent of a number (in radians).
+///
+/// ### Equation
+///
+/// acoth(x) = (1.0 / x).atanh() = 0.5 * ln((x + 1.0) / (x - 1.0))
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acoth, INF_F64 as inf};
+/// assert_eq!(acoth(inf), 0.0);
+/// assert_eq!(acoth(2.081283363933637), 0.523598775598299);
+/// assert_eq!(acoth(1.003741873197321), 3.141592653589813);
+/// assert_eq!(acoth(1.000006974709036), 6.283185307142813);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acoth(x: f64) -> f64 {
+    fix((1.0 / x).atanh(), 15)
 }
