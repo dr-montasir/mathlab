@@ -1586,30 +1586,6 @@ pub fn sinh_deg(x: f64) -> f64 {
     fix((x * 3.141592653589793 / 180.0).sinh(), 15)
 }
 
-/// ### asinh(x)
-///
-/// Inverse Hyperbolic Function
-///
-/// The `asinh` function computes the inverse hyperbolic sine of a number (in radians).
-///
-/// ### Equation
-///
-/// std library -> x.asinh() = ln(x + sqrt(sqr(x) + 1.0))
-///
-/// ### Examples
-/// ```rust
-/// use mathlab::math::{asinh, INF_F64 as inf};
-/// assert_eq!(asinh(0.0), 0.0);
-/// assert_eq!(asinh(0.547853473888040), 0.523598775598299);
-/// assert_eq!(asinh(11.548739357257748), 3.141592653589793);
-/// assert_eq!(asinh(267.74489404101644), 6.283185307179586);
-/// assert_eq!(asinh(inf), inf);
-/// ```
-/// <small>End Fun Doc</small>
-pub fn asinh(x: f64) -> f64 {
-    fix(x.asinh(), 15)
-}
-
 /// ### cosh(x)
 ///
 /// Hyperbolic Function
@@ -1652,30 +1628,6 @@ pub fn cosh(x: f64) -> f64 {
 /// <small>End Fun Doc</small>
 pub fn cosh_deg(x: f64) -> f64 {
     fix((x * 3.141592653589793 / 180.0).cosh(), 15)
-}
-
-/// ### acosh(x)
-///
-/// Inverse Hyperbolic Function
-///
-/// The `acosh` function computes the inverse hyperbolic cosine of a number (in radians).
-///
-/// ### Equation
-///
-/// std library -> x.acosh() = ln(x + sqrt(sqr(x) - 1.0))
-///
-/// ### Examples
-/// ```rust
-/// use mathlab::math::{acosh, INF_F64 as inf};
-/// assert_eq!(acosh(1.0), 0.0);
-/// assert_eq!(acosh(1.140238321076429), 0.523598775598299);
-/// assert_eq!(acosh(11.591953275521519), 3.141592653589793);
-/// assert_eq!(acosh(267.7467614837482), 6.283185307179586);
-/// assert_eq!(acosh(inf), inf);
-/// ```
-/// <small>End Fun Doc</small>
-pub fn acosh(x: f64) -> f64 {
-    fix(x.acosh(), 15)
 }
 
 /// ### tanh(x)
@@ -1722,30 +1674,6 @@ pub fn tanh_deg(x: f64) -> f64 {
     fix((x * 3.141592653589793 / 180.0).tanh(), 15)
 }
 
-/// ### atanh(x)
-///
-/// Inverse Hyperbolic Function
-///
-/// The `atanh` function computes the inverse hyperbolic tangent of a number (in radians).
-///
-/// ### Equation
-///
-/// std library -> x.atanh() = 0.5 * ln((1.0 + x) / (1.0 - x))
-///
-/// ### Examples
-/// ```rust
-/// use mathlab::math::{atanh, INF_F64 as inf};
-/// assert_eq!(atanh(0.0), 0.0);
-/// assert_eq!(atanh(0.480472778156452), 0.523598775598299);
-/// assert_eq!(atanh(0.99627207622075), 3.141592653589798);
-/// assert_eq!(atanh(0.999993025339611), 6.283185307206486);
-/// assert_eq!(atanh(1.0), inf);
-/// ```
-/// <small>End Fun Doc</small>
-pub fn atanh(x: f64) -> f64 {
-    fix(x.atanh(), 15)
-}
-
 /// ### csch(x)
 ///
 /// Hyperbolic Function
@@ -1786,29 +1714,6 @@ pub fn csch(x: f64) -> f64 {
 /// <small>End Fun Doc</small>
 pub fn csch_deg(x: f64) -> f64 {
     fix(csch(x * 3.141592653589793 / 180.0), 15)
-}
-
-/// ### acsch(x)
-///
-/// Inverse Hyperbolic Function
-///
-/// The `acsch` function computes the inverse hyperbolic cosecant of a number (in radians).
-///
-/// ### Equation
-///
-/// acsch(x) = (1.0 / x).asinh() = ln((1.0 / x) + sqrt((1.0 / sqr(x)) + 1.0))
-///
-/// ### Examples
-/// ```rust
-/// use mathlab::math::{acsch, INF_F64 as inf};
-/// assert_eq!(acsch(0.0), inf);
-/// assert_eq!(acsch(1.825305574687952), 0.523598775598299);
-/// assert_eq!(acsch(0.086589537530047), 3.141592653589793);
-/// assert_eq!(acsch(0.003734898488286), 6.283185307179499);
-/// ```
-/// <small>End Fun Doc</small>
-pub fn acsch(x: f64) -> f64 {
-    fix((1.0 / x).asinh(), 15)
 }
 
 /// ### sech(x)
@@ -1855,30 +1760,6 @@ pub fn sech_deg(x: f64) -> f64 {
     fix(sech(x * 3.141592653589793 / 180.0), 15)
 }
 
-/// ### asech(x)
-///
-/// Inverse Hyperbolic Function
-///
-/// The `asech` function computes the inverse hyperbolic secant of a number (in radians).
-///
-/// ### Equation
-///
-/// asech(x) = (1.0 / x).acosh() = = ln((1.0 / x) + sqrt((1.0 / sqr(x)) - 1.0))
-///
-/// ### Examples
-/// ```rust
-/// use mathlab::math::{asech, INF_F64 as inf};
-/// assert_eq!(asech(0.0), inf);
-/// assert_eq!(asech(1.0), 0.0);
-/// assert_eq!(asech(0.877009640454779), 0.523598775598299);
-/// assert_eq!(asech(0.086266738334054), 3.141592653589798);
-/// assert_eq!(asech(0.003734872438637), 6.28318530717962);
-/// ```
-/// <small>End Fun Doc</small>
-pub fn asech(x: f64) -> f64 {
-    fix((1.0 / x).acosh(), 15)
-}
-
 /// ### coth(x)
 ///
 /// Hyperbolic Function
@@ -1921,6 +1802,224 @@ pub fn coth_deg(x: f64) -> f64 {
     fix(coth(x * 3.141592653589793 / 180.0), 15)
 }
 
+/// ### asinh(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `asinh` function computes the inverse hyperbolic sine of a number (in radians).
+///
+/// ### Equation
+///
+/// std library -> x.asinh() = ln(x + sqrt(sqr(x) + 1.0))
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{asinh, INF_F64 as inf};
+/// assert_eq!(asinh(0.0), 0.0);
+/// assert_eq!(asinh(0.547853473888040), 0.523598775598299);
+/// assert_eq!(asinh(11.548739357257748), 3.141592653589793);
+/// assert_eq!(asinh(267.74489404101644), 6.283185307179586);
+/// assert_eq!(asinh(inf), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asinh(x: f64) -> f64 {
+    fix(x.asinh(), 15)
+}
+
+/// ### asinh_deg(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `asinh_deg` function computes the inverse hyperbolic sine of a number (in degrees).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{asinh_deg, INF_F64 as inf};
+/// assert_eq!(asinh_deg(0.0), 0.0);
+/// assert_eq!(asinh_deg(0.547853473888040), 30.0);
+/// assert_eq!(asinh_deg(11.548739357257748), 180.0);
+/// assert_eq!(asinh_deg(267.74489404101644), 360.0);
+/// assert_eq!(asinh_deg(inf), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asinh_deg(x: f64) -> f64 {
+    fix64(x.asinh() * 180.0 / 3.141592653589793)
+}
+
+/// ### acosh(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acosh` function computes the inverse hyperbolic cosine of a number (in radians).
+///
+/// ### Equation
+///
+/// std library -> x.acosh() = ln(x + sqrt(sqr(x) - 1.0))
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acosh, INF_F64 as inf};
+/// assert_eq!(acosh(1.0), 0.0);
+/// assert_eq!(acosh(1.140238321076429), 0.523598775598299);
+/// assert_eq!(acosh(11.591953275521519), 3.141592653589793);
+/// assert_eq!(acosh(267.7467614837482), 6.283185307179586);
+/// assert_eq!(acosh(inf), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acosh(x: f64) -> f64 {
+    fix(x.acosh(), 15)
+}
+
+/// ### acosh_deg(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acosh_deg` function computes the inverse hyperbolic cosine of a number (in degrees).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acosh_deg, INF_F64 as inf};
+/// assert_eq!(acosh_deg(1.0), 0.0);
+/// assert_eq!(acosh_deg(1.140238321076429), 30.0);
+/// assert_eq!(acosh_deg(11.591953275521519), 180.0);
+/// assert_eq!(acosh_deg(267.7467614837482), 360.0);
+/// assert_eq!(acosh_deg(inf), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acosh_deg(x: f64) -> f64 {
+    fix64(x.acosh() * 180.0 / 3.141592653589793)
+}
+
+/// ### atanh(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `atanh` function computes the inverse hyperbolic tangent of a number (in radians).
+///
+/// ### Equation
+///
+/// std library -> x.atanh() = 0.5 * ln((1.0 + x) / (1.0 - x))
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{atanh, INF_F64 as inf};
+/// assert_eq!(atanh(0.0), 0.0);
+/// assert_eq!(atanh(0.480472778156452), 0.523598775598299);
+/// assert_eq!(atanh(0.99627207622075), 3.141592653589798);
+/// assert_eq!(atanh(0.999993025339611), 6.283185307206486);
+/// assert_eq!(atanh(1.0), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn atanh(x: f64) -> f64 {
+    fix(x.atanh(), 15)
+}
+
+/// ### atanh_deg(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `atanh_deg` function computes the inverse hyperbolic tangent of a number (in degrees).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{atanh_deg, INF_F64 as inf};
+/// assert_eq!(atanh_deg(0.0), 0.0);
+/// assert_eq!(atanh_deg(0.480472778156452), 30.0);
+/// assert_eq!(atanh_deg(0.99627207622075), 180.0);
+/// assert_eq!(atanh_deg(0.999993025339611), 360.0);
+/// assert_eq!(atanh_deg(1.0), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn atanh_deg(x: f64) -> f64 {
+    fix64(x.atanh() * 180.0 / 3.141592653589793)
+}
+
+/// ### acsch(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acsch` function computes the inverse hyperbolic cosecant of a number (in radians).
+///
+/// ### Equation
+///
+/// acsch(x) = (1.0 / x).asinh() = ln((1.0 / x) + sqrt((1.0 / sqr(x)) + 1.0))
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acsch, INF_F64 as inf};
+/// assert_eq!(acsch(0.0), inf);
+/// assert_eq!(acsch(1.825305574687952), 0.523598775598299);
+/// assert_eq!(acsch(0.086589537530047), 3.141592653589793);
+/// assert_eq!(acsch(0.003734898488286), 6.283185307179499);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acsch(x: f64) -> f64 {
+    fix((1.0 / x).asinh(), 15)
+}
+
+/// ### acsch_deg(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acsch_deg` function computes the inverse hyperbolic cosecant of a number (in degrees).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acsch_deg, INF_F64 as inf};
+/// assert_eq!(acsch_deg(0.0), inf);
+/// assert_eq!(acsch_deg(1.825305574687952), 30.0);
+/// assert_eq!(acsch_deg(0.086589537530047), 180.0);
+/// assert_eq!(acsch_deg(0.003734898488286), 360.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acsch_deg(x: f64) -> f64 {
+    fix64((1.0 / x).asinh() * 180.0 / 3.141592653589793)
+}
+
+/// ### asech(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `asech` function computes the inverse hyperbolic secant of a number (in radians).
+///
+/// ### Equation
+///
+/// asech(x) = (1.0 / x).acosh() = = ln((1.0 / x) + sqrt((1.0 / sqr(x)) - 1.0))
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{asech, INF_F64 as inf};
+/// assert_eq!(asech(0.0), inf);
+/// assert_eq!(asech(1.0), 0.0);
+/// assert_eq!(asech(0.877009640454779), 0.523598775598299);
+/// assert_eq!(asech(0.086266738334054), 3.141592653589798);
+/// assert_eq!(asech(0.003734872438637), 6.28318530717962);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asech(x: f64) -> f64 {
+    fix((1.0 / x).acosh(), 15)
+}
+
+/// ### asech_deg(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `asech_deg` function computes the inverse hyperbolic secant of a number (in degrees).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{asech_deg, INF_F64 as inf};
+/// assert_eq!(asech_deg(0.0), inf);
+/// assert_eq!(asech_deg(1.0), 0.0);
+/// assert_eq!(asech_deg(0.877009640454779), 30.0);
+/// assert_eq!(asech_deg(0.086266738334054), 180.0);
+/// assert_eq!(asech_deg(0.003734872438637), 360.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asech_deg(x: f64) -> f64 {
+    fix64((1.0 / x).acosh() * 180.0 / 3.141592653589793)
+}
+
 /// ### acoth(x)
 ///
 /// Inverse Hyperbolic Function
@@ -1942,4 +2041,23 @@ pub fn coth_deg(x: f64) -> f64 {
 /// <small>End Fun Doc</small>
 pub fn acoth(x: f64) -> f64 {
     fix((1.0 / x).atanh(), 15)
+}
+
+/// ### acoth_deg(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acoth_deg` function computes the inverse hyperbolic cotangent of a number (in degrees).
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acoth_deg, INF_F64 as inf};
+/// assert_eq!(acoth_deg(inf), 0.0);
+/// assert_eq!(acoth_deg(2.081283363933637), 30.0);
+/// assert_eq!(acoth_deg(1.003741873197321), 180.0);
+/// assert_eq!(acoth_deg(1.000006974709036), 360.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acoth_deg(x: f64) -> f64 {
+    fix64((1.0 / x).atanh() * 180.0 / 3.141592653589793)
 }
