@@ -1,3 +1,9 @@
+## 0.9.1
+
+- Added sinh_vec function.
+- Added cosh_vec function.
+- Added tanh_vec function.
+
 ## 0.9.0
 
 - Added asinh_deg function.
