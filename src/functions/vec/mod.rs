@@ -1,9 +1,9 @@
 use super::num::{
     abs, acos, acos_deg, acot, acot_deg, acsc, acsc_deg, asec, asec_deg, asin, asin_deg, atan,
-    atan_deg, cbrt, ceil, cos, cos_deg, cosh, cot, cot_deg, csc, csc_deg, cube, deg_to_rad, exp,
-    f64_to_f32, fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln, ln1p, log10, log2,
-    rad_to_deg, round, sec, sec_deg, sign, sin, sin_deg, sinh, sqr, sqrt, tan, tan_deg, tanh,
-    trunc, u64_to_f64,
+    atan_deg, cbrt, ceil, cos, cos_deg, cosh, cot, cot_deg, coth, csc, csc_deg, csch, cube,
+    deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln, ln1p,
+    log10, log2, rad_to_deg, round, sec, sec_deg, sech, sign, sin, sin_deg, sinh, sqr, sqrt, tan,
+    tan_deg, tanh, trunc, u64_to_f64,
 };
 /// ### abs_vec(x)
 ///
@@ -986,10 +986,61 @@ pub fn cosh_vec(x: &[f64]) -> Vec<f64> {
 ///
 /// ### Examples
 /// ```rust
-/// use mathlab::math::{tanh_vec};
+/// use mathlab::math::tanh_vec;
 /// assert_eq!(tanh_vec(&[0.0, 0.523598775598299, 3.141592653589793]), [0.0, 0.480472778156452, 0.99627207622075]);
 /// ```
 /// <small>End Fun Doc</small>
 pub fn tanh_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| tanh(x)).collect()
+}
+
+/// ### csch_vec(x)
+///
+/// Hyperbolic Function
+///
+/// The `csch_vec` function calculates the hyperbolic cosecant value of each angle represented as a radian in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{csch_vec, INF_F64 as inf};
+/// assert_eq!(csch_vec(&[0.0, 0.523598775598299, 3.141592653589793]), [inf, 1.825305574687952, 0.086589537530047]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn csch_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| csch(x)).collect()
+}
+
+/// ### sech_vec(x)
+///
+/// Hyperbolic Function
+///
+/// The `sech_vec` function calculates the hyperbolic secant value of each angle represented as a radian in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::sech_vec;
+/// assert_eq!(sech_vec(&[0.0, 0.523598775598299, 3.141592653589793]), [1.0, 0.877009640454779, 0.086266738334054]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sech_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| sech(x)).collect()
+}
+
+/// ### coth_vec(x)
+///
+/// Hyperbolic Function
+///
+/// The `coth_vec` function calculates the hyperbolic cotangent value of each angle represented as a radian in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{coth_vec, INF_F64 as inf};
+/// assert_eq!(coth_vec(&[0.0, 0.523598775598299, 3.141592653589793]), [inf, 2.081283363933637, 1.003741873197321]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn coth_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| coth(x)).collect()
 }
