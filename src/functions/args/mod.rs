@@ -95,3 +95,42 @@ pub fn range(x: f64, step: f64, mut size: usize, order: &str) -> Vec<f64> {
 pub fn to_fixed(x: f64, decimal_places: u32) -> String {
     fix(x, decimal_places).to_string()
 }
+
+/// ### hypot(x)
+///
+/// Geometric Function
+///
+/// The `hypot` function calculates the Euclidean norm (also known as the magnitude or length) of a vector in n-dimensional space.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{hypot, INF_F64 as inf, is_nan_f64 as is_nan};
+/// assert_eq!(hypot(&[0.0]), 0.0);
+/// assert_eq!(hypot(&[1.0]), 1.0);
+/// assert_eq!(hypot(&[1.0 / 0.0]), inf);
+/// assert!(is_nan(hypot(&[0.0 / 0.0])));
+/// assert_eq!(hypot(&[4.0]), 4.0);
+/// assert_eq!(hypot(&[3.0, 4.0]), 5.0);
+/// assert_eq!(hypot(&[4.0, 2.0, 4.0]), 6.0);
+/// assert_eq!(hypot(&[-3.0, -4.0]), 5.0);
+/// assert_eq!(hypot(&[-4.0]), 4.0);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn hypot(x: &[f64]) -> f64 {
+    if x.len() > 0 && x.iter().all(|i| i as *const f64 != std::ptr::null()) {
+        x.iter().map(|i| i.powi(2)).sum::<f64>().sqrt()
+    } else {
+        std::f64::NAN
+    }
+}
+
+// nm.hypot(4); // 4
+// nm.hypot([4]); // 4
+// nm.hypot(3, 4); // 5
+// nm.hypot([3, 4]); // 5
+// nm.hypot(4, 2, 4); // 6
+// nm.hypot([4, 2, 4]); // 6
+// nm.hypot([-3, -4]); // 5
+// nm.hypot(-3, -4); // 5
+// nm.hypot([-4]); // 4
+// nm.hypot(-4); // 4

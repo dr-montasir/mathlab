@@ -1,3 +1,7 @@
+## 0.9.3
+
+- Added hypot function.
+
 ## 0.9.2
 
 - Added csch_vec function.
