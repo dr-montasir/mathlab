@@ -123,14 +123,3 @@ pub fn hypot(x: &[f64]) -> f64 {
         std::f64::NAN
     }
 }
-
-// nm.hypot(4); // 4
-// nm.hypot([4]); // 4
-// nm.hypot(3, 4); // 5
-// nm.hypot([3, 4]); // 5
-// nm.hypot(4, 2, 4); // 6
-// nm.hypot([4, 2, 4]); // 6
-// nm.hypot([-3, -4]); // 5
-// nm.hypot(-3, -4); // 5
-// nm.hypot([-4]); // 4
-// nm.hypot(-4); // 4
