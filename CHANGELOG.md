@@ -1,3 +1,9 @@
+## 0.9.5
+
+- Added csch_deg_vec function.
+- Added sech_deg_vec function.
+- Added coth_deg_vec function.
+
 ## 0.9.4
 
 - Added sinh_deg_vec function.

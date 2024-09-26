@@ -1,9 +1,9 @@
 use super::num::{
     abs, acos, acos_deg, acot, acot_deg, acsc, acsc_deg, asec, asec_deg, asin, asin_deg, atan,
-    atan_deg, cbrt, ceil, cos, cos_deg, cosh, cosh_deg, cot, cot_deg, coth, csc, csc_deg, csch,
-    cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln,
-    ln1p, log10, log2, rad_to_deg, round, sec, sec_deg, sech, sign, sin, sin_deg, sinh, sinh_deg,
-    sqr, sqrt, tan, tan_deg, tanh, tanh_deg, trunc, u64_to_f64,
+    atan_deg, cbrt, ceil, cos, cos_deg, cosh, cosh_deg, cot, cot_deg, coth, coth_deg, csc, csc_deg,
+    csch, csch_deg, cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma,
+    i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round, sec, sec_deg, sech, sech_deg, sign,
+    sin, sin_deg, sinh, sinh_deg, sqr, sqrt, tan, tan_deg, tanh, tanh_deg, trunc, u64_to_f64,
 };
 /// ### abs_vec(x)
 ///
@@ -1062,6 +1062,23 @@ pub fn csch_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| csch(x)).collect()
 }
 
+/// ### csch_deg_vec(x)
+///
+/// Hyperbolic Function
+///
+/// The `csch_deg_vec` function calculates the hyperbolic cosecant value of each angle represented as a degree in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{csch_deg_vec, INF_F64 as inf};
+/// assert_eq!(csch_deg_vec(&[0.0, 30.0, 180.0]), [inf, 1.825305574687954, 0.086589537530047]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn csch_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| csch_deg(x)).collect()
+}
+
 /// ### sech_vec(x)
 ///
 /// Hyperbolic Function
@@ -1079,6 +1096,23 @@ pub fn sech_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| sech(x)).collect()
 }
 
+/// ### sech_deg_vec(x)
+///
+/// Hyperbolic Function
+///
+/// The `sech_deg_vec` function calculates the hyperbolic secant value of each angle represented as a degree in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::sech_deg_vec;
+/// assert_eq!(sech_deg_vec(&[0.0, 30.0, 180.0]), [1.0, 0.877009640454779, 0.086266738334054]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn sech_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| sech_deg(x)).collect()
+}
+
 /// ### coth_vec(x)
 ///
 /// Hyperbolic Function
@@ -1094,4 +1128,21 @@ pub fn sech_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn coth_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| coth(x)).collect()
+}
+
+/// ### coth_deg_vec(x)
+///
+/// Hyperbolic Function
+///
+/// The `coth_deg_vec` function calculates the hyperbolic cotangent value of each angle represented as a degree in the input iterator,
+/// constructing a new vector from these results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{coth_deg_vec, INF_F64 as inf};
+/// assert_eq!(coth_deg_vec(&[0.0, 30.0, 180.0]), [inf, 2.081283363933638, 1.003741873197321]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn coth_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| coth_deg(x)).collect()
 }
