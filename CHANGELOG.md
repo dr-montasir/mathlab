@@ -1,3 +1,12 @@
+## 0.9.6
+
+- Added asinh_vec function.
+- Added acosh_vec function.
+- Added atanh_vec function.
+- Added acsch_vec function.
+- Added asech_vec function.
+- Added acoth_vec function.
+
 ## 0.9.5
 
 - Added csch_deg_vec function.

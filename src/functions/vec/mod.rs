@@ -1,9 +1,10 @@
 use super::num::{
-    abs, acos, acos_deg, acot, acot_deg, acsc, acsc_deg, asec, asec_deg, asin, asin_deg, atan,
-    atan_deg, cbrt, ceil, cos, cos_deg, cosh, cosh_deg, cot, cot_deg, coth, coth_deg, csc, csc_deg,
-    csch, csch_deg, cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma,
-    i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round, sec, sec_deg, sech, sech_deg, sign,
-    sin, sin_deg, sinh, sinh_deg, sqr, sqrt, tan, tan_deg, tanh, tanh_deg, trunc, u64_to_f64,
+    abs, acos, acos_deg, acosh, acot, acot_deg, acoth, acsc, acsc_deg, acsch, asec, asec_deg,
+    asech, asin, asin_deg, asinh, atan, atan_deg, atanh, cbrt, ceil, cos, cos_deg, cosh, cosh_deg,
+    cot, cot_deg, coth, coth_deg, csc, csc_deg, csch, csch_deg, cube, deg_to_rad, exp, f64_to_f32,
+    fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round,
+    sec, sec_deg, sech, sech_deg, sign, sin, sin_deg, sinh, sinh_deg, sqr, sqrt, tan, tan_deg,
+    tanh, tanh_deg, trunc, u64_to_f64,
 };
 /// ### abs_vec(x)
 ///
@@ -1145,4 +1146,106 @@ pub fn coth_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn coth_deg_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| coth_deg(x)).collect()
+}
+
+/// ### asinh_vec(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `asinh_vec` function calculates the inverse hyperbolic sine value of each element in the input vector, represented as a `radian`.
+/// The result is a new vector containing the `arcsinh` values, which are the angles that correspond to the input values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::asinh_vec;
+/// assert_eq!(asinh_vec(&[0.0, 0.547853473888040, 11.548739357257748]), [0.0, 0.523598775598299, 3.141592653589793]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asinh_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| asinh(x)).collect()
+}
+
+/// ### acosh_vec(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acosh_vec` function calculates the inverse hyperbolic cosine value of each element in the input vector, represented as a `radian`.
+/// The result is a new vector containing the `arccosh` values, which are the angles that correspond to the input values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::acosh_vec;
+/// assert_eq!(acosh_vec(&[1.0, 1.140238321076429, 11.591953275521519]), [0.0, 0.523598775598299, 3.141592653589793]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acosh_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| acosh(x)).collect()
+}
+
+/// ### atanh_vec(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `atanh_vec` function calculates the inverse hyperbolic tangent value of each element in the input vector, represented as a `radian`.
+/// The result is a new vector containing the `arctanh` values, which are the angles that correspond to the input values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::atanh_vec;
+/// assert_eq!(atanh_vec(&[0.0, 0.480472778156452, 0.99627207622075]), [0.0, 0.523598775598299, 3.141592653589798]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn atanh_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| atanh(x)).collect()
+}
+
+/// ### acsch_vec(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acsch_vec` function calculates the inverse hyperbolic cosecant value of each element in the input vector, represented as a `radian`.
+/// The result is a new vector containing the `arccsch` values, which are the angles that correspond to the input values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acsch_vec, INF_F64 as inf};
+/// assert_eq!(acsch_vec(&[0.0, 1.825305574687952, 0.086589537530047]), [inf, 0.523598775598299, 3.141592653589793]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acsch_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| acsch(x)).collect()
+}
+
+/// ### asech_vec(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `asech_vec` function calculates the inverse hyperbolic secant value of each element in the input vector, represented as a `radian`.
+/// The result is a new vector containing the `arcsech` values, which are the angles that correspond to the input values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{asech_vec, INF_F64 as inf};
+/// assert_eq!(asech_vec(&[0.0, 0.877009640454779, 0.086266738334054]), [inf, 0.523598775598299, 3.141592653589798]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asech_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| asech(x)).collect()
+}
+
+/// ### acoth_vec(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acoth_vec` function calculates the inverse hyperbolic cotangent value of each element in the input vector, represented as a `radian`.
+/// The result is a new vector containing the `arccoth` values, which are the angles that correspond to the input values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acoth_vec, INF_F64 as inf};
+/// assert_eq!(acoth_vec(&[inf, 2.081283363933637, 1.003741873197321]), [0.0, 0.523598775598299, 3.141592653589813]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acoth_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| acoth(x)).collect()
 }
