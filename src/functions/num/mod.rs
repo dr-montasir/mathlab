@@ -933,6 +933,28 @@ pub fn trunc(x: f64) -> f64 {
     x.trunc()
 }
 
+/// ### perimeter(x, y)
+///
+/// Geometry Function
+///
+/// The `perimeter` function calculates the total length of a rectangle's boundaries,
+/// given its width and height, returning the result as a floating-point number.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{perimeter, INF_F64 as inf};
+/// assert_eq!(perimeter(0.0 , 0.0), 0.0);
+/// assert_eq!(perimeter(0.0 , 1.0), 2.0);
+/// assert_eq!(perimeter(1.0 , 0.0), 2.0);
+/// assert_eq!(perimeter(1.0 , 1.0), 4.0);
+/// assert_eq!(perimeter(2.0 , 1.0), 6.0);
+/// assert_eq!(perimeter(inf , 1.0), inf);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn perimeter(x: f64, y: f64) -> f64 {
+    2.0 * (x + y)
+}
+
 /// ### sin(x)
 ///
 /// Trigonometric Function

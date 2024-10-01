@@ -1,4 +1,4 @@
-use super::num::{add, divi, mult, nrt, pow, rem, subt};
+use super::num::{add, divi, mult, nrt, perimeter, pow, rem, subt};
 
 /// ### add_num_vec(x, y)
 ///
@@ -137,4 +137,20 @@ pub fn rem_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn nrt_num_vec(x: f64, n: &[f64]) -> Vec<f64> {
     n.iter().map(|&n| nrt(x, n)).collect()
+}
+
+/// ### perimeter_num_vec(x, y)
+///
+/// Geometry Function
+///
+/// The `perimeter_num_vec` function calculates the perimeter of each element in a slice `y` of floats, given a reference `x`, and returns a new vector containing the perimeters.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{perimeter_num_vec, INF_F64 as inf};
+/// assert_eq!(perimeter_num_vec(1.0, &[0.0, 1.0, 2.0, inf]), [2.0, 4.0, 6.0, inf]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn perimeter_num_vec(x: f64, y: &[f64]) -> Vec<f64> {
+    y.iter().map(|&y| perimeter(x, y)).collect()
 }

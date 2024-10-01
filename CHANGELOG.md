@@ -1,3 +1,16 @@
+## 1.0.0
+
+- Added perimeter function.
+- Added perimeter_num_vec function.
+- Added perimeter_vec_num function.
+- Added perimeter_vec_vec function.
+- Added asinh_deg_vec function.
+- Added acosh_deg_vec function.
+- Added atanh_deg_vec function.
+- Added acsch_deg_vec function.
+- Added asech_deg_vec function.
+- Added acoth_deg_vec function.
+
 ## 0.9.6
 
 - Added asinh_vec function.

@@ -1,4 +1,4 @@
-use super::num::{add, divi, mult, nrt, pow, rem, subt};
+use super::num::{add, divi, mult, nrt, perimeter, pow, rem, subt};
 
 /// ### add_vec_vec(x, y)
 ///
@@ -133,4 +133,23 @@ pub fn rem_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn nrt_vec_vec(x: &[f64], n: &[f64]) -> Vec<f64> {
     x.iter().zip(n.iter()).map(|(&x, &n)| nrt(x, n)).collect()
+}
+
+/// ### perimeter_vec_vec(x, y)
+///
+/// Geometry Function
+///
+/// The `perimeter_vec_vec` function calculates the total length of boundaries between corresponding vectors in two slices `x` and `y`, returning a vector of results.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{perimeter_vec_vec, INF_F64 as inf};
+/// assert_eq!(perimeter_vec_vec(&[0.0, 1.0, 1.0, 2.0, inf], &[0.0, 0.0, 1.0, 1.0, 1.0]), [0.0, 2.0, 4.0, 6.0, inf]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn perimeter_vec_vec(x: &[f64], y: &[f64]) -> Vec<f64> {
+    x.iter()
+        .zip(y.iter())
+        .map(|(&x, &y)| perimeter(x, y))
+        .collect()
 }

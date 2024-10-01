@@ -1,10 +1,10 @@
 use super::num::{
-    abs, acos, acos_deg, acosh, acot, acot_deg, acoth, acsc, acsc_deg, acsch, asec, asec_deg,
-    asech, asin, asin_deg, asinh, atan, atan_deg, atanh, cbrt, ceil, cos, cos_deg, cosh, cosh_deg,
-    cot, cot_deg, coth, coth_deg, csc, csc_deg, csch, csch_deg, cube, deg_to_rad, exp, f64_to_f32,
-    fact, fix64, floor, fround, gamma, i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round,
-    sec, sec_deg, sech, sech_deg, sign, sin, sin_deg, sinh, sinh_deg, sqr, sqrt, tan, tan_deg,
-    tanh, tanh_deg, trunc, u64_to_f64,
+    abs, acos, acos_deg, acosh, acosh_deg, acot, acot_deg, acoth, acoth_deg, acsc, acsc_deg, acsch,
+    acsch_deg, asec, asec_deg, asech, asech_deg, asin, asin_deg, asinh, asinh_deg, atan, atan_deg,
+    atanh, atanh_deg, cbrt, ceil, cos, cos_deg, cosh, cosh_deg, cot, cot_deg, coth, coth_deg, csc,
+    csc_deg, csch, csch_deg, cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma,
+    i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round, sec, sec_deg, sech, sech_deg, sign,
+    sin, sin_deg, sinh, sinh_deg, sqr, sqrt, tan, tan_deg, tanh, tanh_deg, trunc, u64_to_f64,
 };
 /// ### abs_vec(x)
 ///
@@ -1165,6 +1165,23 @@ pub fn asinh_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| asinh(x)).collect()
 }
 
+/// ### asinh_deg_vec(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `asinh_deg_vec` function calculates the inverse hyperbolic sine value of each element in the input vector, represented as a `degree`.
+/// The result is a new vector containing the `arcsinh` values, which are the angles that correspond to the input values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::asinh_deg_vec;
+/// assert_eq!(asinh_deg_vec(&[0.0, 0.547853473888040, 11.548739357257748]), [0.0, 30.0, 180.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asinh_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| asinh_deg(x)).collect()
+}
+
 /// ### acosh_vec(x)
 ///
 /// Inverse Hyperbolic Function
@@ -1180,6 +1197,23 @@ pub fn asinh_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn acosh_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| acosh(x)).collect()
+}
+
+/// ### acosh_deg_vec(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acosh_deg_vec` function calculates the inverse hyperbolic cosine value of each element in the input vector, represented as a `degree`.
+/// The result is a new vector containing the `arccosh` values, which are the angles that correspond to the input values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::acosh_deg_vec;
+/// assert_eq!(acosh_deg_vec(&[1.0, 1.140238321076429, 11.591953275521519]), [0.0, 30.0, 180.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acosh_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| acosh_deg(x)).collect()
 }
 
 /// ### atanh_vec(x)
@@ -1199,6 +1233,23 @@ pub fn atanh_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| atanh(x)).collect()
 }
 
+/// ### atanh_deg_vec(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `atanh_deg_vec` function calculates the inverse hyperbolic tangent value of each element in the input vector, represented as a `degree`.
+/// The result is a new vector containing the `arctanh` values, which are the angles that correspond to the input values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::atanh_deg_vec;
+/// assert_eq!(atanh_deg_vec(&[0.0, 0.480472778156452, 0.99627207622075]), [0.0, 30.0, 180.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn atanh_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| atanh_deg(x)).collect()
+}
+
 /// ### acsch_vec(x)
 ///
 /// Inverse Hyperbolic Function
@@ -1214,6 +1265,23 @@ pub fn atanh_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn acsch_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| acsch(x)).collect()
+}
+
+/// ### acsch_deg_vec(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acsch_deg_vec` function calculates the inverse hyperbolic cosecant value of each element in the input vector, represented as a `degree`.
+/// The result is a new vector containing the `arccsch` values, which are the angles that correspond to the input values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acsch_deg_vec, INF_F64 as inf};
+/// assert_eq!(acsch_deg_vec(&[0.0, 1.825305574687952, 0.086589537530047]), [inf, 30.0, 180.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acsch_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| acsch_deg(x)).collect()
 }
 
 /// ### asech_vec(x)
@@ -1233,6 +1301,23 @@ pub fn asech_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| asech(x)).collect()
 }
 
+/// ### asech_deg_vec(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `asech_deg_vec` function calculates the inverse hyperbolic secant value of each element in the input vector, represented as a `degree`.
+/// The result is a new vector containing the `arcsech` values, which are the angles that correspond to the input values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{asech_deg_vec, INF_F64 as inf};
+/// assert_eq!(asech_deg_vec(&[0.0, 0.877009640454779, 0.086266738334054]), [inf, 30.0, 180.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn asech_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| asech_deg(x)).collect()
+}
+
 /// ### acoth_vec(x)
 ///
 /// Inverse Hyperbolic Function
@@ -1248,4 +1333,21 @@ pub fn asech_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn acoth_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| acoth(x)).collect()
+}
+
+/// ### acoth_deg_vec(x)
+///
+/// Inverse Hyperbolic Function
+///
+/// The `acoth_deg_vec` function calculates the inverse hyperbolic cotangent value of each element in the input vector, represented as a `degree`.
+/// The result is a new vector containing the `arccoth` values, which are the angles that correspond to the input values.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::{acoth_deg_vec, INF_F64 as inf};
+/// assert_eq!(acoth_deg_vec(&[inf, 2.081283363933637, 1.003741873197321]), [0.0, 30.0, 180.0]);
+/// ```
+/// <small>End Fun Doc</small>
+pub fn acoth_deg_vec(x: &[f64]) -> Vec<f64> {
+    x.iter().map(|&x| acoth_deg(x)).collect()
 }
