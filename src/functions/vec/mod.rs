@@ -1,10 +1,14 @@
-use super::num::{
-    abs, acos, acos_deg, acosh, acosh_deg, acot, acot_deg, acoth, acoth_deg, acsc, acsc_deg, acsch,
-    acsch_deg, asec, asec_deg, asech, asech_deg, asin, asin_deg, asinh, asinh_deg, atan, atan_deg,
-    atanh, atanh_deg, cbrt, ceil, cos, cos_deg, cosh, cosh_deg, cot, cot_deg, coth, coth_deg, csc,
-    csc_deg, csch, csch_deg, cube, deg_to_rad, exp, f64_to_f32, fact, fix64, floor, fround, gamma,
-    i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round, sec, sec_deg, sech, sech_deg, sign,
-    sin, sin_deg, sinh, sinh_deg, sqr, sqrt, tan, tan_deg, tanh, tanh_deg, trunc, u64_to_f64,
+use super::{
+    num::{
+        abs, acos, acos_deg, acosh, acosh_deg, acot, acot_deg, acoth, acoth_deg, acsc, acsc_deg,
+        acsch, acsch_deg, asec, asec_deg, asech, asech_deg, asin, asin_deg, asinh, asinh_deg, atan,
+        atan_deg, atanh, atanh_deg, cbrt, ceil, cos, cos_deg, cosh, cosh_deg, cot, cot_deg, coth,
+        coth_deg, csc, csc_deg, csch, csch_deg, cube, deg_to_rad, exp, f64_to_f32, fact, fix64,
+        floor, fround, gamma, i64_to_f64, inv, ln, ln1p, log10, log2, rad_to_deg, round, sec,
+        sec_deg, sech, sech_deg, sign, sin, sin_deg, sinh, sinh_deg, sqr, sqrt, tan, tan_deg, tanh,
+        tanh_deg, trunc, u64_to_f64,
+    },
+    rand, string_to_u64,
 };
 /// ### abs_vec(x)
 ///
@@ -1350,4 +1354,78 @@ pub fn acoth_vec(x: &[f64]) -> Vec<f64> {
 /// <small>End Fun Doc</small>
 pub fn acoth_deg_vec(x: &[f64]) -> Vec<f64> {
     x.iter().map(|&x| acoth_deg(x)).collect()
+}
+
+/// ### rand_vec(size)
+///
+/// Generates a vector of pseudo-random `u64` numbers based on the specified digit sizes.
+///
+/// The `size` parameter is a slice of sizes, each representing the number of digits for the corresponding
+/// random number to be generated. The function will cap each size at 19 to ensure the generated numbers fit
+/// within the limits of `u64`, preventing overflow.
+///
+/// ### Parameters
+/// - `size`: A slice containing desired digit counts for each random number. Each value must be greater than 0.
+///
+/// ### Returns
+/// A `Vec<u64>` containing random numbers, each with digit counts specified in the `size` slice, capped at 19.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::rand_vec;
+///
+/// fn main() {
+///    // Generating and printing vectors of random numbers with different sizes
+///    let sizes = vec![1, 2, 3, 6, 15, 19, 25]; // 25 will be capped at 19
+///    let random_numbers = rand_vec(&sizes);
+///
+///    for (size, number) in sizes.iter().zip(random_numbers.iter()) {
+///        println!("Random number (size {}): {:?}", size, number);
+///    }
+/// }
+/// ```
+/// <small>End Fun Doc</small>
+pub fn rand_vec(size: &[usize]) -> Vec<u64> {
+    size.iter().map(|&size| rand(size)).collect()
+}
+
+/// ### string_to_u64_vec(strings)
+///
+/// Converts a vector of strings into a vector of `u64` values.
+///
+/// This function attempts to parse each string in the input vector. If a string fails to parse,
+/// the corresponding entry in the output vector will be an `Err` containing the parsing error.
+///
+/// ### Parameters
+/// - `strings`: A vector of strings to be converted into `u64` values.
+///
+/// ### Returns
+/// A `Vec<Result<u64, std::num::ParseIntError>>` where each element is a `Result`.
+/// An `Ok` value represents a successful conversion to `u64`, while an `Err` value indicates a failure.
+///
+/// ### Examples
+/// ```rust
+/// use mathlab::math::string_to_u64_vec;
+///
+/// fn main() {
+///     let string_numbers = vec![
+///         "42".to_string(),
+///         "100".to_string(),
+///         "not_a_number".to_string(),
+///         "300".to_string(),
+///     ];
+///
+///     let results = string_to_u64_vec(string_numbers);
+///
+///     for (i, result) in results.iter().enumerate() {
+///         match result {
+///             Ok(num) => println!("String {} converted to u64: {}", i, num),
+///             Err(e) => println!("Failed to convert string {}: {}", i, e),
+///         }
+///     }
+/// }
+/// ```
+/// <small>End Fun Doc</small>
+pub fn string_to_u64_vec(strings: Vec<String>) -> Vec<Result<u64, std::num::ParseIntError>> {
+    strings.into_iter().map(|s| string_to_u64(s)).collect()
 }

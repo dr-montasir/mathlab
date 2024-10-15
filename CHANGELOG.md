@@ -1,3 +1,10 @@
+## 1.1.0
+
+- Added rand function.
+- Added rand_vec function.
+- Added string_to_u64 function.
+- Added string_to_u64_vec function.
+
 ## 1.0.0
 
 - Added perimeter function.
