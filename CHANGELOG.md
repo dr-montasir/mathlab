@@ -1,3 +1,8 @@
+## 1.2.0
+
+- Updated rust-version to "1.82.0"
+- Tested mathlab (rust-version="1.82.0")
+
 ## 1.1.0
 
 - Added rand function.
