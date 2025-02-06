@@ -1,3 +1,8 @@
+## 1.3.0
+
+- Updated License
+- Updated Documentation
+
 ## 1.2.0
 
 - Updated rust-version to "1.82.0"

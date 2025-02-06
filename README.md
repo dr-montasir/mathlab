@@ -1,10 +1,51 @@
+<div align="center">
+  <br>
+  <a href="https://crates.io/crates/mathlab">
+    <img src="https://github.com/dr-montasir/mathlab/raw/HEAD/logo.svg" width="100">
+  </a>
+  <br><br>
+  <span>
+    <b>A Powerful Math Library for Rust.</b>
+  </span>
+  <br><br>
+
 [<img alt="github" src="https://img.shields.io/badge/github-dr%20montasir%20/%20mathlab-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="22">](https://github.com/dr-montasir/mathlab)[<img alt="crates.io" src="https://img.shields.io/crates/v/mathlab.svg?style=for-the-badge&color=fc8d62&logo=rust" height="22">](https://crates.io/crates/mathlab)[<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-mathlab-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs" height="22">](https://docs.rs/mathlab)[<img alt="license" src="https://img.shields.io/badge/license-apache_2.0-4a98f7.svg?style=for-the-badge&labelColor=555555&logo=apache" height="22">](https://choosealicense.com/licenses/apache-2.0)
 
-# MathLab <a href="https://crates.io/crates/mathlab"><img src="logo.svg" alt="logo" height="100" align="center" /></a>
+  <h1>MATHLAB</h1>
+  <p>
+    The <b>mathlab</b> crate is a Rust library designed to facilitate matrix and mathematical operations similar to those found in MATLAB. This crate provides high-level abstractions that make it user-friendly for mathematical computations and linear algebra tasks.
+  </p>
+</div>
 
-> A Powerful Math Library for Rust
+# Overview
 
-## Install
+This crate is particularly advantageous for Rust developers looking for a robust mathematical library similar to MATLAB, making it suitable for applications in data analysis, simulation, and algorithm development.
+
+# Table of Contents
+
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Changelog](#changelog)
+4. [Usage](#usage)
+5. [Demo projects](#demo-projects)
+6. [Documentation](#documentation)
+7. [Modules](#modules)
+8. [License](#license)
+9. [Contributing](#contributing)
+10. [Author](#author)
+
+# Features
+
+- **Matrix Operations:**
+  Mathlab allows users to perform a wide range of matrix operations such as addition, subtraction, multiplication, and various matrix decompositions, making it suitable for scientific computing.
+- **Numerical Methods:**
+  The crate includes implementations for various numerical methods, enhancing its utility in solving linear systems, eigenvalue problems, and more.
+- **User-friendly API:**
+  The crate is designed to be intuitive and accessible, mimicking MATLAB's syntax and behavior, which makes it easier for users familiar with MATLAB to transition to Rust.
+- **Performance:**
+  Being written in Rust, the mathlab crate takes advantage of Rust's performance and safety features, providing efficient mathematical computations while minimizing risks related to memory management.
+
+# Installation
 
 Run the following Cargo command in your project directory:
 
@@ -20,13 +61,13 @@ Add the following line to your `Cargo.toml` file with the specified version:
 mathlab = "MAJOR.MINOR.PATCH"
 ```
 
-## Changelog
+# Changelog
 
 [![github](https://img.shields.io/badge/github-%20changelog-8da0cb?style=for-the-badge&labelColor=555555&logo=github)](https://github.com/dr-montasir/mathlab/blob/master/CHANGELOG.md)
 
 https://github.com/dr-montasir/mathlab/blob/master/CHANGELOG.md
 
-## Usage
+# Usage
 
 ```rust
 // examples
@@ -138,15 +179,15 @@ fn main() {
 }
 ```
 
-## Web 2.0 Demo Project
+# Demo projects
+
+## Web 2.0
 
 - **[on Vercel](https://mathlab-yew.vercel.app)**&emsp;[![vercel](https://img.shields.io/badge/vercel-MathLab%20+%20yew-555555?style=for-the-badge&labelColor=000000&logo=vercel)](https://mathlab-yew.vercel.app)
 
 - **[on GitHub](https://github.com/dr-montasir/mathlab-yew)**&nbsp;&nbsp;[![github](https://img.shields.io/badge/github-MathLab%20+%20yew-8da0cb?style=for-the-badge&labelColor=555555&logo=github)](https://github.com/dr-montasir/mathlab-yew)
 
-## Web 3.0 Demo Project
-
-### Canister | Smart Contract |
+## Web 3.0 (Canister | Smart Contract |)
 
 > On the [Internet Computer](https://internetcomputer.org/), <b>smart contracts</b> come in the form of [canisters](https://internetcomputer.org/how-it-works/canister-lifecycle/). These are computational units which bundle together code and state.
 
@@ -154,7 +195,7 @@ fn main() {
 
 - **[on GitHub](https://github.com/dr-montasir/mathlab-ic)**&nbsp;&nbsp;[![github](https://img.shields.io/badge/github-MathLab%20+%20ic-8da0cb?style=for-the-badge&labelColor=555555&logo=github)](https://github.com/dr-montasir/mathlab-ic)
 
-## Documentation
+# Documentation
 
 > #### **[https://docs.rs/mathlab](https://docs.rs/mathlab)**
 >
@@ -164,7 +205,7 @@ fn main() {
 >
 > [All Items](https://docs.rs/mathlab/latest/mathlab/all.html)&emsp;<small>[ 209 ]</small>
 
-### Modules
+# Modules
 
 ### 1. [constants](https://docs.rs/mathlab/latest/mathlab/constants/index.html)&emsp;<small>[ 16 items ]</small>
 
@@ -235,10 +276,18 @@ The math module contains all constants and functions.
 
 ### [All Items](https://docs.rs/mathlab/latest/mathlab/all.html)&emsp;<small>[ 209 ]</small>
 
-[![crates.io](https://img.shields.io/crates/v/mathlab.svg?style=for-the-badge&color=fc8d62&logo=rust)](https://crates.io/crates/mathlab)
+---
 
-[![docs.rs](https://img.shields.io/badge/docs.rs-mathlab-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs)](https://docs.rs/mathlab)
+## License
 
-[![license](https://img.shields.io/badge/license-apache_2.0-4a98f7.svg?style=for-the-badge&labelColor=555555&logo=apache)](https://choosealicense.com/licenses/apache-2.0)
+This project is licensed under the MIT or Apache 2.0 License - see the LICENSE file for details.
 
-[![github](https://img.shields.io/badge/github-dr%20montasir%20/%20mathlab-8da0cb?style=for-the-badge&labelColor=555555&logo=github)](https://github.com/dr-montasir/mathlab)
+## Contributing
+
+Contributions are welcome! If you have suggestions or improvements, feel free to submit an issue or a pull request.
+
+---
+
+## Author
+
+[Dr. Montasir Mirghani](https://github.com/dr-montasir)
