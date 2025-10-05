@@ -34,9 +34,27 @@ pub fn monolist(x: f64, mut size: usize) -> Vec<f64> {
 ///
 /// Generating function
 ///
-/// The `range` function generates a list of up to one million elements representing a sequence of float numbers
-/// spaced by the provided step value starting at x, optionally sorted either ascending ("asc") or descending ("desc").
-/// Returns an empty vector if size exceeds one million, or if step is nonpositive.
+/// The `range` function generates a sequence of floating-point numbers starting from x, with a specified step value, 
+/// producing up to size elements, ordered either ascending ("asc") or descending ("desc").
+///
+/// The function returns an empty vector if:
+/// - size exceeds 1,000,000 (to prevent excessively large sequences)
+/// - step is nonpositive
+/// - order is not "asc" or "desc"
+///
+/// This function is useful when you need a sequence of a specific size, especially in cases where
+/// the total range is not explicitly known or when you want to generate a fixed number of evenly spaced points.
+///
+/// ### Arguments
+///
+/// * x - The starting value of the sequence.
+/// * step - The interval between consecutive numbers; must be positive.
+/// * size - The number of elements to generate; capped at 1,000,000 for safety.
+/// * order - A string slice indicating the sequence order: "asc" for ascending, "desc" for descending.
+///
+/// ### Returns
+///
+/// A vector containing the sequence of f64 values, ordered according to the order parameter.
 ///
 /// ### Examples
 /// ```rust
@@ -68,6 +86,90 @@ pub fn range(x: f64, step: f64, mut size: usize, order: &str) -> Vec<f64> {
         }
     }
     vector
+}
+
+/// ### range_from_to(from, to, step)
+///
+/// Generating function
+/// 
+/// The `range_from_to` function generates a sequence of f64 numbers from from to to with a specified step.
+/// 
+/// This function automatically determines the direction of the sequence (ascending or descending)
+/// based on the input parameters and adjusts the step sign accordingly to produce a correct range.
+/// 
+/// # Arguments
+/// 
+/// * from - The starting value of the sequence.
+/// * to - The ending value of the sequence.
+/// * step - The increment/decrement between consecutive elements; must be positive. The function will adjust the sign based on direction.
+/// 
+/// # Returns
+/// 
+/// A vector containing the generated sequence of f64 values, starting from from and proceeding towards to,
+/// inclusive of the endpoint if the range aligns exactly with the step increments.
+///
+/// # Notes
+/// - If step is less than or equal to zero, the function returns an empty vector.
+/// - The function handles both ascending and descending ranges.
+/// - The sequence is generated with floating-point precision, and the values are processed through fix64 for formatting or rounding.
+/// - The number of elements in the returned vector depends on the distance between from and to and the provided step.
+/// 
+/// # Examples
+///
+/// ```rust
+/// use mathlab::math::range_from_to;
+/// // Ascending range from 0.0 to 1.0 with step 0.2
+/// assert_eq!(
+///     range_from_to(0.0, 1.0, 0.2),
+///     vec![0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+/// );
+///
+/// // Descending range from 1.0 to 0.0 with step 0.2
+/// assert_eq!(
+///     range_from_to(1.0, 0.0, 0.2),
+///     vec![1.0, 0.8, 0.6, 0.4, 0.2, 0.0]
+/// );
+///
+/// // Range from -1.0 to 1.0 with step 0.5
+/// assert_eq!(
+///     range_from_to(-1.0, 1.0, 0.5),
+///     vec![-1.0, -0.5, 0.0, 0.5, 1.0]
+/// );
+///
+/// // When to equals from, should produce a single-element vector
+/// assert_eq!(
+///     range_from_to(2.0, 2.0, 0.1),
+///     vec![2.0]
+/// );
+///
+/// // Negative step should produce an empty vector
+/// assert_eq!(
+///     range_from_to(0.0, 1.0, -0.1),
+///     Vec::<f64>::new()
+/// );
+/// 
+/// assert_eq!(range_from_to(0.0, 1000000.0, 0.5), []); // The maximum size of the vector must not be more than 1 million.
+/// ```
+/// <small>End Fun Doc</small>
+pub fn range_from_to(from: f64, to: f64, step: f64) -> Vec<f64> {
+    if step <= 0.0 {
+        return Vec::new();
+    }
+
+    // Determine the direction and adjust step sign accordingly
+    let step_sign = if to > from { step.abs() } else { -step.abs() };
+
+    // Calculate the number of steps
+    let steps = ((to - from) / step_sign).abs().ceil() as usize;
+
+    if steps > 1_000_000 {
+        return Vec::new();
+    }
+
+    // Generate the sequence
+    (0..=steps)
+        .map(|i| fix64(from + (i as f64) * step_sign))
+        .collect()
 }
 
 /// ### to_fixed(x, decimal_places)

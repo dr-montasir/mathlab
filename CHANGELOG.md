@@ -1,12 +1,17 @@
+## 1.4.0
+
+- Added range_from_to function.
+- Updated Documentation.
+
 ## 1.3.0
 
-- Updated License
-- Updated Documentation
+- Updated License.
+- Updated Documentation.
 
 ## 1.2.0
 
-- Updated rust-version to "1.82.0"
-- Tested mathlab (rust-version="1.82.0")
+- Updated rust-version to "1.82.0".
+- Tested mathlab (rust-version="1.82.0").
 
 ## 1.1.0
 

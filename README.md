@@ -118,6 +118,12 @@ fn main() {
         "{:#?}",
         math::sin_deg_vec(&math::range(0.0, 1.0, 361, "asc"))
     ); // [0.0, ..., 0.5, ..., 1.0, ..., 0.5, ..., 0.0]
+    
+    // [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+    println!("{:?}", math::range_from_to(0.0, 1.0, 0.1));
+
+    // [-1.0, -0.5, 0.0, 0.5, 1.0]
+    println!("{:?}", math::range_from_to(-1.0, 1.0, 0.5));
 }
 ```
 
@@ -128,8 +134,8 @@ or
 
 use mathlab::math::{
     abs, add, fix64, fix64_vec, fix,
-    to_fixed, range, sin_vec,
-    sin_deg_vec, subt_vec_vec
+    to_fixed, range, range_from_to,
+    sin_vec, sin_deg_vec, subt_vec_vec
 };
 
 fn main() {
@@ -176,6 +182,12 @@ fn main() {
         "{:#?}",
         sin_deg_vec(&range(0.0, 1.0, 361, "asc"))
     ); // [0.0, ..., 0.5, ..., 1.0, ..., 0.5, ..., 0.0]
+    
+    // [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+    println!("{:?}", range_from_to(0.0, 1.0, 0.1));
+
+    // [-1.0, -0.5, 0.0, 0.5, 1.0]
+    println!("{:?}", range_from_to(-1.0, 1.0, 0.5));
 }
 ```
 
@@ -203,7 +215,7 @@ fn main() {
 >
 > A Powerful Math Library for Rust
 >
-> [All Items](https://docs.rs/mathlab/latest/mathlab/all.html)&emsp;<small>[ 209 ]</small>
+> [All Items](https://docs.rs/mathlab/latest/mathlab/all.html)&emsp;<small>[ 210 ]</small>
 
 # Modules
 
@@ -217,14 +229,15 @@ fn main() {
 
 [NAN_F64](https://docs.rs/mathlab/latest/mathlab/constants/constant.NAN_F64.html)&emsp;[NINF_F32](https://docs.rs/mathlab/latest/mathlab/constants/constant.NINF_F32.html)&emsp;[NINF_F64](https://docs.rs/mathlab/latest/mathlab/constants/constant.NINF_F64.html)&emsp;[PHI](https://docs.rs/mathlab/latest/mathlab/constants/constant.PHI.html)&emsp;[PI](https://docs.rs/mathlab/latest/mathlab/constants/constant.PI.html)&emsp;[Q_PI](https://docs.rs/mathlab/latest/mathlab/constants/constant.Q_PI.html)&emsp;[TAU](https://docs.rs/mathlab/latest/mathlab/constants/constant.TAU.html)
 
-### 2. [functions](https://docs.rs/mathlab/latest/mathlab/functions/index.html)&emsp;<small>[ 193 items ]</small>
+### 2. [functions](https://docs.rs/mathlab/latest/mathlab/functions/index.html)&emsp;<small>[ 194 items ]</small>
 
-- ### [args](https://docs.rs/mathlab/latest/mathlab/functions/args/index.html)&emsp;<small>[ 6 items ]</small>
+- ### [args](https://docs.rs/mathlab/latest/mathlab/functions/args/index.html)&emsp;<small>[ 7 items ]</small>
 
-|                                   function                                   |                                           function                                           |                                      function                                      |
-| :--------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
-| [hypot](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.hypot.html) |      [monolist](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.monolist.html)      |     [rand](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.rand.html)     |
-| [range](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.range.html) | [string_to_u64](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.string_to_u64.html) | [to_fixed](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.to_fixed.html) |
+|                           function                           |                           function                           |                           function                           |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| [hypot](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.hypot.html) | [monolist](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.monolist.html) | [rand](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.rand.html) |
+| [range](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.range.html) | [range_from_to](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.range_from_to.html) | [string_to_u64](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.string_to_u64.html) |
+| [to_fixed](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.to_fixed.html) |                                                              |                                                              |
 
 - ### [num](https://docs.rs/mathlab/latest/mathlab/functions/num/index.html)&emsp;<small>[ 88 items ]</small>
 
@@ -270,11 +283,11 @@ fn main() {
 | [nrt_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.nrt_vec_vec.html) | [perimeter_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.perimeter_vec_vec.html) |  [pow_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.pow_vec_vec.html)  |
 | [rem_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.rem_vec_vec.html) |      [subt_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.subt_vec_vec.html)      |                                                                                               |
 
-### 3. [math](https://docs.rs/mathlab/latest/mathlab/math/index.html)&emsp;<small>[ 209 items ]</small>
+### 3. [math](https://docs.rs/mathlab/latest/mathlab/math/index.html)&emsp;<small>[ 210 items ]</small>
 
 The math module contains all constants and functions.
 
-### [All Items](https://docs.rs/mathlab/latest/mathlab/all.html)&emsp;<small>[ 209 ]</small>
+### [All Items](https://docs.rs/mathlab/latest/mathlab/all.html)&emsp;<small>[ 210 ]</small>
 
 ---
 
