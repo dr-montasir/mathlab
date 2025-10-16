@@ -1,17 +1,15 @@
 <div align="center">
-  <br>
-  <a href="https://crates.io/crates/mathlab">
-    <img src="https://github.com/dr-montasir/mathlab/raw/HEAD/logo.svg" width="100">
+  <a href="https://github.com/dr-montasir/mathlab">
+      <img src="logo.svg" width="100">
   </a>
-  <br><br>
-  <span>
-    <b>A Powerful Math Library for Rust.</b>
-  </span>
-  <br><br>
-
-[<img alt="github" src="https://img.shields.io/badge/github-dr%20montasir%20/%20mathlab-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="22">](https://github.com/dr-montasir/mathlab)[<img alt="crates.io" src="https://img.shields.io/crates/v/mathlab.svg?style=for-the-badge&color=fc8d62&logo=rust" height="22">](https://crates.io/crates/mathlab)[<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-mathlab-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs" height="22">](https://docs.rs/mathlab)[<img alt="license" src="https://img.shields.io/badge/license-apache_2.0-4a98f7.svg?style=for-the-badge&labelColor=555555&logo=apache" height="22">](https://choosealicense.com/licenses/apache-2.0)
-
-  <h1>MATHLAB</h1>
+  <h2><a href="https://github.com/dr-montasir/mathlab">MATHLAB</a></h2>
+  <h3><b>A Powerful Math Library for Rust</b></h3>
+  <a href="https://github.com/dr-montasir/mathlab" target="_blank"><img alt="github" src="https://img.shields.io/badge/github-dr%20montasir%20/%20mathlab-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="22"></a>
+  <a href="https://crates.io/crates/mathlab" target="_blank"><img alt="crates.io" src="https://img.shields.io/crates/v/mathlab.svg?style=for-the-badge&color=fc8d62&logo=rust" height="22"></a>
+  <a href="https://docs.rs/mathlab" target="_blank"><img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-mathlab-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs" height="22"></a>
+  <a href="https://choosealicense.com/licenses/apache-2.0" target="_blank"><img alt="license" src="https://img.shields.io/badge/license-apache_2.0-4a98f7.svg?style=for-the-badge&labelColor=555555&logo=apache" height="22"></a>
+  <a href="https://choosealicense.com/licenses/mit" target="_blank"><img alt="license" src="https://img.shields.io/badge/license-mit-4a98f7.svg?style=for-the-badge&labelColor=555555&logo=apache" height="22"></a>
+  <a href="https://crates.io/crates/mathlab" target="_blank"><img alt="downloads" src="https://img.shields.io/crates/d/mathlab.svg?style=for-the-badge&labelColor=555555&logo=&color=428600" height="22"></a>
   <p>
     The <b>mathlab</b> crate is a Rust library designed to facilitate matrix and mathematical operations similar to those found in MATLAB. This crate provides high-level abstractions that make it user-friendly for mathematical computations and linear algebra tasks.
   </p>
@@ -215,7 +213,7 @@ fn main() {
 >
 > A Powerful Math Library for Rust
 >
-> [All Items](https://docs.rs/mathlab/latest/mathlab/all.html)&emsp;<small>[ 210 ]</small>
+> [All Items](https://docs.rs/mathlab/latest/mathlab/all.html)&emsp;<small>[ 212 ]</small>
 
 # Modules
 
@@ -229,15 +227,15 @@ fn main() {
 
 [NAN_F64](https://docs.rs/mathlab/latest/mathlab/constants/constant.NAN_F64.html)&emsp;[NINF_F32](https://docs.rs/mathlab/latest/mathlab/constants/constant.NINF_F32.html)&emsp;[NINF_F64](https://docs.rs/mathlab/latest/mathlab/constants/constant.NINF_F64.html)&emsp;[PHI](https://docs.rs/mathlab/latest/mathlab/constants/constant.PHI.html)&emsp;[PI](https://docs.rs/mathlab/latest/mathlab/constants/constant.PI.html)&emsp;[Q_PI](https://docs.rs/mathlab/latest/mathlab/constants/constant.Q_PI.html)&emsp;[TAU](https://docs.rs/mathlab/latest/mathlab/constants/constant.TAU.html)
 
-### 2. [functions](https://docs.rs/mathlab/latest/mathlab/functions/index.html)&emsp;<small>[ 194 items ]</small>
+### 2. [functions](https://docs.rs/mathlab/latest/mathlab/functions/index.html)&emsp;<small>[ 196 items ]</small>
 
-- ### [args](https://docs.rs/mathlab/latest/mathlab/functions/args/index.html)&emsp;<small>[ 7 items ]</small>
+- ### [args](https://docs.rs/mathlab/latest/mathlab/functions/args/index.html)&emsp;<small>[ 9 items ]</small>
 
 |                           function                           |                           function                           |                           function                           |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [hypot](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.hypot.html) | [monolist](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.monolist.html) | [rand](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.rand.html) |
-| [range](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.range.html) | [range_from_to](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.range_from_to.html) | [string_to_u64](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.string_to_u64.html) |
-| [to_fixed](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.to_fixed.html) |                                                              |                                                              |
+| [cross](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.cross.html) | [dot](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.dot.html) | [hypot](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.hypot.html) |
+| [monolist](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.monolist.html) | [rand](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.rand.html) | [range](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.range.html) |
+| [range_from_to](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.range_from_to.html) | [string_to_u64](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.string_to_u64.html) | [to_fixed](https://docs.rs/mathlab/latest/mathlab/functions/args/fn.to_fixed.html) |
 
 - ### [num](https://docs.rs/mathlab/latest/mathlab/functions/num/index.html)&emsp;<small>[ 88 items ]</small>
 
@@ -283,11 +281,11 @@ fn main() {
 | [nrt_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.nrt_vec_vec.html) | [perimeter_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.perimeter_vec_vec.html) |  [pow_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.pow_vec_vec.html)  |
 | [rem_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.rem_vec_vec.html) |      [subt_vec_vec](https://docs.rs/mathlab/latest/mathlab/functions/vec_vec/fn.subt_vec_vec.html)      |                                                                                               |
 
-### 3. [math](https://docs.rs/mathlab/latest/mathlab/math/index.html)&emsp;<small>[ 210 items ]</small>
+### 3. [math](https://docs.rs/mathlab/latest/mathlab/math/index.html)&emsp;<small>[ 212 items ]</small>
 
 The math module contains all constants and functions.
 
-### [All Items](https://docs.rs/mathlab/latest/mathlab/all.html)&emsp;<small>[ 210 ]</small>
+### [All Items](https://docs.rs/mathlab/latest/mathlab/all.html)&emsp;<small>[ 212 ]</small>
 
 ---
 

@@ -527,7 +527,7 @@ pub fn cube_vec(x: &[f64]) -> Vec<f64> {
 /// ```rust
 /// use mathlab::math::{cbrt_vec, fix64_vec};
 /// assert_eq!(cbrt_vec(&[0.0, 0.001, 0.008]), [0.0, 0.1, 0.2]);
-/// assert_eq!(cbrt_vec(&[8.0, 27.0]), [2.0, 3.0000000000000004]);
+/// assert_eq!(cbrt_vec(&[8.0, 27.0]), [2.0, 3.0]);
 /// assert_eq!(fix64_vec(&cbrt_vec(&[8.0, 27.0])), [2.0, 3.0]);
 /// ```
 /// <small>End Fun Doc</small>

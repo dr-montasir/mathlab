@@ -1,3 +1,9 @@
+## 1.5.0
+
+- Added cross function.
+- Added dot function.
+- Updated Documentation.
+
 ## 1.4.0
 
 - Added range_from_to function.

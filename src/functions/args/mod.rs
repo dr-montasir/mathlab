@@ -1,5 +1,102 @@
 use super::num::{fix, fix64};
 
+/// ### cross(a, b)
+///
+/// **Mathematical vector operation**
+///
+/// Calculates the cross product of two 3-dimensional vectors represented as slices of `f64`.
+///
+/// The cross product of two vectors results in a third vector that is perpendicular to both of the original vectors.
+/// It is calculated as follows:
+///
+/// cross_product = (a_j * b_k - a_k * b_j,  // x-component
+///                  a_k * b_i - a_i * b_k,  // y-component
+///                  a_i * b_j - a_j * b_i)  // z-component
+///
+/// where:
+/// - The first vector has components a_i, a_j, a_k
+/// - The second vector has components b_i, b_j, b_k
+///
+/// This operation produces a new vector with components calculated from these formulas.
+/// 
+/// ### Panics
+///
+/// This function will panic if the slices `a` and `b` are not of length 3, due to the `assert_eq!` checks.
+///
+/// ### Usage
+///
+/// The developer must ensure that `a` and `b` are slices of length 3, representing vectors in 3D space.
+/// The function returns a new vector that is the cross product of the two input vectors.
+///
+/// ### Example
+///
+/// ```rust
+/// use mathlab::math::cross;
+/// 
+/// // First cross product
+/// let a = vec![1.0, 0.0, 0.0]; // Represents vector a = 1*i + 0*j + 0*k
+/// let b = vec![0.0, 1.0, 0.0]; // Represents vector b = 0*i + 1*j + 0*k
+/// let a_cross_b = cross(&a, &b);
+/// println!("{:?}", a_cross_b); // Outputs [0.0, 0.0, 1.0], which is i x j = k
+/// 
+/// // Second cross product
+/// let c = vec![0.0, 1.0, 0.0]; // Represents vector c = 0*i + 1*j + 0*k
+/// let d = vec![1.0, 0.0, 0.0]; // Represents vector d = 1*i + 0*j + 0*k
+/// let c_cross_d = cross(&c, &d);
+/// println!("{:?}", c_cross_d); // Outputs [0.0, 0.0, -1.0], which is j x i = -k
+/// 
+/// // Third cross product
+/// let e = vec![0.0, 1.0, 2.0]; // Represents vector e = 0*i + 1*j + 2*k
+/// let f = vec![3.0, 4.0, 5.0]; // Represents vector f = 3*i + 4*j + 5*k
+/// let e_cross_f = cross(&e, &f);
+/// println!("{:?}", e_cross_f); // Outputs [-3.0, 6.0, -3.0], which is e x f. 
+///                              // Calculation: (1*5 - 2*4, 2*3 - 0*5, 0*4 - 1*3) = (-3, 6, -3)
+/// ```
+/// <small>End Function Documentation</small>
+pub fn cross(a: &[f64], b: &[f64]) -> Vec<f64> {
+    // Ensure both slices are of length 3
+    assert_eq!(a.len(), 3, "First vector must be of length 3");
+    assert_eq!(b.len(), 3, "Second vector must be of length 3");
+    
+    vec![
+        a[1] * b[2] - a[2] * b[1], // j*k - k*j component (x component)
+        a[2] * b[0] - a[0] * b[2], // k*i - i*k component (y component)
+        a[0] * b[1] - a[1] * b[0], // i*j - j*i component (z component)
+    ]
+}
+
+/// ### dot(a, b)
+///
+/// **Mathematical vector operation**
+/// 
+/// Calculates the dot product of two slices of `f64`.
+///
+/// ### Panics
+///
+/// This function will panic if the lengths of the slices `a` and `b` are not equal,
+/// due to the `assert_eq!` check.
+///
+/// ### Usage
+///
+/// The developer is responsible for ensuring that `a` and `b` are of the same length before calling this function.
+/// If there's a possibility of different lengths, handle that case externally or use an alternative approach.
+///
+/// ### Example
+///
+/// ```rust
+/// use mathlab::math::dot;
+/// let a = vec![0.0, 1.0, 2.0, -1.0];
+/// let b = vec![3.0, 4.0, 5.0, 5.0];
+/// let result = dot(&a, &b);
+/// println!("{}", result); // Outputs 9.0
+/// ```
+/// /// <small>End Fun Doc</small>
+pub fn dot(a: &[f64], b: &[f64]) -> f64 {
+    // Ensure both slices are the same length
+    assert_eq!(a.len(), b.len(), "Vectors must be the same length");
+    a.iter().zip(b.iter()).map(|(x, y)| x * y).sum()
+}
+
 /// ### monolist(x, size)
 ///
 /// Generating function
